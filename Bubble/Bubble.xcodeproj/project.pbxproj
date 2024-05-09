@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A291B1A82BECD9140044CB2B /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A72BECD9140044CB2B /* Temp.swift */; };
+		A291B1A82BECD9140044CB2B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A72BECD9140044CB2B /* NetworkResult.swift */; };
 		A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A92BECD9220044CB2B /* Logger.swift */; };
 		A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AB2BECD9280044CB2B /* UIFont+.swift */; };
 		A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AE2BECD9480044CB2B /* BaseModel.swift */; };
@@ -24,10 +24,15 @@
 		A2AC828A2BED24CB00C5E4D0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A2AC82892BED24CB00C5E4D0 /* SnapKit */; };
 		A2AC828F2BED24D700C5E4D0 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = A2AC828E2BED24D700C5E4D0 /* Then */; };
 		A2AC82942BED253900C5E4D0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A2AC82932BED253900C5E4D0 /* Moya */; };
+		A2AC829D2BED591600C5E4D0 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC829C2BED591600C5E4D0 /* Secret.swift */; };
+		A2AC829F2BED5A2600C5E4D0 /* TempService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC829E2BED5A2600C5E4D0 /* TempService.swift */; };
+		A2AC82A22BED5AC000C5E4D0 /* TempTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */; };
+		A2AC82A62BED5AE600C5E4D0 /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */; };
+		A2AC82A82BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A291B1A72BECD9140044CB2B /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		A291B1A72BECD9140044CB2B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A291B1A92BECD9220044CB2B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A291B1AB2BECD9280044CB2B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		A291B1AE2BECD9480044CB2B /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -43,6 +48,11 @@
 		A2AC32762BECCF9F0010903A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2AC32782BECCF9F0010903A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2AC82862BED1FF700C5E4D0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		A2AC829C2BED591600C5E4D0 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		A2AC829E2BED5A2600C5E4D0 /* TempService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempService.swift; sourceTree = "<group>"; };
+		A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempTargetType.swift; sourceTree = "<group>"; };
+		A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
+		A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +127,10 @@
 		A291B1A62BECD9030044CB2B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A291B1A72BECD9140044CB2B /* Temp.swift */,
+				A2AC82992BED42D500C5E4D0 /* Common */,
+				A2AC82A42BED5AD600C5E4D0 /* Model */,
+				A2AC82A32BED5ACB00C5E4D0 /* TargetType */,
+				A2AC82A02BED5AB300C5E4D0 /* Service */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -159,6 +172,40 @@
 				A291B1A62BECD9030044CB2B /* Network */,
 			);
 			path = Bubble;
+			sourceTree = "<group>";
+		};
+		A2AC82992BED42D500C5E4D0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A2AC829C2BED591600C5E4D0 /* Secret.swift */,
+				A291B1A72BECD9140044CB2B /* NetworkResult.swift */,
+				A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A2AC82A02BED5AB300C5E4D0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A2AC829E2BED5A2600C5E4D0 /* TempService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A2AC82A32BED5ACB00C5E4D0 /* TargetType */ = {
+			isa = PBXGroup;
+			children = (
+				A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */,
+			);
+			path = TargetType;
+			sourceTree = "<group>";
+		};
+		A2AC82A42BED5AD600C5E4D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,11 +316,16 @@
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
+				A2AC82A62BED5AE600C5E4D0 /* TempModel.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
+				A2AC829F2BED5A2600C5E4D0 /* TempService.swift in Sources */,
+				A2AC82A22BED5AC000C5E4D0 /* TempTargetType.swift in Sources */,
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
+				A2AC829D2BED591600C5E4D0 /* Secret.swift in Sources */,
 				A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */,
 				A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */,
-				A291B1A82BECD9140044CB2B /* Temp.swift in Sources */,
+				A2AC82A82BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift in Sources */,
+				A291B1A82BECD9140044CB2B /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
