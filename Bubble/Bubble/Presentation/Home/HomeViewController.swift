@@ -7,10 +7,29 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .purple
-    }
+class HomeViewController: BaseViewController {
+    
+    // MARK: - Property
+    
+    
+    // MARK: - Component
+    
+    
+    // MARK: - Life Cycle
+    
+    
+    // MARK: - Set UI
+    
+    
+    // MARK: - Helper
+    
+    
+    // MARK: - Action
+    
+    
+    // MARK: - Extension
+    
+    
+    // MARK: - Delegate
+    
 }

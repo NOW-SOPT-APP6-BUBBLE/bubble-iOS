@@ -12,6 +12,8 @@
 		A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AB2BECD9280044CB2B /* UIFont+.swift */; };
 		A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AE2BECD9480044CB2B /* BaseModel.swift */; };
 		A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B02BECD9500044CB2B /* BaseViewController.swift */; };
+		A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */; };
+		A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */; };
 		A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326A2BECCF9B0010903A /* AppDelegate.swift */; };
 		A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */; };
 		A2AC326F2BECCF9B0010903A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326E2BECCF9B0010903A /* HomeViewController.swift */; };
@@ -25,6 +27,8 @@
 		A291B1AB2BECD9280044CB2B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		A291B1AE2BECD9480044CB2B /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		A291B1B02BECD9500044CB2B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2AC32672BECCF9B0010903A /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2AC326A2BECCF9B0010903A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				A291B1AE2BECD9480044CB2B /* BaseModel.swift */,
+				A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */,
+				A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */,
 				A291B1B02BECD9500044CB2B /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -238,6 +244,8 @@
 				A2AC326F2BECCF9B0010903A /* HomeViewController.swift in Sources */,
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
+				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
+				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
 				A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */,
