@@ -14,6 +14,7 @@
 		A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B02BECD9500044CB2B /* BaseViewController.swift */; };
 		A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */; };
 		A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */; };
+		A291B1B72BECE78D0044CB2B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A291B1B62BECE78D0044CB2B /* .swiftlint.yml */; };
 		A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326A2BECCF9B0010903A /* AppDelegate.swift */; };
 		A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */; };
 		A2AC326F2BECCF9B0010903A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326E2BECCF9B0010903A /* HomeViewController.swift */; };
@@ -29,6 +30,7 @@
 		A291B1B02BECD9500044CB2B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		A291B1B62BECE78D0044CB2B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A2AC32672BECCF9B0010903A /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2AC326A2BECCF9B0010903A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		A2AC32692BECCF9B0010903A /* Bubble */ = {
 			isa = PBXGroup;
 			children = (
+				A291B1B62BECE78D0044CB2B /* .swiftlint.yml */,
 				A291B1A02BECD8AE0044CB2B /* Application */,
 				A291B1A12BECD8D60044CB2B /* Base */,
 				A291B1A22BECD8DD0044CB2B /* Presentation */,
@@ -208,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A291B1B72BECE78D0044CB2B /* .swiftlint.yml in Resources */,
 				A2AC32772BECCF9F0010903A /* LaunchScreen.storyboard in Resources */,
 				A2AC32742BECCF9F0010903A /* Assets.xcassets in Resources */,
 			);
