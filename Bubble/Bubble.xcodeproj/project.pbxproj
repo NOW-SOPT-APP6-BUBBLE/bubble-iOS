@@ -20,6 +20,7 @@
 		A2AC326F2BECCF9B0010903A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326E2BECCF9B0010903A /* HomeViewController.swift */; };
 		A2AC32742BECCF9F0010903A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2AC32732BECCF9F0010903A /* Assets.xcassets */; };
 		A2AC32772BECCF9F0010903A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC32752BECCF9F0010903A /* LaunchScreen.storyboard */; };
+		A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82862BED1FF700C5E4D0 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A2AC32732BECCF9F0010903A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2AC32762BECCF9F0010903A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2AC32782BECCF9F0010903A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2AC82862BED1FF700C5E4D0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				A291B1AB2BECD9280044CB2B /* UIFont+.swift */,
+				A2AC82862BED1FF700C5E4D0 /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
+				A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */,
 				A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */,
 				A291B1A82BECD9140044CB2B /* Temp.swift in Sources */,
 			);
