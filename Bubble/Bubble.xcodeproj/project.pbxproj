@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2955122BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */; };
+		2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2955132BEFB640001BCF22 /* UILabel+.swift */; };
+		2E2955162BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */; };
 		A291B1A82BECD9140044CB2B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A72BECD9140044CB2B /* NetworkResult.swift */; };
 		A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A92BECD9220044CB2B /* Logger.swift */; };
 		A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AB2BECD9280044CB2B /* UIFont+.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-Heavy.ttf"; sourceTree = "<group>"; };
+		2E2955132BEFB640001BCF22 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-ExtraBold.ttf"; sourceTree = "<group>"; };
 		A291B1A72BECD9140044CB2B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A291B1A92BECD9220044CB2B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A291B1AB2BECD9280044CB2B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -70,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E8BE8742BEFACA800904B35 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */,
+				2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		A291B1A02BECD8AE0044CB2B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +120,7 @@
 			children = (
 				A291B1AB2BECD9280044CB2B /* UIFont+.swift */,
 				A2AC82862BED1FF700C5E4D0 /* UIView+.swift */,
+				2E2955132BEFB640001BCF22 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -120,6 +136,7 @@
 		A291B1A52BECD8F80044CB2B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2E8BE8742BEFACA800904B35 /* Font */,
 				A2AC32732BECCF9F0010903A /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -229,6 +246,7 @@
 				A2AC32642BECCF9B0010903A /* Frameworks */,
 				A2AC32652BECCF9B0010903A /* Resources */,
 				A2AC327E2BECD25B0010903A /* ShellScript */,
+				2E8BE8732BEF358300904B35 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -289,6 +307,8 @@
 			files = (
 				A291B1B72BECE78D0044CB2B /* .swiftlint.yml in Resources */,
 				A2AC32772BECCF9F0010903A /* LaunchScreen.storyboard in Resources */,
+				2E2955122BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf in Resources */,
+				2E2955162BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf in Resources */,
 				A2AC32742BECCF9F0010903A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +316,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2E8BE8732BEF358300904B35 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nif test -d \"$HOME/.mint/bin\"; then\n  PATH=\"$HOME/.mint/bin:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, run setup.sh (or download from https://github.com/realm/SwiftLint)\"\nfi\n";
+		};
 		A2AC327E2BECD25B0010903A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,6 +363,7 @@
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
+				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,
 				A2AC82A62BED5AE600C5E4D0 /* TempModel.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
 				A2AC829F2BED5A2600C5E4D0 /* TempService.swift in Sources */,
