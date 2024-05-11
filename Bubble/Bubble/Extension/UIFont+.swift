@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  UIFont+.swift
 //  Bubble
 //
 //  Created by 서은수 on 5/9/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum UIFontName: String {
+enum FontStyle: String {
     case headline1 = "Headline1"
     case headline2 = "Headline2"
     case headline3 = "Headline3"
@@ -22,48 +22,57 @@ enum UIFontName: String {
     case body2 = "Body2"
 }
 
+enum FontName: String {
+    case heavy = "AppleSDGothicNeoH00"
+    case extraBold = "AppleSDGothicNeoEB00"
+    case bold = "AppleSDGothicNeo-Bold"
+    case medium = "AppleSDGothicNeo-Medium"
+    case regular = "AppleSDGothicNeo-Regular"
+    case thin = "AppleSDGothicNeo-Thin"
+}
+
 extension UIFont {
-    static func appleSDGothicNeoFont(for name: String) -> UIFont? {
+    static func appleSDGothicNeoFont(for name: FontStyle) -> UIFont? {
         let size: CGFloat
         let fontName: String
         
         switch name {
-        case "Headline1":
+        case .headline1:
             size = 24
-            fontName = "AppleSDGothicNeoH00"
-        case "Headline2":
+            fontName = FontName.heavy.rawValue
+        case .headline2:
             size = 16
-            fontName = "AppleSDGothicNeoH00"
-        case "Headline3":
+            fontName = FontName.heavy.rawValue
+        case .headline3:
             size = 15
-            fontName = "AppleSDGothicNeoEB00"
-        case "Name1":
+            fontName = FontName.extraBold.rawValue
+        case .name1:
             size = 14
-            fontName = "AppleSDGothicNeo-Bold"
-        case "Name2":
+            fontName = FontName.bold.rawValue
+        case .name2:
             size = 14
-            fontName = "AppleSDGothicNeo-Medium"
-        case "Name3":
+            fontName = FontName.medium.rawValue
+        case .name3:
             size = 12
-            fontName = "AppleSDGothicNeo-Bold"
-        case "Name4":
+            fontName = FontName.bold.rawValue
+        case .name4:
             size = 12
-            fontName = "AppleSDGothicNeo-Regular"
-        case "Sub1":
+            fontName = FontName.regular.rawValue
+        case .sub1:
             size = 11
-            fontName = "AppleSDGothicNeoH00"
-        case "Sub2":
+            fontName = FontName.heavy.rawValue
+        case .sub2:
             size = 11
-            fontName = "AppleSDGothicNeo-Bold"
-        case "Sub3":
+            fontName = FontName.bold.rawValue
+        case .sub3:
             size = 11
-            fontName = "AppleSDGothicNeoH00"
-        case "Body1":
+            fontName = FontName.medium.rawValue
+        case .body1:
             size = 10
-            fontName = "AppleSDGothicNeo-Medium"
-        case "Body2":
+            fontName = FontName.heavy.rawValue
+        case .body2:
             size = 10
-            fontName = "AppleSDGothicNeo-Thin"
+            fontName = FontName.medium.rawValue
         default:
             fatalError("Invalid name")
         }
