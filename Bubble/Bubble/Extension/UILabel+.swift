@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    func attributedText(for fontName: UIFontName, withText text: String) {
+    static func attributedText(for fontName: UIFontName, withText text: String) -> NSAttributedString? {
         let letterSpacing: CGFloat
         
         switch fontName {
@@ -26,7 +26,7 @@ extension UILabel {
         
         guard let font = UIFont.appleSDGothicNeoFont(for: fontName.rawValue) else {
             print("Failed to load font")
-            return
+            return nil
         }
         
         let attributes: [NSAttributedString.Key: Any] = [
@@ -34,6 +34,6 @@ extension UILabel {
             .kern: letterSpacing
         ]
         
-        self.attributedText = NSAttributedString(string: text, attributes: attributes)
+        return NSAttributedString(string: text, attributes: attributes)
     }
 }
