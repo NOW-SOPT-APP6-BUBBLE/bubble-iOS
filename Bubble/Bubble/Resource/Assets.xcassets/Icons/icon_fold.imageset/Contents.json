@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "icon_fold.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
