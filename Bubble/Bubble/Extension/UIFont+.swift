@@ -7,19 +7,19 @@
 
 import UIKit
 
-enum FontStyle: String {
-    case headline1 = "Headline1"
-    case headline2 = "Headline2"
-    case headline3 = "Headline3"
-    case name1 = "Name1"
-    case name2 = "Name2"
-    case name3 = "Name3"
-    case name4 = "Name4"
-    case sub1 = "Sub1"
-    case sub2 = "Sub2"
-    case sub3 = "Sub3"
-    case body1 = "Body1"
-    case body2 = "Body2"
+enum FontStyle {
+    case headline1
+    case headline2
+    case headline3
+    case name1
+    case name2
+    case name3
+    case name4
+    case sub1
+    case sub2
+    case sub3
+    case body1
+    case body2
 }
 
 enum FontName: String {
