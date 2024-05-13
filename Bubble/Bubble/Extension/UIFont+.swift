@@ -73,8 +73,6 @@ extension UIFont {
         case .body2:
             size = 10
             fontName = FontName.medium.rawValue
-        default:
-            fatalError("Invalid name")
         }
         
         return UIFont(name: fontName, size: size)
