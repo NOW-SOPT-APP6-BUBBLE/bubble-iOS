@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  FriendsViewController.swift
 //  Bubble
 //
 //  Created by 서은수 on 5/9/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class FriendsViewController: BaseViewController {
 
     // MARK: - Property
 
@@ -17,6 +17,7 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     // MARK: - Set UI

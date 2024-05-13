@@ -18,9 +18,10 @@
 		A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */; };
 		A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */; };
 		A291B1B72BECE78D0044CB2B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A291B1B62BECE78D0044CB2B /* .swiftlint.yml */; };
+		A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F9CB82BF273EA0030F957 /* TabBarController.swift */; };
 		A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326A2BECCF9B0010903A /* AppDelegate.swift */; };
 		A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */; };
-		A2AC326F2BECCF9B0010903A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326E2BECCF9B0010903A /* HomeViewController.swift */; };
+		A2AC326F2BECCF9B0010903A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326E2BECCF9B0010903A /* FriendsViewController.swift */; };
 		A2AC32742BECCF9F0010903A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2AC32732BECCF9F0010903A /* Assets.xcassets */; };
 		A2AC32772BECCF9F0010903A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC32752BECCF9F0010903A /* LaunchScreen.storyboard */; };
 		A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82862BED1FF700C5E4D0 /* UIView+.swift */; };
@@ -46,10 +47,11 @@
 		A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A291B1B62BECE78D0044CB2B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		A29F9CB82BF273EA0030F957 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A2AC32672BECCF9B0010903A /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2AC326A2BECCF9B0010903A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A2AC326E2BECCF9B0010903A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A2AC326E2BECCF9B0010903A /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		A2AC32732BECCF9F0010903A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2AC32762BECCF9F0010903A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2AC32782BECCF9F0010903A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,7 +112,8 @@
 		A291B1A22BECD8DD0044CB2B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A291B1AD2BECD92E0044CB2B /* Home */,
+				A29F9CB82BF273EA0030F957 /* TabBarController.swift */,
+				A291B1AD2BECD92E0044CB2B /* Friends */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -153,12 +156,12 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		A291B1AD2BECD92E0044CB2B /* Home */ = {
+		A291B1AD2BECD92E0044CB2B /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				A2AC326E2BECCF9B0010903A /* HomeViewController.swift */,
+				A2AC326E2BECCF9B0010903A /* FriendsViewController.swift */,
 			);
-			path = Home;
+			path = Friends;
 			sourceTree = "<group>";
 		};
 		A2AC325E2BECCF9B0010903A = {
@@ -358,8 +361,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */,
-				A2AC326F2BECCF9B0010903A /* HomeViewController.swift in Sources */,
+				A2AC326F2BECCF9B0010903A /* FriendsViewController.swift in Sources */,
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
+				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
