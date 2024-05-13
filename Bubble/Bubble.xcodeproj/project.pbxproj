@@ -61,7 +61,6 @@
 		A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempTargetType.swift; sourceTree = "<group>"; };
 		A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
 		A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
-		A2AC82AA2BED5F2B00C5E4D0 /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +168,6 @@
 			children = (
 				A2AC32692BECCF9B0010903A /* Bubble */,
 				A2AC32682BECCF9B0010903A /* Products */,
-				A2AC82A92BED5F2B00C5E4D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,14 +226,6 @@
 				A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A2AC82A92BED5F2B00C5E4D0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A2AC82AA2BED5F2B00C5E4D0 /* OSLog.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
