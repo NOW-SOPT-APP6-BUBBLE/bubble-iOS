@@ -79,28 +79,31 @@ final class TabBarController: UITabBarController {
     // MARK: - Helpers
     
     private func setTabBar() {
-        let friendsVC = FriendsViewController()
+        let friendsNavigationController = UINavigationController(rootViewController: FriendsViewController())
         configTabBar(
             tabDefaultImgName: .friends,
             tabSelectedImgName: .friends,
-            viewController: friendsVC
+            viewController: friendsNavigationController
         )
         // TODO: - 뷰컨 생성 후 할당
-        let chatVC = FriendsViewController()
+        let chatViewController = UIViewController().then {
+            $0.view.backgroundColor = .white
+        }
+        let chatNavigationController = UINavigationController(rootViewController: chatViewController)
         configTabBar(
             tabDefaultImgName: .chat,
             tabSelectedImgName: .chat,
-            viewController: chatVC
+            viewController: chatNavigationController
         )
         // TODO: - 뷰컨 생성 후 할당
-        let moreVC = FriendsViewController()
+        let moreNavigationController = UINavigationController(rootViewController: FriendsViewController())
         configTabBar(
             tabDefaultImgName: .more,
             tabSelectedImgName: .more,
-            viewController: moreVC
+            viewController: moreNavigationController
         )
         
-        self.viewControllers = [friendsVC, chatVC, moreVC]
+        self.viewControllers = [friendsNavigationController, chatNavigationController, moreNavigationController]
     }
     
     private func configTabBar(
