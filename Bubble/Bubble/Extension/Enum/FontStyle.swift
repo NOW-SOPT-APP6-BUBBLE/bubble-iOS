@@ -9,6 +9,7 @@ enum FontStyle {
     case headline1
     case headline2
     case headline3
+    case headline4
     case name1
     case name2
     case name3
@@ -18,5 +19,6 @@ enum FontStyle {
     case sub3
     case body1
     case body2
+    case body3
 }
 

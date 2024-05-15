@@ -20,6 +20,9 @@ extension UIFont {
             size = 16
             fontName = FontName.heavy.rawValue
         case .headline3:
+            size = 16
+            fontName = FontName.heavy.rawValue
+        case .headline4:
             size = 15
             fontName = FontName.extraBold.rawValue
         case .name1:
@@ -49,6 +52,9 @@ extension UIFont {
         case .body2:
             size = 10
             fontName = FontName.medium.rawValue
+        case .body3:
+            size = 8
+            fontName = FontName.extraBold.rawValue
         }
         
         return UIFont(name: fontName, size: size)
