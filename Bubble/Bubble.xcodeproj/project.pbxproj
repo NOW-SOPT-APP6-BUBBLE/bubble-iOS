@@ -105,6 +105,15 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		2ECB59632BF4E46C00DA4FE9 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */,
+				2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		A291B1A02BECD8AE0044CB2B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,8 +141,7 @@
 			children = (
 				A29F9CB82BF273EA0030F957 /* TabBarController.swift */,
 				A291B1AD2BECD92E0044CB2B /* Friends */,
-				2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */,
-				2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */,
+				2ECB59632BF4E46C00DA4FE9 /* More */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
