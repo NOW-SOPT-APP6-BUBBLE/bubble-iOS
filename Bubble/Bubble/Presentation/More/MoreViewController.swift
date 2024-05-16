@@ -29,6 +29,8 @@ final class MoreViewController: BaseViewController {
         $0.setImage(UIImage(named: "icon_modify"), for: .normal)
         $0.isUserInteractionEnabled = true
         $0.backgroundColor = .white
+        $0.layer.cornerRadius = 12
+        $0.layer.applyShadow(color: .black, alpha: 0.05, x: 0, y: 2, blur: 4)
     }
 
     private let userNameLabel = UILabel().then {
@@ -39,7 +41,7 @@ final class MoreViewController: BaseViewController {
     }
 
     private let userEmailLabel = UILabel().then {
-        if let attributedText = UILabel.createAttributedText(for: .sub3, withText: "abc@naver.com") {
+        if let attributedText = UILabel.createAttributedText(for: .sub3, withText: "abc@naver.com", color: UIColor.gray200) {
             $0.attributedText = attributedText
         }
     }
@@ -99,11 +101,6 @@ final class MoreViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview().offset(16)
             $0.bottom.equalToSuperview()
         }
-    }
-    
-    override func setStyle() {
-        editProfileButton.layer.cornerRadius = 12
-        editProfileButton.layer.applyShadow(color: .black, alpha: 0.05, x: 0, y: 2, blur: 4)
     }
 
     // MARK: - Helper

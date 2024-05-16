@@ -27,7 +27,8 @@ extension UILabel {
         
         let attributes: [NSAttributedString.Key: Any] = [
             .font: font,
-            .kern: letterSpacing
+            .kern: letterSpacing,
+            .foregroundColor: color
         ]
         
         return NSAttributedString(string: text, attributes: attributes)
