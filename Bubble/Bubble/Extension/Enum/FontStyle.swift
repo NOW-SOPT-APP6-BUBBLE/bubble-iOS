@@ -21,4 +21,3 @@ enum FontStyle {
     case body2
     case body3
 }
-

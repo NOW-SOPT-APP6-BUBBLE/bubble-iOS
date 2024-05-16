@@ -10,6 +10,13 @@ import UIKit
 final class MoreViewController: BaseViewController {
     
     // MARK: - Property
+    
+    private let cellData = [
+        MoreCellModel(icon: UIImage(named: "icon_person"), title: "My bubble"),
+        MoreCellModel(icon: UIImage(named: "icon_store"), title: "STORE"),
+        MoreCellModel(icon: UIImage(named: "icon_notice"), title: "Notice"),
+        MoreCellModel(icon: UIImage(named: "icon_guide"), title: "FAQ")
+    ]
 
     // MARK: - Component
 
@@ -22,9 +29,9 @@ final class MoreViewController: BaseViewController {
         $0.isUserInteractionEnabled = true
         $0.backgroundColor = .white
     }
-    // TODO: - headline3->4로 변경
+
     private let userNameLabel = UILabel().then {
-        if let attributedText = UILabel.createAttributedText(for: .headline3, withText: "언니") {
+        if let attributedText = UILabel.createAttributedText(for: .headline4, withText: "언니") {
             $0.attributedText = attributedText
         }
         $0.textAlignment = .center
@@ -40,13 +47,16 @@ final class MoreViewController: BaseViewController {
         $0.backgroundColor = .gray100
     }
     
-    private let moreTableView = UITableView(frame: .zero, style: .plain)
+    private let moreTableView = UITableView(frame: .zero, style: .plain).then {
+        $0.separatorStyle = .none
+    }
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         register()
+        setDelegate()
     }
 
     // MARK: - Set UI
@@ -85,7 +95,8 @@ final class MoreViewController: BaseViewController {
         
         moreTableView.snp.makeConstraints {
             $0.top.equalTo(separatorView.snp.bottom).offset(12)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().offset(16)
+            $0.bottom.equalToSuperview()
         }
     }
 
@@ -99,7 +110,30 @@ final class MoreViewController: BaseViewController {
     }
     // MARK: - Action
 
+    // MARK: - UITableViewDelegate
+    private func setDelegate() {
+            moreTableView.delegate = self
+            moreTableView.dataSource = self
+    }
+}
     // MARK: - Extension
 
-    // MARK: <#___#>Delegate
+extension MoreViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 48
+    }
+}
+
+extension MoreViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: MoreTableViewCell.identifier,
+            for: indexPath) as? MoreTableViewCell else { return UITableViewCell() }
+        cell.configure(with: cellData[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellData.count
+    }
 }
