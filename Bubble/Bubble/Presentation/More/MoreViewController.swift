@@ -22,6 +22,7 @@ final class MoreViewController: BaseViewController {
 
     private let profileImageView = UIImageView().then {
         $0.image = UIImage(named: "icon_profile")
+        $0.layer.masksToBounds = true
     }
 
     private let editProfileButton = UIButton().then {
@@ -98,6 +99,11 @@ final class MoreViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview().offset(16)
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    override func setStyle() {
+        editProfileButton.layer.cornerRadius = 12
+        editProfileButton.layer.applyShadow(color: .black, alpha: 0.05, x: 0, y: 2, blur: 4)
     }
 
     // MARK: - Helper
