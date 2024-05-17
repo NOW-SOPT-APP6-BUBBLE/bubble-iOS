@@ -26,10 +26,18 @@ final class FriendsTableViewCell: BaseTableViewCell {
         $0.font = .appleSDGothicNeoFont(for: .name1)
     }
     
-    private let oneSentenceLabel = UILabel().then {
+    let oneSentenceLabel = UILabel().then {
         $0.text = "친구 한 마디~"
         $0.textColor = .gray500
         $0.font = .appleSDGothicNeoFont(for: .body2)
+    }
+    
+    // MARK: - Life Cycle
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        oneSentenceLabel.isHidden = false
     }
     
     // MARK: - Set UI

@@ -109,9 +109,14 @@ extension FriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: FriendsTableViewCell.className
-        ) else {
+        ) as? FriendsTableViewCell else {
             return UITableViewCell()
         }
+        
+        if indexPath.section == 0 {
+            cell.oneSentenceLabel.isHidden = true
+        }
+        
         return cell
     }
 }
