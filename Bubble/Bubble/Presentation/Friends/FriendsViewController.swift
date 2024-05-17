@@ -98,9 +98,9 @@ extension FriendsViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return !isDropDownArray[section] ? 0 : 2
+            return isDropDownArray[section] ? 2 : 0
         case 2:
-            return !isDropDownArray[section] ? 0 : 56
+            return isDropDownArray[section] ? 56 : 0
         default:
             return 0
         }
