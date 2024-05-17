@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 final class FriendsViewController: BaseViewController {
     
     // MARK: - Property
@@ -170,6 +173,12 @@ extension FriendsViewController: UITableViewDelegate {
         } else {
             return 5
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let profileViewController = ProfileViewController()
+        profileViewController.modalPresentationStyle = .fullScreen
+        self.present(profileViewController, animated: true)
     }
 }
 
