@@ -59,13 +59,4 @@ final class FriendsTableViewCell: BaseTableViewCell {
             $0.centerY.equalTo(nameLabel)
         }
     }
-    
-    // MARK: - Helper
-    
-    // MARK: - Action
-    
-    // MARK: - Extension
-    
-    // MARK: - Delegate
-    
 }
