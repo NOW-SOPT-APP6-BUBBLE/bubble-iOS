@@ -12,9 +12,9 @@ extension UILabel {
         let letterSpacing: CGFloat
         
         switch fontName {
-        case .headline1, .headline2, .headline3, .headline4, .name3:
+        case .headline1, .headline3, .headline4, .name3:
             letterSpacing = -0.3
-        case .name1, .name2, .name4, .sub1, .sub3, .body1, .body2, .body3:
+        case .headline2, .name1, .name2, .name4, .sub1, .sub3, .body1, .body2, .body3:
             letterSpacing = 0
         case .sub2:
             letterSpacing = -0.4
