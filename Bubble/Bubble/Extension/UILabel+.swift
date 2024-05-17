@@ -8,20 +8,16 @@
 import UIKit
 
 extension UILabel {
-    static func createAttributedText(for fontName: FontStyle, withText text: String) -> NSAttributedString? {
+    static func createAttributedText(for fontName: FontStyle, withText text: String, color: UIColor = .black) -> NSAttributedString? {
         let letterSpacing: CGFloat
         
         switch fontName {
-        case .headline1, .headline2, .headline3, .body1:
+        case .headline1, .headline2, .headline3, .headline4, .name3:
             letterSpacing = -0.3
-        case .name1, .name2, .name4, .sub1, .sub3:
+        case .name1, .name2, .name4, .sub1, .sub3, .body1, .body2, .body3:
             letterSpacing = 0
-        case .name3:
-            letterSpacing = -0.5
         case .sub2:
             letterSpacing = -0.4
-        case .body2:
-            letterSpacing = 0.3
         }
         
         guard let font = UIFont.appleSDGothicNeoFont(for: fontName) else {
@@ -31,7 +27,8 @@ extension UILabel {
         
         let attributes: [NSAttributedString.Key: Any] = [
             .font: font,
-            .kern: letterSpacing
+            .kern: letterSpacing,
+            .foregroundColor: color
         ]
         
         return NSAttributedString(string: text, attributes: attributes)
