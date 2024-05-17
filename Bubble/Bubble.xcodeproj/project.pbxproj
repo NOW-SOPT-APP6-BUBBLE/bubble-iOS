@@ -28,6 +28,7 @@
 		A29FAED52BF74C9500C56815 /* FriendsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */; };
 		A29FAED72BF75D7B00C56815 /* NavigationTitleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FAED62BF75D7B00C56815 /* NavigationTitleName.swift */; };
 		A29FAED92BF785E700C56815 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FAED82BF785E700C56815 /* ProfileViewController.swift */; };
+		A29FAEDB2BF799A600C56815 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FAEDA2BF799A600C56815 /* PaddingLabel.swift */; };
 		A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326A2BECCF9B0010903A /* AppDelegate.swift */; };
 		A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */; };
 		A2AC326F2BECCF9B0010903A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326E2BECCF9B0010903A /* FriendsViewController.swift */; };
@@ -68,6 +69,7 @@
 		A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsFooterView.swift; sourceTree = "<group>"; };
 		A29FAED62BF75D7B00C56815 /* NavigationTitleName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleName.swift; sourceTree = "<group>"; };
 		A29FAED82BF785E700C56815 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A29FAEDA2BF799A600C56815 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		A2AC32672BECCF9B0010903A /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2AC326A2BECCF9B0010903A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A291B1A92BECD9220044CB2B /* Logger.swift */,
+				A29FAEDA2BF799A600C56815 /* PaddingLabel.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */,
 				A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
+				A29FAEDB2BF799A600C56815 /* PaddingLabel.swift in Sources */,
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
 				2ECB595A2BF4C34700DA4FE9 /* MoreViewController.swift in Sources */,
