@@ -26,6 +26,7 @@
 		A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F9CB82BF273EA0030F957 /* TabBarController.swift */; };
 		A29F9CBB2BF27E8F0030F957 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F9CBA2BF27E8F0030F957 /* CALayer+.swift */; };
 		A29FAED52BF74C9500C56815 /* FriendsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */; };
+		A29FAED72BF75D7B00C56815 /* NavigationTitleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FAED62BF75D7B00C56815 /* NavigationTitleName.swift */; };
 		A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326A2BECCF9B0010903A /* AppDelegate.swift */; };
 		A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */; };
 		A2AC326F2BECCF9B0010903A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC326E2BECCF9B0010903A /* FriendsViewController.swift */; };
@@ -64,6 +65,7 @@
 		A29F9CB82BF273EA0030F957 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A29F9CBA2BF27E8F0030F957 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsFooterView.swift; sourceTree = "<group>"; };
+		A29FAED62BF75D7B00C56815 /* NavigationTitleName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleName.swift; sourceTree = "<group>"; };
 		A2AC32672BECCF9B0010903A /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2AC326A2BECCF9B0010903A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2AC326C2BECCF9B0010903A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */,
 				2ECB59612BF4E0ED00DA4FE9 /* FontName.swift */,
+				A29FAED62BF75D7B00C56815 /* NavigationTitleName.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -421,7 +424,6 @@
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,
-				A2AC82A62BED5AE600C5E4D0 /* TempModel.swift in Sources */,
 				A2C24A7C2BF730FC00E0BA5E /* FriendsHeaderView.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
 				A29FAED52BF74C9500C56815 /* FriendsFooterView.swift in Sources */,
@@ -433,6 +435,7 @@
 				A29F9CBB2BF27E8F0030F957 /* CALayer+.swift in Sources */,
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
 				A2AC829D2BED591600C5E4D0 /* Secret.swift in Sources */,
+				A29FAED72BF75D7B00C56815 /* NavigationTitleName.swift in Sources */,
 				A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */,
 				A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */,
 				A2AC82A82BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift in Sources */,
