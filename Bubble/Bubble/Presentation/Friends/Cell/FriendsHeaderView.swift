@@ -46,6 +46,14 @@ final class FriendsHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life Cycle
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        dropDownButton.setImage(.iconUnfold, for: .normal)
+    }
+    
     // MARK: - Set UI
     
     private func setLayout() {
