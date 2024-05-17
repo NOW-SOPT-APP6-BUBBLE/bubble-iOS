@@ -11,7 +11,7 @@ final class FriendsViewController: BaseViewController {
     
     // MARK: - Property
     
-    var isDropDownArray = [false, false, false]
+    var isDropDownArray = [true, true, true]
     let dummyTitle = ["내 프로필", "즐겨찾기", "추천 친구"]
     let dummyCnt = [nil, "2", "56"]
     
@@ -98,9 +98,9 @@ extension FriendsViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return isDropDownArray[section] ? 0 : 2
+            return !isDropDownArray[section] ? 0 : 2
         case 2:
-            return isDropDownArray[section] ? 0 : 56
+            return !isDropDownArray[section] ? 0 : 56
         default:
             return 0
         }
@@ -137,7 +137,7 @@ extension FriendsViewController: UITableViewDelegate {
         } else {
             header.delegate = self
             header.tag = section
-            header.dropDownButton.setImage(isDropDownArray[section] ? .iconFold : .iconUnfold, for: .normal)
+            header.dropDownButton.setImage(isDropDownArray[section] ? .iconUnfold : .iconFold, for: .normal)
         }
                 
         header.headerLabel.text = dummyTitle[section]
