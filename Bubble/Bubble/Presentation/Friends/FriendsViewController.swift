@@ -7,14 +7,13 @@
 
 import UIKit
 
-enum NavigationTitleName: String {
-    case friends = "FRIENDS"
-    case more = "MORE"
-}
-
 final class FriendsViewController: BaseViewController {
     
     // MARK: - Property
+    
+    var isDropDownArray = [false, false, false]
+    let dummyTitle = ["내 프로필", "즐겨찾기", "추천 친구"]
+    let dummyCnt = [nil, "2", "56"]
     
     // MARK: - Component
 
@@ -91,7 +90,7 @@ final class FriendsViewController: BaseViewController {
 extension FriendsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        isDropDownArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,9 +98,9 @@ extension FriendsViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 2
+            return isDropDownArray[section] ? 0 : 2
         case 2:
-            return 56
+            return isDropDownArray[section] ? 0 : 56
         default:
             return 0
         }
@@ -128,10 +127,17 @@ extension FriendsViewController: UITableViewDelegate {
             return UIView()
         }
         
-        let dummy = ["내 프로필", "즐겨찾기", "추천 친구"]
-        header.headerLabel.text = dummy[section]
-        let dummyCnt = [nil, "2", "56"]
+        if section == 0 {
+            header.dropDownButton.isHidden = true
+        } else {
+            header.delegate = self
+            header.tag = section
+            header.dropDownButton.setImage(isDropDownArray[section] ? .iconFold : .iconUnfold, for: .normal)
+        }
+                
+        header.headerLabel.text = dummyTitle[section]
         header.cellCountLabel.text = dummyCnt[section]
+        
         return header
     }
     
@@ -159,5 +165,22 @@ extension FriendsViewController: UITableViewDelegate {
         } else {
             return 5
         }
+    }
+}
+
+// MARK: - DropDownDelegate
+
+extension FriendsViewController: DropDownDelegate {
+    
+    func dropDownCells(section: Int) {
+        self.isDropDownArray[section].toggle()
+        
+        let numberOfRows = self.friendsTableView.numberOfRows(inSection: section)
+        for i in 0..<numberOfRows {
+            let cell = self.friendsTableView.cellForRow(at: IndexPath(row: i, section: section)) as? FriendsTableViewCell
+            cell?.isHidden.toggle()
+        }
+        
+        friendsTableView.reloadSections(IndexSet(integer: section), with: .fade)
     }
 }

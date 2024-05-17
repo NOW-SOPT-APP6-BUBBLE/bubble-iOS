@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol DropDownDelegate {
+    func dropDownCells(section: Int)
+}
+
 final class FriendsHeaderView: UITableViewHeaderFooterView {
+    
+    // MARK: - Property
+    
+    var delegate: DropDownDelegate?
     
     // MARK: - Component
     
@@ -21,8 +29,9 @@ final class FriendsHeaderView: UITableViewHeaderFooterView {
         $0.font = .appleSDGothicNeoFont(for: .sub1)
     }
     
-    private let dropDownButton = UIButton().then {
+    lazy var dropDownButton = UIButton().then {
         $0.setImage(.iconUnfold, for: .normal)
+        $0.addTarget(self, action: #selector(dropDownButtonDidTap), for: .touchUpInside)
     }
     
     // MARK: - Init
@@ -57,5 +66,11 @@ final class FriendsHeaderView: UITableViewHeaderFooterView {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
         }
+    }
+    
+    // MARK: - Action
+    
+    @objc private func dropDownButtonDidTap() {
+        delegate?.dropDownCells(section: self.tag)
     }
 }
