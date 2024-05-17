@@ -37,7 +37,6 @@
 		A2AC829D2BED591600C5E4D0 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC829C2BED591600C5E4D0 /* Secret.swift */; };
 		A2AC829F2BED5A2600C5E4D0 /* TempService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC829E2BED5A2600C5E4D0 /* TempService.swift */; };
 		A2AC82A22BED5AC000C5E4D0 /* TempTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */; };
-		A2AC82A62BED5AE600C5E4D0 /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */; };
 		A2AC82A82BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +70,6 @@
 		A2AC829C2BED591600C5E4D0 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		A2AC829E2BED5A2600C5E4D0 /* TempService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempService.swift; sourceTree = "<group>"; };
 		A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempTargetType.swift; sourceTree = "<group>"; };
-		A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
 		A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,8 +108,8 @@
 		2ECB59632BF4E46C00DA4FE9 /* More */ = {
 			isa = PBXGroup;
 			children = (
-				2ECB59682BF4F39400DA4FE9 /* Cell */,
 				2ECB59652BF4EE3900DA4FE9 /* Model */,
+				2ECB59682BF4F39400DA4FE9 /* Cell */,
 				2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */,
 			);
 			path = More;
@@ -168,7 +166,6 @@
 		A291B1A32BECD8E90044CB2B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				2ECB595D2BF4E0B100DA4FE9 /* Enum */,
 				A291B1AB2BECD9280044CB2B /* UIFont+.swift */,
 				A2AC82862BED1FF700C5E4D0 /* UIView+.swift */,
 				2E2955132BEFB640001BCF22 /* UILabel+.swift */,
@@ -198,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				A2AC82992BED42D500C5E4D0 /* Common */,
-				A2AC82A42BED5AD600C5E4D0 /* Model */,
 				A2AC82A32BED5ACB00C5E4D0 /* TargetType */,
 				A2AC82A02BED5AB300C5E4D0 /* Service */,
 			);
@@ -240,6 +236,7 @@
 				A291B1A42BECD8F10044CB2B /* Util */,
 				A291B1A52BECD8F80044CB2B /* Resource */,
 				A291B1A62BECD9030044CB2B /* Network */,
+				2ECB595D2BF4E0B100DA4FE9 /* Enum */,
 			);
 			path = Bubble;
 			sourceTree = "<group>";
@@ -268,14 +265,6 @@
 				A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */,
 			);
 			path = TargetType;
-			sourceTree = "<group>";
-		};
-		A2AC82A42BED5AD600C5E4D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A2AC82A52BED5AE600C5E4D0 /* TempModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,7 +400,6 @@
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,
 				2ECB59672BF4EE4700DA4FE9 /* MoreCellModel.swift in Sources */,
-				A2AC82A62BED5AE600C5E4D0 /* TempModel.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
 				2ECB595C2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift in Sources */,
 				2ECB595F2BF4E0C400DA4FE9 /* FontStyle.swift in Sources */,

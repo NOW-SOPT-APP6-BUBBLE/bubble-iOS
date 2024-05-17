@@ -23,7 +23,7 @@ extension TempService {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
-                let networkResult = self.judgeStatus(by: statusCode, data, BaseModel<TempModel>.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, EmptyDataModel.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

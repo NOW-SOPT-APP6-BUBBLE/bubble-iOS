@@ -50,16 +50,18 @@ final class MoreViewController: BaseViewController {
         $0.backgroundColor = .gray100
     }
     
-    private let moreTableView = UITableView(frame: .zero, style: .plain).then {
+    private lazy var moreTableView = UITableView(frame: .zero, style: .plain).then {
         $0.separatorStyle = .none
+        $0.delegate = self
+        $0.dataSource = self
     }
     
     // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         register()
-        setDelegate()
     }
 
     // MARK: - Set UI
@@ -91,7 +93,7 @@ final class MoreViewController: BaseViewController {
         
         separatorView.snp.makeConstraints {
             $0.height.equalTo(1)
-            $0.width.equalTo(343)
+            $0.leading.trailing.equalToSuperview().offset(16)
             $0.top.equalTo(userEmailLabel.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
         }
@@ -111,15 +113,9 @@ final class MoreViewController: BaseViewController {
             forCellReuseIdentifier: MoreTableViewCell.identifier
         )
     }
-    // MARK: - Action
-
-    // MARK: - UITableViewDelegate
-    private func setDelegate() {
-            moreTableView.delegate = self
-            moreTableView.dataSource = self
-    }
 }
-    // MARK: - Extension
+
+// MARK: - UITableViewDelegate
 
 extension MoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -127,11 +123,16 @@ extension MoreViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension MoreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: MoreTableViewCell.identifier,
-            for: indexPath) as? MoreTableViewCell else { return UITableViewCell() }
+            for: indexPath
+        ) as? MoreTableViewCell else {
+            return UITableViewCell()
+        }
         cell.configure(with: cellData[indexPath.row])
         return cell
     }
