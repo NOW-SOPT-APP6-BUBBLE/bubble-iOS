@@ -52,6 +52,7 @@ final class MoreViewController: BaseViewController {
     
     private lazy var moreTableView = UITableView(frame: .zero, style: .plain).then {
         $0.separatorStyle = .none
+        $0.isScrollEnabled = false
         $0.delegate = self
         $0.dataSource = self
     }
@@ -93,14 +94,16 @@ final class MoreViewController: BaseViewController {
         
         separatorView.snp.makeConstraints {
             $0.height.equalTo(1)
-            $0.leading.trailing.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(userEmailLabel.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
         }
         
         moreTableView.snp.makeConstraints {
             $0.top.equalTo(separatorView.snp.bottom).offset(12)
-            $0.leading.trailing.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
     }
