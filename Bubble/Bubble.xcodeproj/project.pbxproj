@@ -10,6 +10,8 @@
 		2E2955122BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */; };
 		2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2955132BEFB640001BCF22 /* UILabel+.swift */; };
 		2E2955162BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */; };
+		868631782BF60F92001201A2 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868631772BF60F92001201A2 /* StoreDetailViewController.swift */; };
+		868FA2462BF65A48001760C2 /* StoreDetailHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2452BF65A48001760C2 /* StoreDetailHeaderInfo.swift */; };
 		A291B1A82BECD9140044CB2B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A72BECD9140044CB2B /* NetworkResult.swift */; };
 		A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A92BECD9220044CB2B /* Logger.swift */; };
 		A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AB2BECD9280044CB2B /* UIFont+.swift */; };
@@ -40,6 +42,8 @@
 		2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-Heavy.ttf"; sourceTree = "<group>"; };
 		2E2955132BEFB640001BCF22 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-ExtraBold.ttf"; sourceTree = "<group>"; };
+		868631772BF60F92001201A2 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
+		868FA2452BF65A48001760C2 /* StoreDetailHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailHeaderInfo.swift; sourceTree = "<group>"; };
 		A291B1A72BECD9140044CB2B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A291B1A92BECD9220044CB2B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A291B1AB2BECD9280044CB2B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -88,6 +92,23 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		868631762BF60F7A001201A2 /* StoreDetail */ = {
+			isa = PBXGroup;
+			children = (
+				868FA2442BF65A08001760C2 /* Component */,
+				868631772BF60F92001201A2 /* StoreDetailViewController.swift */,
+			);
+			path = StoreDetail;
+			sourceTree = "<group>";
+		};
+		868FA2442BF65A08001760C2 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				868FA2452BF65A48001760C2 /* StoreDetailHeaderInfo.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		A291B1A02BECD8AE0044CB2B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +134,7 @@
 		A291B1A22BECD8DD0044CB2B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				868631762BF60F7A001201A2 /* StoreDetail */,
 				A29F9CB82BF273EA0030F957 /* TabBarController.swift */,
 				A291B1AD2BECD92E0044CB2B /* Friends */,
 			);
@@ -354,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */,
+				868631782BF60F92001201A2 /* StoreDetailViewController.swift in Sources */,
 				A2AC326F2BECCF9B0010903A /* FriendsViewController.swift in Sources */,
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
@@ -367,6 +390,7 @@
 				A2AC82A22BED5AC000C5E4D0 /* TempTargetType.swift in Sources */,
 				A29F9CBB2BF27E8F0030F957 /* CALayer+.swift in Sources */,
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
+				868FA2462BF65A48001760C2 /* StoreDetailHeaderInfo.swift in Sources */,
 				A2AC829D2BED591600C5E4D0 /* Secret.swift in Sources */,
 				A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */,
 				A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */,
