@@ -95,8 +95,8 @@ final class TabBarController: UITabBarController {
             tabSelectedImgName: .chat,
             viewController: chatNavigationController
         )
-        // TODO: - 뷰컨 생성 후 할당
-        let moreNavigationController = UINavigationController(rootViewController: FriendsViewController())
+        
+        let moreNavigationController = UINavigationController(rootViewController: MoreViewController())
         configTabBar(
             tabDefaultImgName: .more,
             tabSelectedImgName: .more,
