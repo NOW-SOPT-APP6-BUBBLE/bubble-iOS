@@ -10,7 +10,6 @@ import UIKit
 final class StoreDetailHeaderView: UIView {
     // MARK: - Property
     
-    
     // MARK: - Component
     
     private var bannerImage = UIImageView().then {
@@ -29,6 +28,7 @@ final class StoreDetailHeaderView: UIView {
     private let descriptionStackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 16
+        $0.isLayoutMarginsRelativeArrangement = true
         $0.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0)
     }
     
@@ -48,7 +48,7 @@ final class StoreDetailHeaderView: UIView {
                     description: "SUNGJIN, Young K", descriptionColor: .gray600)
     }
     
-    // MARK: - Life Cycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,9 +59,12 @@ final class StoreDetailHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life Cycle
+    
     // MARK: - Set UI
     
     func setLayout() {
+        self.backgroundColor = .red
         descriptionStackView.addArrangedSubviews(descriptionLabel, lineupInfo, comingsoonInfo)
         
         self.addSubviews(bannerImage, artistLabel, middleLine, descriptionStackView)
@@ -84,6 +87,7 @@ final class StoreDetailHeaderView: UIView {
         descriptionStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(middleLine.snp.bottom).offset(12)
+            $0.bottom.equalToSuperview().inset(0)
         }
     }
     

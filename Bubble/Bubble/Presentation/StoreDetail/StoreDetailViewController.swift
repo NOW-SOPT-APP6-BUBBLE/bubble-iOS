@@ -13,24 +13,31 @@ final class StoreDetailViewController: BaseViewController {
 
     // MARK: - Component
     
-    private let storeDetailHeader = StoreDetailHeaderView()
+    private let header = StoreDetailHeaderView()
+    
+    private let priceList = StoreDetailPriceListStackView()
   
     // MARK: - Life Cycle
     
     // MARK: - Set UI
     
     override func setLayout() {
-        view.addSubviews(storeDetailHeader)
+        view.addSubviews(header, priceList)
         
-        storeDetailHeader.snp.makeConstraints {
+        header.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
+        }
+        
+        priceList.snp.makeConstraints {
+            $0.top.equalTo(header.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        
         }
     }
     
     override func setStyle() {
         view.backgroundColor = .gray700
-        view.addSubviews(storeDetailHeader)
     }
 
     // MARK: - Helper
