@@ -28,7 +28,6 @@ final class StoreDetailPriceListStackView: UIStackView {
         if let attributedTitle = UILabel.createAttributedText(for: .body1, withText: "더보기", color: .white) {
             $0.setAttributedTitle(attributedTitle, for: .normal)
             }
-        $0.backgroundColor = .red
         
         let topLine = UIView()
         topLine.backgroundColor = .gray800

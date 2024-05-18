@@ -16,13 +16,17 @@ final class StoreDetailViewController: BaseViewController {
     private let header = StoreDetailHeaderView()
     
     private let priceList = StoreDetailPriceListStackView()
+    
+    private let infinityLine = UIView().then{
+        $0.backgroundColor = .gray900
+    }
   
     // MARK: - Life Cycle
     
     // MARK: - Set UI
     
     override func setLayout() {
-        view.addSubviews(header, priceList)
+        view.addSubviews(header, priceList, infinityLine)
         
         header.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -33,6 +37,12 @@ final class StoreDetailViewController: BaseViewController {
             $0.top.equalTo(header.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(16)
         
+        }
+        
+        infinityLine.snp.makeConstraints {
+            $0.top.equalTo(priceList.snp.bottom)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(5)
         }
     }
     
