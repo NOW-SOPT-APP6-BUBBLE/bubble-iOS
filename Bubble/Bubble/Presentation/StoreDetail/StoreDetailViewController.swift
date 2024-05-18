@@ -29,6 +29,7 @@ final class StoreDetailViewController: BaseViewController {
     private let descriptionStackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 16
+        $0.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0)
     }
     private let descriptionLabel = UILabel().then {
         $0.attributedText = UILabel.createAttributedText(for: .body2, withText: "선물처럼 찾아오는 최애의 메시지와 함께하는 설레이는 일상! \n최애 아티스트와 나만의 특별한 프라이빗 메시지, bubble for JYPnation")
@@ -48,6 +49,8 @@ final class StoreDetailViewController: BaseViewController {
         descriptionStackView.addArrangedSubview(descriptionLabel)
         descriptionStackView.addArrangedSubview(lineupInfo)
         descriptionStackView.addArrangedSubview(comingsoonInfo)
+        
+        descriptionStackView.addArrangedSubviews(descriptionLabel, lineupInfo, comingsoonInfo)
         
         view.addSubviews(bannerImage, artistLabel, middleLine, descriptionStackView)
         
