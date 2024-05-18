@@ -22,7 +22,6 @@ final class StoreDetailHeaderInfoView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print("생성")
         setLayout()
         setStyle()
     }
