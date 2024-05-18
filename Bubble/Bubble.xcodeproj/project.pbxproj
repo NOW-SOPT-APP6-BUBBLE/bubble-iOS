@@ -15,10 +15,11 @@
 		2ECB595F2BF4E0C400DA4FE9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */; };
 		2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB59612BF4E0ED00DA4FE9 /* FontName.swift */; };
 		2ECB59672BF4EE4700DA4FE9 /* MoreCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB59662BF4EE4700DA4FE9 /* MoreCellModel.swift */; };
-		868FA24E2BF8DA99001760C2 /* StoreDetailHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfo.swift */; };
+		868FA24E2BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift */; };
 		868FA24F2BF8DA99001760C2 /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA24B2BF8DA99001760C2 /* StoreDetailView.swift */; };
 		868FA2502BF8DA99001760C2 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA24C2BF8DA99001760C2 /* StoreDetailViewController.swift */; };
 		868FA2522BF8DBA4001760C2 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2512BF8DBA4001760C2 /* UIStackView+.swift */; };
+		868FA2542BF8EF77001760C2 /* StoreDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2532BF8EF77001760C2 /* StoreDetailHeaderView.swift */; };
 		A291B1A82BECD9140044CB2B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A72BECD9140044CB2B /* NetworkResult.swift */; };
 		A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A92BECD9220044CB2B /* Logger.swift */; };
 		A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AB2BECD9280044CB2B /* UIFont+.swift */; };
@@ -53,10 +54,11 @@
 		2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		2ECB59612BF4E0ED00DA4FE9 /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
 		2ECB59662BF4EE4700DA4FE9 /* MoreCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCellModel.swift; sourceTree = "<group>"; };
-		868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailHeaderInfo.swift; sourceTree = "<group>"; };
+		868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailHeaderInfoView.swift; sourceTree = "<group>"; };
 		868FA24B2BF8DA99001760C2 /* StoreDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
 		868FA24C2BF8DA99001760C2 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		868FA2512BF8DBA4001760C2 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		868FA2532BF8EF77001760C2 /* StoreDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailHeaderView.swift; sourceTree = "<group>"; };
 		A291B1A72BECD9140044CB2B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A291B1A92BECD9220044CB2B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A291B1AB2BECD9280044CB2B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -142,7 +144,8 @@
 		868FA24A2BF8DA99001760C2 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfo.swift */,
+				868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift */,
+				868FA2532BF8EF77001760C2 /* StoreDetailHeaderView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -419,8 +422,9 @@
 			files = (
 				A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */,
 				A2AC326F2BECCF9B0010903A /* FriendsViewController.swift in Sources */,
+				868FA2542BF8EF77001760C2 /* StoreDetailHeaderView.swift in Sources */,
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
-				868FA24E2BF8DA99001760C2 /* StoreDetailHeaderInfo.swift in Sources */,
+				868FA24E2BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,

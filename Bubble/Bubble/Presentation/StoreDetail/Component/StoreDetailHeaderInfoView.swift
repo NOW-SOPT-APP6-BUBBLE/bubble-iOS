@@ -1,5 +1,5 @@
 //
-//  StoreDetailHeaderInfo.swift
+//  StoreDetailHeaderInfoView.swift
 //  Bubble
 //
 //  Created by 심서현 on 5/17/24.
@@ -7,64 +7,61 @@
 
 import UIKit
 
-final class StoreDetailHeaderInfo: UIStackView {
+final class StoreDetailHeaderInfoView: UIStackView {
     // MARK: - Property
     
     // MARK: - Component
     
-        let titleLabel = UILabel().then {
-            $0.attributedText = UILabel.createAttributedText(for: .body1, withText: "title")
-//            $0.textColor = titleColor
-        }
+    private let titleLabel = UILabel().then {
+        $0.attributedText = UILabel.createAttributedText(for: .body1, withText: "title")
+    }
     
-        let descriptionLabel = UILabel().then {
-            $0.attributedText = UILabel.createAttributedText(for: .body2, withText: "description")
-//            $0.textColor = descriptionColor
-        }
-    
-        let stackView = UIStackView().then {
-//            $0.addArrangedSubviews(titleLabel, descriptionLabel)
-            $0.axis = .vertical
-            $0.spacing = 6
-        }
+    private let descriptionLabel = UILabel()
     
     // MARK: - Life Cycle
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        print("생성")
+        setLayout()
+        setStyle()
+    }
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Set UI
     
+    func setLayout() {
+        self.addArrangedSubviews(titleLabel, descriptionLabel)
+    }
+    
+    func setStyle() {
+        self.axis = .vertical
+        self.spacing = 6
+    }
     
     // MARK: - Helper
-    
     
     // MARK: - Action
     
 }
-    // MARK: - Extension
-    
-    
-    // MARK: - ___ Delegate
-    
-    
+// MARK: - Extension
 
+extension StoreDetailHeaderInfoView {
+    func dataBind(title: String, titleColor: UIColor,
+                  description: String, descriptionColor: UIColor) {
+        titleLabel.attributedText = UILabel.createAttributedText(for: .body1, withText: title)
+        titleLabel.textColor = titleColor
+        
+        dataBindDescription(description: description, color: descriptionColor)
+    }
     
-
-
-//func StoreDetailHeaderInfo(title: String, description: String, titleColor: UIColor, descriptionColor: UIColor) -> UIStackView {
-//    let titleLabel = UILabel().then {
-//        $0.attributedText = UILabel.createAttributedText(for: .body1, withText: title)
-//        $0.textColor = titleColor
-//    }
-//    
-//    let descriptionLabel = UILabel().then {
-//        $0.attributedText = UILabel.createAttributedText(for: .body2, withText: description)
-//        $0.textColor = descriptionColor
-//    }
-//    
-//    let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel]).then {
-//        $0.axis = .vertical
-//        $0.spacing = 6
-//    }
-//    
-//    return stackView
-//}
+    func dataBindDescription(description: String, color: UIColor) {
+        descriptionLabel.attributedText = UILabel.createAttributedText(for: .body2, withText: description)
+        descriptionLabel.textColor = color
+    }
+}
+    
+// MARK: - ___ Delegate

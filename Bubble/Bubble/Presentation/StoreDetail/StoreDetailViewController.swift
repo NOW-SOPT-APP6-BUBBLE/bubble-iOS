@@ -37,19 +37,21 @@ final class StoreDetailViewController: BaseViewController {
         $0.numberOfLines = 0
     }
     
-    private let lineupInfo = StoreDetailHeaderInfo(title: "ARTIST 라인업", description: "WONPIL, DOWOON", titleColor: .white, descriptionColor: .white)
+    private let lineupInfo = StoreDetailHeaderInfoView().then {
+        $0.dataBind(title: "ARTIST 라인업", titleColor: .white,
+                    description: "WONPIL, DOWOON", descriptionColor: .white)
+    }
     
-    private let comingsoonInfo = StoreDetailHeaderInfo(title: "Coming soon", description: "SUNGJIN, Young K", titleColor: .gray600, descriptionColor: .gray600)
-    
+    private let comingsoonInfo = StoreDetailHeaderInfoView().then {
+        $0.dataBind(title: "Coming soon", titleColor: .gray600,
+                    description: "SUNGJIN, Young K", descriptionColor: .gray600)
+    }
+        
     // MARK: - Life Cycle
     
     // MARK: - Set UI
     
     override func setLayout() {
-        descriptionStackView.addArrangedSubview(descriptionLabel)
-        descriptionStackView.addArrangedSubview(lineupInfo)
-        descriptionStackView.addArrangedSubview(comingsoonInfo)
-        
         descriptionStackView.addArrangedSubviews(descriptionLabel, lineupInfo, comingsoonInfo)
         
         view.addSubviews(bannerImage, artistLabel, middleLine, descriptionStackView)
