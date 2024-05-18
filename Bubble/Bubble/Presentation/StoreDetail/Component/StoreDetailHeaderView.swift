@@ -64,7 +64,6 @@ final class StoreDetailHeaderView: UIView {
     // MARK: - Set UI
     
     func setLayout() {
-        self.backgroundColor = .red
         descriptionStackView.addArrangedSubviews(descriptionLabel, lineupInfo, comingsoonInfo)
         
         self.addSubviews(bannerImage, artistLabel, middleLine, descriptionStackView)
