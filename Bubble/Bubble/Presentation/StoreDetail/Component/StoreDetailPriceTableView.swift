@@ -63,11 +63,9 @@ extension StoreDetailPriceTableView: UITableViewDataSource {
 
 extension StoreDetailPriceTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print("높이설정")
         return 20
     }
-    
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0 
     }

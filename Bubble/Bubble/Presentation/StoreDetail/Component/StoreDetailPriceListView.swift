@@ -15,12 +15,18 @@ struct PriceData {
 
 final class StoreDetailPriceListView: UIView {
     // MARK: - Property
+    let maxShow = 3
     
-    let priceData: [PriceData] = [
-        PriceData(count: "1인권", originPrice: "", currentPrice: "￦8,000"),
-        PriceData(count: "2인권", originPrice: "￦10,000", currentPrice: "￦9,000"),
-        PriceData(count: "3인권", originPrice: "￦15,000", currentPrice: "￦13,000"),
-        PriceData(count: "4인권", originPrice: "￦20,000", currentPrice: "￦18,000"),
+    private let priceData: [PriceData] = [
+        PriceData(count: "1인권", originPrice: "", currentPrice: "￦4,500"),
+        PriceData(count: "2인권", originPrice: "￦9,000", currentPrice: "￦8,000"),
+        PriceData(count: "3인권", originPrice: "￦13,500", currentPrice: "￦11,500"),
+        PriceData(count: "4인권", originPrice: "￦18,000", currentPrice: "￦15,000"),
+        PriceData(count: "5인권", originPrice: "￦22,500", currentPrice: "￦18,500"),
+        PriceData(count: "6인권", originPrice: "￦27,000", currentPrice: "￦22,000"),
+        PriceData(count: "7인권", originPrice: "￦31,500", currentPrice: "￦25,000"),
+        PriceData(count: "8인권", originPrice: "￦36,000", currentPrice: "￦29,000"),
+        PriceData(count: "9인권", originPrice: "￦40,500", currentPrice: "￦33,000"),
     ]
     
     // MARK: - Component
@@ -44,7 +50,85 @@ final class StoreDetailPriceListView: UIView {
         $0.spacing = 14
     }
     
-    private func createPriceCard(count: String, originPrice: String, currentPrice: String, index: Int) -> UIStackView {
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayout()
+        setTarget()
+    }
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life Cycle
+    
+    // MARK: - Set UI
+    func setLayout() {
+        priceList.addArrangedSubviews(createPriceList())
+        self.addSubviews(priceList, moreButton)
+        
+        priceList.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.top.equalToSuperview()
+        }
+        
+        moreButton.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(52)
+        }
+        
+        setMoreButtonHidden(priceData.count <= maxShow)
+    }
+
+    // MARK: - Helpers
+    
+    func setTarget() {
+        moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
+    }
+    
+    private func setMoreButtonHidden(_ isHidden: Bool) {
+        moreButton.isHidden = isHidden
+        
+        if isHidden {
+            moreButton.snp.remakeConstraints {
+                $0.bottom.equalToSuperview()
+            }
+            
+            priceList.snp.makeConstraints {
+                $0.bottom.equalTo(self.snp.bottom).inset(26)
+            }
+        } else {
+            moreButton.snp.makeConstraints {
+                $0.top.equalTo(priceList.snp.bottom).offset(24)
+                $0.bottom.equalTo(self.snp.bottom).inset(0)
+            }
+        }
+    }
+    
+    // MARK: - Action
+    
+    @objc private func moreButtonDidTap() {
+        for case let stackView as UIStackView in priceList.arrangedSubviews {
+            stackView.isHidden = false
+        }
+        setMoreButtonHidden(true)
+    }
+}
+// MARK: - Extension
+
+extension StoreDetailPriceListView {
+    func createPriceList() -> [UIStackView] {
+        return priceData.enumerated().map { index, item in
+            createPriceCard(
+                count: item.count,
+                originPrice: item.originPrice, currentPrice: item.currentPrice,
+                index: index)
+        }
+    }
+    
+    func createPriceCard(count: String, originPrice: String, currentPrice: String, index: Int) -> UIStackView {
         let countLabel = UILabel().then {
             $0.attributedText = UILabel.createAttributedText(for: .name4, withText: count, color: .white)
         }
@@ -76,74 +160,11 @@ final class StoreDetailPriceListView: UIView {
             $0.isLayoutMarginsRelativeArrangement = true
             $0.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 21, leading: 12, bottom: 21, trailing: 12)
             
-            // 4(index:3)번째부터 숨김
-            $0.isHidden = index > 2
+            $0.isHidden = index + 1 > maxShow
         }
         
         return stackView
     }
-    
-    // MARK: - Init
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setLayout()
-        setTarget()
-    }
-    
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Life Cycle
-    
-    // MARK: - Set UI
-    func setLayout() {
-        priceList.addArrangedSubviews(createPriceList())
-        self.addSubviews(priceList, moreButton)
-        
-        priceList.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.top.equalToSuperview()
-        }
-        
-        moreButton.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.height.equalTo(52)
-            $0.top.equalTo(priceList.snp.bottom).offset(24)
-            $0.bottom.equalTo(self.snp.bottom).inset(0)
-        }
-    }
-    
-    func createPriceList() -> [UIStackView] {
-        return priceData.enumerated().map { index, item in
-            createPriceCard(
-                count: item.count,
-                originPrice: item.originPrice, currentPrice: item.currentPrice,
-                index: index)
-        }
-    }
-
-    // MARK: - Helpers
-    func setTarget() {
-        moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
-    }
-    
-    // MARK: - Action
-    @objc private func moreButtonDidTap() {
-        for case let stackView as UIStackView in priceList.arrangedSubviews {
-            stackView.isHidden = false
-        }
-        moreButton.isHidden = true
-        moreButton.snp.remakeConstraints {
-            $0.bottom.equalToSuperview()
-        }
-        priceList.snp.makeConstraints {
-            $0.bottom.equalTo(self.snp.bottom).inset(26)
-        }
-    }
-    
 }
-// MARK: - Extension
 
 // MARK: - ___ Delegate

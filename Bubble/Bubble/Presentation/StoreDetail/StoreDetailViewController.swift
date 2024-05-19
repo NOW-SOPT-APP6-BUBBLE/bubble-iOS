@@ -12,6 +12,8 @@ final class StoreDetailViewController: BaseViewController {
     // MARK: - Property
 
     // MARK: - Component
+    private var scrollView = UIScrollView()
+    private let contentView = UIView()
     
     private let header = StoreDetailHeaderView()
     
@@ -26,10 +28,21 @@ final class StoreDetailViewController: BaseViewController {
     // MARK: - Set UI
     
     override func setLayout() {
-        view.addSubviews(header, priceList, infinityLine)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(header, priceList, infinityLine)
+        
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView)
+            $0.width.equalTo(scrollView)
+        }
         
         header.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalTo(contentView)
             $0.width.equalToSuperview()
         }
         
@@ -42,6 +55,7 @@ final class StoreDetailViewController: BaseViewController {
             $0.top.equalTo(priceList.snp.bottom)
             $0.width.equalToSuperview()
             $0.height.equalTo(5)
+            $0.bottom.equalToSuperview()
         }
     }
     
