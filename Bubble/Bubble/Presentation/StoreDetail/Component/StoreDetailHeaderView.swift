@@ -12,8 +12,8 @@ final class StoreDetailHeaderView: UIView {
     
     // MARK: - Component
     
-    private var bannerImage = UIImageView().then {
-        $0.image = UIImage(named: "store_detail_default_banner")
+    private var headerImage = UIImageView().then {
+        $0.image = UIImage(named: "store_detail_default_header")
     }
     
     private var artistLabel = UILabel().then {
@@ -66,15 +66,15 @@ final class StoreDetailHeaderView: UIView {
     func setLayout() {
         descriptionStackView.addArrangedSubviews(descriptionLabel, lineupInfo, comingsoonInfo)
         
-        self.addSubviews(bannerImage, artistLabel, middleLine, descriptionStackView)
+        self.addSubviews(headerImage, artistLabel, middleLine, descriptionStackView)
         
-        bannerImage.snp.makeConstraints {
+        headerImage.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
         }
         artistLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.top.equalTo(bannerImage.snp.bottom).offset(16)
+            $0.top.equalTo(headerImage.snp.bottom).offset(16)
         }
         middleLine.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)

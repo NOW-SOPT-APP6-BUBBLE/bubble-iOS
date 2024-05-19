@@ -22,6 +22,8 @@ final class StoreDetailViewController: BaseViewController {
     private let infinityLine = UIView().then {
         $0.backgroundColor = .gray900
     }
+    
+    private let information = StoreDetailInformationView()
   
     // MARK: - Life Cycle
     
@@ -30,10 +32,10 @@ final class StoreDetailViewController: BaseViewController {
     override func setLayout() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(header, priceList, infinityLine)
+        contentView.addSubviews(header, priceList, infinityLine, information)
         
         scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
         contentView.snp.makeConstraints {
@@ -55,6 +57,11 @@ final class StoreDetailViewController: BaseViewController {
             $0.top.equalTo(priceList.snp.bottom)
             $0.width.equalToSuperview()
             $0.height.equalTo(5)
+        }
+        
+        information.snp.makeConstraints {
+            $0.top.equalTo(infinityLine.snp.bottom).offset(22)
+            $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
     }
