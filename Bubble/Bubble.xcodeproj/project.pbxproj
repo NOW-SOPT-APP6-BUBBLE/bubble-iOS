@@ -16,6 +16,8 @@
 		2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB59612BF4E0ED00DA4FE9 /* FontName.swift */; };
 		2ECB59672BF4EE4700DA4FE9 /* MoreCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB59662BF4EE4700DA4FE9 /* MoreCellModel.swift */; };
 		8658D2C92BF9B7A400F62E53 /* StoreDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658D2C82BF9B7A400F62E53 /* StoreDetailInformationView.swift */; };
+		8658D2CF2BFA2ECE00F62E53 /* StoreDetailNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658D2CE2BFA2ECE00F62E53 /* StoreDetailNotice.swift */; };
+		8658D2D12BFA2FAB00F62E53 /* StoreDetailPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658D2D02BFA2FAB00F62E53 /* StoreDetailPrice.swift */; };
 		868FA24E2BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift */; };
 		868FA24F2BF8DA99001760C2 /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA24B2BF8DA99001760C2 /* StoreDetailView.swift */; };
 		868FA2502BF8DA99001760C2 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA24C2BF8DA99001760C2 /* StoreDetailViewController.swift */; };
@@ -58,6 +60,8 @@
 		2ECB59612BF4E0ED00DA4FE9 /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
 		2ECB59662BF4EE4700DA4FE9 /* MoreCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCellModel.swift; sourceTree = "<group>"; };
 		8658D2C82BF9B7A400F62E53 /* StoreDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailInformationView.swift; sourceTree = "<group>"; };
+		8658D2CE2BFA2ECE00F62E53 /* StoreDetailNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailNotice.swift; sourceTree = "<group>"; };
+		8658D2D02BFA2FAB00F62E53 /* StoreDetailPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailPrice.swift; sourceTree = "<group>"; };
 		868FA2492BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailHeaderInfoView.swift; sourceTree = "<group>"; };
 		868FA24B2BF8DA99001760C2 /* StoreDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
 		868FA24C2BF8DA99001760C2 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		8658D2CD2BFA2EBD00F62E53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8658D2CE2BFA2ECE00F62E53 /* StoreDetailNotice.swift */,
+				8658D2D02BFA2FAB00F62E53 /* StoreDetailPrice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		868FA24A2BF8DA99001760C2 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +174,7 @@
 		868FA24D2BF8DA99001760C2 /* StoreDetail */ = {
 			isa = PBXGroup;
 			children = (
+				8658D2CD2BFA2EBD00F62E53 /* Model */,
 				868FA24A2BF8DA99001760C2 /* Component */,
 				868FA24B2BF8DA99001760C2 /* StoreDetailView.swift */,
 				868FA24C2BF8DA99001760C2 /* StoreDetailViewController.swift */,
@@ -435,6 +449,7 @@
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
 				868FA24E2BF8DA99001760C2 /* StoreDetailHeaderInfoView.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
+				8658D2D12BFA2FAB00F62E53 /* StoreDetailPrice.swift in Sources */,
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				868FA25D2BF9093D001760C2 /* StoreDetailPriceListView.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
@@ -449,6 +464,7 @@
 				2ECB595F2BF4E0C400DA4FE9 /* FontStyle.swift in Sources */,
 				A2AC829F2BED5A2600C5E4D0 /* TempService.swift in Sources */,
 				A2AC82A22BED5AC000C5E4D0 /* TempTargetType.swift in Sources */,
+				8658D2CF2BFA2ECE00F62E53 /* StoreDetailNotice.swift in Sources */,
 				A29F9CBB2BF27E8F0030F957 /* CALayer+.swift in Sources */,
 				868FA24F2BF8DA99001760C2 /* StoreDetailView.swift in Sources */,
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,

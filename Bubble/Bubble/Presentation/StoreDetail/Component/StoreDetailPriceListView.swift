@@ -17,17 +17,7 @@ final class StoreDetailPriceListView: UIView {
     // MARK: - Property
     let maxShow = 3
     
-    private let priceData: [PriceData] = [
-        PriceData(count: "1인권", originPrice: "", currentPrice: "￦4,500"),
-        PriceData(count: "2인권", originPrice: "￦9,000", currentPrice: "￦8,000"),
-        PriceData(count: "3인권", originPrice: "￦13,500", currentPrice: "￦11,500"),
-        PriceData(count: "4인권", originPrice: "￦18,000", currentPrice: "￦15,000"),
-        PriceData(count: "5인권", originPrice: "￦22,500", currentPrice: "￦18,500"),
-        PriceData(count: "6인권", originPrice: "￦27,000", currentPrice: "￦22,000"),
-        PriceData(count: "7인권", originPrice: "￦31,500", currentPrice: "￦25,000"),
-        PriceData(count: "8인권", originPrice: "￦36,000", currentPrice: "￦29,000"),
-        PriceData(count: "9인권", originPrice: "￦40,500", currentPrice: "￦33,000"),
-    ]
+    private let priceData: [StoreDetailPrice] = getStoreDetailStoreDetailPrice()
     
     // MARK: - Component
     
