@@ -19,7 +19,7 @@ struct StoreDetailNotice {
 final class StoreDetailInformationView: UIView {
     // MARK: - Property
     
-    let noticeData = [
+    var noticeData = [
         StoreDetailNotice(title: "서비스 이용안내 동의", labels: [
             UILabel().then {
                 $0.attributedText = UILabel.createAttributedText(for: .body2, withText: "이용권의 인원 수 만큼, bubble 메시지를 수신할 ARTIST를 선택할 수 있습니다.\n\n선택한 ARTIST가 직접 보내는 bubble을 수신할 수 있습니다.", color: .gray500)
@@ -68,6 +68,11 @@ final class StoreDetailInformationView: UIView {
         $0.numberOfLines = 0
     }
     
+    private let noticeStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 12
+    }
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -84,14 +89,11 @@ final class StoreDetailInformationView: UIView {
     // MARK: - Set UI
     
     func setLayout() {
-        let noticeList: [UIStackView] = noticeData.map { item in
-            return createNoticeCard(data: item)
+        let noticeList: [UIStackView] = noticeData.enumerated().map { index, item in
+            return createNoticeCard(data: item, index: index)
         }
-        
-        let noticeStackView = UIStackView(arrangedSubviews: noticeList).then {
-            $0.axis = .vertical
-            $0.spacing = 12
-        }
+
+        noticeStackView.addArrangedSubviews(noticeList)
         
         self.addSubviews(bannerImage, infoLabel, infoDescription, noticeStackView)
         
@@ -117,32 +119,70 @@ final class StoreDetailInformationView: UIView {
     
     // MARK: - Helper
     
+    private func setFold(_ sender: UIButton) {
+        let noticeCard: UIStackView = noticeStackView.subviews[sender.tag] as! UIStackView
+        let descriptionView: UIStackView = noticeCard.subviews[1] as! UIStackView
+        let foldIcon: UIButton = noticeCard.subviews[0].subviews[2] as! UIButton
+        
+        noticeData[sender.tag].fold.toggle()
+        descriptionView.isHidden = noticeData[sender.tag].fold
+        
+        let iconName = noticeData[sender.tag].fold ? "icon_fold" : "icon_unfold"
+        foldIcon.setImage(UIImage(named: iconName), for: .normal)
+    }
+    
+    private func isAllChecked() -> Bool {
+        return noticeData.allSatisfy { $0.check }
+    }
+    
     // MARK: - Action
     
+    @objc func checkIconDidTab(_ sender: UIButton) {
+        if !noticeData[sender.tag].check && noticeData[sender.tag].fold {
+            setFold(sender)
+        }
+        
+        noticeData[sender.tag].check.toggle()
+        
+        let iconName = noticeData[sender.tag].check ? "icon_checkBoxSelected" : "icon_checkBoxDefault"
+        sender.setImage(UIImage(named: iconName), for: .normal)
+        
+        if isAllChecked() {print("모두 체크됨")}
+    }
+    
+    @objc func foldIconDidTab(_ sender: UIButton) {
+        setFold(sender)
+    }
 }
 // MARK: - Extension
 
 extension StoreDetailInformationView {
-    func createNoticeCard(data: StoreDetailNotice) -> UIStackView {
+    func createNoticeCard(data: StoreDetailNotice, index: Int) -> UIStackView {
         let checkIcon = UIButton().then {
+            $0.tag = index
             $0.setImage(UIImage(named: "icon_checkBoxDefault"), for: .normal)
             $0.snp.makeConstraints {
                 $0.width.height.equalTo(24)
             }
+            
+            $0.addTarget(self, action: #selector(checkIconDidTab(_:)), for: .touchUpInside)
         }
         
-        let dropIcon = UIButton().then {
+        let foldIcon = UIButton().then {
+            $0.tag = index
             $0.setImage(UIImage(named: "icon_fold"), for: .normal)
             $0.snp.makeConstraints {
                 $0.width.height.equalTo(24)
             }
+            
+            $0.addTarget(self, action: #selector(foldIconDidTab(_:)), for: .touchUpInside)
         }
         
         let titleLabel = UILabel().then {
             $0.attributedText = UILabel.createAttributedText(for: .body1, withText: data.title, color: .white)
         }
         
-        let titleView = UIStackView(arrangedSubviews: [checkIcon, titleLabel, dropIcon]).then {
+        let titleView = UIStackView(arrangedSubviews: [checkIcon, titleLabel, foldIcon]).then {
             $0.axis = .horizontal
             $0.spacing = 8
             $0.distribution = .fill
@@ -154,7 +194,7 @@ extension StoreDetailInformationView {
             $0.isLayoutMarginsRelativeArrangement = true
             $0.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 16, trailing: 10)
             
-//            $0.isHidden = true
+            $0.isHidden = true
         }
         
         let stackView = UIStackView(
