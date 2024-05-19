@@ -15,9 +15,9 @@ final class StoreDetailViewController: BaseViewController {
     
     private let header = StoreDetailHeaderView()
     
-    private let priceList = StoreDetailPriceListStackView()
+    private let priceList = StoreDetailPriceListView()
     
-    private let infinityLine = UIView().then{
+    private let infinityLine = UIView().then {
         $0.backgroundColor = .gray900
     }
   
@@ -36,7 +36,6 @@ final class StoreDetailViewController: BaseViewController {
         priceList.snp.makeConstraints {
             $0.top.equalTo(header.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(16)
-        
         }
         
         infinityLine.snp.makeConstraints {

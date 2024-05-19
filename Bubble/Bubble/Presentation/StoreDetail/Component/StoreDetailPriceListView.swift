@@ -13,8 +13,9 @@ struct PriceData {
     let currentPrice: String
 }
 
-final class StoreDetailPriceListStackView: UIStackView {
+final class StoreDetailPriceListView: UIView {
     // MARK: - Property
+    
     let priceData: [PriceData] = [
         PriceData(count: "1인권", originPrice: "", currentPrice: "￦8,000"),
         PriceData(count: "2인권", originPrice: "￦10,000", currentPrice: "￦9,000"),
@@ -27,24 +28,21 @@ final class StoreDetailPriceListStackView: UIStackView {
     private let moreButton = UIButton().then {
         if let attributedTitle = UILabel.createAttributedText(for: .body1, withText: "더보기", color: .white) {
             $0.setAttributedTitle(attributedTitle, for: .normal)
-            }
+        }
         
         let topLine = UIView()
         topLine.backgroundColor = .gray800
-        
         $0.addSubview(topLine)
-        
-        $0.snp.makeConstraints {
-            $0.height.equalTo(52)
-        }
-        
         topLine.snp.makeConstraints {
             $0.top.width.equalToSuperview()
             $0.height.equalTo(1)
         }
     }
     
-    private let bottomSpacing = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 12))
+    private let priceList = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 14
+    }
     
     private func createPriceCard(count: String, originPrice: String, currentPrice: String, index: Int) -> UIStackView {
         let countLabel = UILabel().then {
@@ -101,10 +99,20 @@ final class StoreDetailPriceListStackView: UIStackView {
     
     // MARK: - Set UI
     func setLayout() {
-        self.axis = .vertical
-        self.spacing = 12
-        self.addArrangedSubviews(createPriceList())
-        self.addArrangedSubviews(bottomSpacing, moreButton)
+        priceList.addArrangedSubviews(createPriceList())
+        self.addSubviews(priceList, moreButton)
+        
+        priceList.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.top.equalToSuperview()
+        }
+        
+        moreButton.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(52)
+            $0.top.equalTo(priceList.snp.bottom).offset(24)
+            $0.bottom.equalTo(self.snp.bottom).inset(0)
+        }
     }
     
     func createPriceList() -> [UIStackView] {
@@ -123,11 +131,16 @@ final class StoreDetailPriceListStackView: UIStackView {
     
     // MARK: - Action
     @objc private func moreButtonDidTap() {
-        for case let stackView as UIStackView in self.arrangedSubviews {
+        for case let stackView as UIStackView in priceList.arrangedSubviews {
             stackView.isHidden = false
         }
         moreButton.isHidden = true
-        bottomSpacing.isHidden = false
+        moreButton.snp.remakeConstraints {
+            $0.bottom.equalToSuperview()
+        }
+        priceList.snp.makeConstraints {
+            $0.bottom.equalTo(self.snp.bottom).inset(26)
+        }
     }
     
 }
