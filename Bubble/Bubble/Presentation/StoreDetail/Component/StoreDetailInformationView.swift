@@ -18,7 +18,7 @@ struct StoreDetailNotice {
 
 final class StoreDetailInformationView: UIView {
     // MARK: - Property
-    
+    var viewController: StoreDetailViewController?
     var noticeData = [
         StoreDetailNotice(title: "서비스 이용안내 동의", labels: [
             UILabel().then {
@@ -113,7 +113,7 @@ final class StoreDetailInformationView: UIView {
         noticeStackView.snp.makeConstraints {
             $0.top.equalTo(infoDescription.snp.bottom).offset(24)
             $0.width.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(30)
+            $0.bottom.equalToSuperview().inset(30 + 52)
         }
     }
     
@@ -147,7 +147,7 @@ final class StoreDetailInformationView: UIView {
         let iconName = noticeData[sender.tag].check ? "icon_checkBoxSelected" : "icon_checkBoxDefault"
         sender.setImage(UIImage(named: iconName), for: .normal)
         
-        if isAllChecked() {print("모두 체크됨")}
+        viewController?.toggleBuyButton(isAble: isAllChecked())
     }
     
     @objc func foldIconDidTab(_ sender: UIButton) {

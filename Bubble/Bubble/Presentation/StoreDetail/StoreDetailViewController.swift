@@ -8,9 +8,9 @@
 import UIKit
 
 final class StoreDetailViewController: BaseViewController {
-
+    
     // MARK: - Property
-
+    
     // MARK: - Component
     private var scrollView = UIScrollView()
     private let contentView = UIView()
@@ -24,18 +24,52 @@ final class StoreDetailViewController: BaseViewController {
     }
     
     private let information = StoreDetailInformationView()
-  
+    
+    private var buyButton = UIButton().then {
+        if let attributedTitle = UILabel.createAttributedText(for: .name1, withText: "이용권 구매", color: .white) {
+            $0.setAttributedTitle(attributedTitle, for: .normal)
+        }
+        
+        $0.contentVerticalAlignment = .top
+        var configuration = UIButton.Configuration.borderless()
+
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 17, leading: 0, bottom: 0, trailing: 0)
+        $0.configuration = configuration
+        
+        $0.layer.maskedCorners = [.layerMaxXMinYCorner]
+        $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 18
+        
+        $0.backgroundColor = .gray200
+        
+        $0.isEnabled = false
+    }
+    // MARK: - init
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setTarget()
+    }
+    
     // MARK: - Life Cycle
     
     // MARK: - Set UI
     
     override func setLayout() {
-        view.addSubview(scrollView)
+        information.viewController = self
+        view.addSubviews(scrollView, buyButton)
         scrollView.addSubview(contentView)
         contentView.addSubviews(header, priceList, infinityLine, information)
         
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        buyButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(52)
+            $0.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints {
@@ -69,12 +103,24 @@ final class StoreDetailViewController: BaseViewController {
     override func setStyle() {
         view.backgroundColor = .gray700
     }
-
+    
     // MARK: - Helper
+    
+    private func setTarget() {
+        buyButton.addTarget(self, action: #selector(buyButtonDidTap), for: .touchUpInside)
+    }
+    
+    public func toggleBuyButton(isAble: Bool) {
+        buyButton.isEnabled = isAble
+        buyButton.backgroundColor =  isAble ? .jypBlue : .gray200
+    }
     
     // MARK: - Action
     
-    // MARK: - Extension
-
-    // MARK: - ___ Delegate
+    @objc private func buyButtonDidTap() {
+        print("이용권 구매 버튼이 클릭되었습니다.")
+    }
 }
+// MARK: - Extension
+
+// MARK: - ___ Delegate

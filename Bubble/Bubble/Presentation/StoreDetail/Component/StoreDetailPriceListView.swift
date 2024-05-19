@@ -84,7 +84,7 @@ final class StoreDetailPriceListView: UIView {
 
     // MARK: - Helpers
     
-    func setTarget() {
+    private func setTarget() {
         moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
     }
     
