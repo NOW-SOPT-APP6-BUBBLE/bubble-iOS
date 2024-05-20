@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/xcode,macos,swift
 # Edit at https://www.toptal.com/developers/gitignore?templates=xcode,macos,swift
 
+# Bubble-iOS
+Secret.swift
+
 ### macOS ###
 # General
 .DS_Store

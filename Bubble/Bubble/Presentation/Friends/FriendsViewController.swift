@@ -7,14 +7,13 @@
 
 import UIKit
 
-enum NavigationTitleName: String {
-    case friends = "FRIENDS"
-    case more = "MORE"
-}
-
 final class FriendsViewController: BaseViewController {
     
     // MARK: - Property
+    
+    var isDropDownArray = [true, true, true]
+    let dummyTitle = ["내 프로필", "즐겨찾기", "추천 친구"]
+    let dummyCnt = [nil, "2", "56"]
     
     // MARK: - Component
 
@@ -26,21 +25,26 @@ final class FriendsViewController: BaseViewController {
         $0.tintColor = .black
     }
     
-    private var scrollView = UIScrollView().then {
+    private lazy var friendsTableView = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = .white
+        $0.sectionHeaderTopPadding = 0
+        $0.showsHorizontalScrollIndicator = false
+        $0.separatorStyle = .none
+        $0.dataSource = self
+        $0.delegate = self
+        $0.register(FriendsTableViewCell.self, forCellReuseIdentifier: FriendsTableViewCell.className)
+        $0.register(FriendsHeaderView.self, forHeaderFooterViewReuseIdentifier: FriendsHeaderView.className)
+        $0.register(FriendsFooterView.self, forHeaderFooterViewReuseIdentifier: FriendsFooterView.className)
     }
-        
+    
     // MARK: - Set UI
     
     override func setLayout() {
-        /// scrollView의 경우 스크롤 시 네비게이션 바 확인하기 위한 테스트용
-        view.addSubview(scrollView)
+        view.addSubview(friendsTableView)
         
-        scrollView.snp.makeConstraints {
+        friendsTableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
-        scrollView.contentSize = CGSize(width: view.frame.width, height: 2000)
     }
     
     override func setStyle() {
@@ -79,4 +83,109 @@ final class FriendsViewController: BaseViewController {
     // MARK: - Extension
     
     // MARK: - Delegate
+}
+
+// MARK: - UITableViewDataSource
+
+extension FriendsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        isDropDownArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return isDropDownArray[section] ? 2 : 0
+        case 2:
+            return isDropDownArray[section] ? 56 : 0
+        default:
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: FriendsTableViewCell.className
+        ) as? FriendsTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        if indexPath.section == 0 {
+            cell.oneSentenceLabel.isHidden = true
+        }
+        
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension FriendsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: FriendsHeaderView.className
+        ) as? FriendsHeaderView
+        else {
+            return UIView()
+        }
+        
+        if section == 0 {
+            header.dropDownButton.isHidden = true
+        } else {
+            header.delegate = self
+            header.tag = section
+            header.dropDownButton.setImage(isDropDownArray[section] ? .iconUnfold : .iconFold, for: .normal)
+        }
+                
+        header.headerLabel.text = dummyTitle[section]
+        header.cellCountLabel.text = dummyCnt[section]
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (6 + 36 + 8)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let footer = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: FriendsFooterView.className
+        ) as? FriendsFooterView
+        else {
+            return UIView()
+        }
+        return footer
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 0
+        } else {
+            return 5
+        }
+    }
+}
+
+// MARK: - DropDownDelegate
+
+extension FriendsViewController: DropDownDelegate {
+    
+    func dropDownCells(section: Int) {
+        self.isDropDownArray[section].toggle()
+        
+        let numberOfRows = self.friendsTableView.numberOfRows(inSection: section)
+        for i in 0..<numberOfRows {
+            let cell = self.friendsTableView.cellForRow(at: IndexPath(row: i, section: section)) as? FriendsTableViewCell
+            cell?.isHidden.toggle()
+        }
+        
+        friendsTableView.reloadSections(IndexSet(integer: section), with: .fade)
+    }
 }
