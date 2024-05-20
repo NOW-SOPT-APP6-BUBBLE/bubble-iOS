@@ -7,17 +7,18 @@
 
 import Foundation
 
-// MARK: - 서버가 만들어주는 것에 따라 언제든 수정될 수 있음
-/// 일단 가장 자주 쓰이는 모델로 넣어둠
+/// result가 들어있을 때 Base Model
 struct BaseModel<T: Codable>: Codable {
-    let code: Int
+    let status: Int
+    let success: Bool
     let message: String
-    let data: T
+    let result: T
 }
 
-/// data가 비었을 경우에 사용
-struct EmptyDataModel: Codable {
-    let code: Int
+/// result가 비었을 경우에 사용
+struct EmptyResultModel: Codable {
+    let status: Int
+    let success: Bool
     let message: String
-    let data: [String: String]?
+    let result: [String: String]?
 }
