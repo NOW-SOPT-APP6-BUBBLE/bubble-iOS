@@ -10,6 +10,8 @@
 		2E2955122BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */; };
 		2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2955132BEFB640001BCF22 /* UILabel+.swift */; };
 		2E2955162BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */; };
+		2E37781D2BFB82DA0074903A /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37781C2BFB82DA0074903A /* StoreViewController.swift */; };
+		2E37781F2BFB99EE0074903A /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37781E2BFB99EE0074903A /* StoreTableViewCell.swift */; };
 		2ECB595A2BF4C34700DA4FE9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */; };
 		2ECB595C2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */; };
 		2ECB595F2BF4E0C400DA4FE9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */; };
@@ -49,6 +51,8 @@
 		2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-Heavy.ttf"; sourceTree = "<group>"; };
 		2E2955132BEFB640001BCF22 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2E37781C2BFB82DA0074903A /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		2E37781E2BFB99EE0074903A /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableVIewCell.swift; sourceTree = "<group>"; };
 		2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E37781B2BFB82A50074903A /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				2E37781C2BFB82DA0074903A /* StoreViewController.swift */,
+				2E37781E2BFB99EE0074903A /* StoreTableViewCell.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		2E8BE8742BEFACA800904B35 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +258,7 @@
 				A291B1A02BECD8AE0044CB2B /* Application */,
 				A291B1A12BECD8D60044CB2B /* Base */,
 				A291B1A22BECD8DD0044CB2B /* Presentation */,
+				2E37781B2BFB82A50074903A /* Store */,
 				A291B1A32BECD8E90044CB2B /* Extension */,
 				A291B1A42BECD8F10044CB2B /* Util */,
 				A291B1A52BECD8F80044CB2B /* Resource */,
@@ -421,6 +435,7 @@
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
 				2ECB595A2BF4C34700DA4FE9 /* MoreViewController.swift in Sources */,
+				2E37781F2BFB99EE0074903A /* StoreTableViewCell.swift in Sources */,
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,
@@ -436,6 +451,7 @@
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
 				A2AC829D2BED591600C5E4D0 /* Secret.swift in Sources */,
 				A29FAED72BF75D7B00C56815 /* NavigationTitleName.swift in Sources */,
+				2E37781D2BFB82DA0074903A /* StoreViewController.swift in Sources */,
 				A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */,
 				A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */,
 				A2AC82A82BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift in Sources */,
