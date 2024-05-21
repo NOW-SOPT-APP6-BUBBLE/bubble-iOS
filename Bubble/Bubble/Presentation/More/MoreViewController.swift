@@ -11,7 +11,7 @@ final class MoreViewController: BaseViewController {
     
     // MARK: - Property
     
-    private let cellData = [
+    private let MoreCellData = [
         MoreCellModel(icon: UIImage(named: "icon_person"), title: "My bubble"),
         MoreCellModel(icon: UIImage(named: "icon_store"), title: "STORE"),
         MoreCellModel(icon: UIImage(named: "icon_notice"), title: "Notice"),
@@ -124,6 +124,18 @@ extension MoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 1:
+            let storeVC = StoreViewController()
+            navigationController?.pushViewController(storeVC, animated: true)
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -136,11 +148,12 @@ extension MoreViewController: UITableViewDataSource {
         ) as? MoreTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: cellData[indexPath.row])
+        
+        cell.configure(with: MoreCellData[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellData.count
+        return MoreCellData.count
     }
 }

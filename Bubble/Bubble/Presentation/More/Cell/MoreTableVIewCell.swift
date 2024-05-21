@@ -8,8 +8,10 @@
 import UIKit
 
 final class MoreTableViewCell: BaseTableViewCell {
+    // MARK: - Property
     static let identifier = "MoreTableViewCell"
     
+    // MARK: - Component
     private let iconImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }
@@ -36,6 +38,8 @@ final class MoreTableViewCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Set UI
+    
     override func setLayout() {
         self.addSubviews(iconImageView, titleLabel, arrowImageView)
         
@@ -56,6 +60,8 @@ final class MoreTableViewCell: BaseTableViewCell {
             $0.width.height.equalTo(14)
         }
     }
+    
+    // MARK: - Helper
     
     func configure(with model: MoreCellModel) {
         iconImageView.image = model.icon
