@@ -24,14 +24,11 @@ final class FriendsTableViewCell: BaseTableViewCell {
     }
     
     private let nameLabel = UILabel().then {
-        $0.text = "언니"
-        $0.textColor = .black
-        $0.font = .appleSDGothicNeoFont(for: .name1)
+        $0.attributedText = UILabel.createAttributedText(for: .name1, withText: "언니")
     }
     
     let oneSentenceLabel = UILabel().then {
-        $0.textColor = .gray500
-        $0.font = .appleSDGothicNeoFont(for: .body2)
+        $0.attributedText = UILabel.createAttributedText(for: .body2, color: .gray500)
     }
     
     // MARK: - Life Cycle

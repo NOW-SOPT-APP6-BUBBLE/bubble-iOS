@@ -93,7 +93,7 @@ final class FriendsViewController: BaseViewController {
     // MARK: - Helper
     
     private func fetchArtistList() {
-        ArtistService.shared.fetchArtistList(memberId: memberId) { res in
+        ArtistMembersService.shared.fetchArtistList(memberId: memberId) { res in
             switch res {
             case .success(let data):
                 guard let data = data as? BaseModel<ArtistListResult> else { return }

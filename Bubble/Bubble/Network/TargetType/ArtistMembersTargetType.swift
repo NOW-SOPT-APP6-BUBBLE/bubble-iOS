@@ -9,12 +9,12 @@ import Foundation
 
 import Moya
 
-enum ArtistTargetType {
+enum ArtistMembersTargetType {
     case fetchArtistList(memberId: String)
     case fetchArtistProfile(request: ArtistProfileRequest)
 }
 
-extension ArtistTargetType: TargetType {
+extension ArtistMembersTargetType: TargetType {
     var baseURL: URL {
         return URL(string: Secret.baseURL)!
     }
@@ -22,9 +22,9 @@ extension ArtistTargetType: TargetType {
     var path: String {
         switch self {
         case .fetchArtistList:
-            return "/artists/artist-members"
+            return "/api/v1/artists/artist-members"
         case .fetchArtistProfile(let request):
-            return "/artists/artist-members/\(request.artistMemberId)"
+            return "/api/v1/artists/artist-members/\(request.artistMemberId)"
         }
     }
     
