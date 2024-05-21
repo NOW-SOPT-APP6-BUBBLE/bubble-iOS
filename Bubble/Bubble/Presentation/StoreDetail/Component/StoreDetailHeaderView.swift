@@ -21,7 +21,7 @@ final class StoreDetailHeaderView: UIView {
         $0.textColor = .white
     }
     
-    private let middleLine = UIView().then {
+    private let separator = UIView().then {
         $0.backgroundColor = .gray800
     }
     
@@ -60,7 +60,7 @@ final class StoreDetailHeaderView: UIView {
         
         descriptionStackView.addArrangedSubviews(descriptionLabel, lineupSection, comingsoonSection)
         
-        self.addSubviews(headerImage, artistLabel, middleLine, descriptionStackView)
+        self.addSubviews(headerImage, artistLabel, separator, descriptionStackView)
         
         headerImage.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -70,7 +70,7 @@ final class StoreDetailHeaderView: UIView {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(headerImage.snp.bottom).offset(16)
         }
-        middleLine.snp.makeConstraints {
+        separator.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(artistLabel.snp.bottom).offset(16)
             $0.width.equalToSuperview().inset(16)
@@ -79,7 +79,7 @@ final class StoreDetailHeaderView: UIView {
         
         descriptionStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.top.equalTo(middleLine.snp.bottom).offset(12)
+            $0.top.equalTo(separator.snp.bottom).offset(12)
             $0.bottom.equalToSuperview().inset(0)
         }
     }
