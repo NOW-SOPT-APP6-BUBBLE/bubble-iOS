@@ -52,8 +52,8 @@
 		A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A772BF686D800E0BA5E /* FriendsTableViewCell.swift */; };
 		A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A792BF6877300E0BA5E /* NSObject+.swift */; };
 		A2C24A7C2BF730FC00E0BA5E /* FriendsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A7B2BF730FC00E0BA5E /* FriendsHeaderView.swift */; };
-		A2D0C7AA2BFBDEA5008B11A3 /* ArtistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7A92BFBDEA5008B11A3 /* ArtistService.swift */; };
-		A2D0C7AC2BFBDECC008B11A3 /* ArtistTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */; };
+		A2D0C7AA2BFBDEA5008B11A3 /* ArtistMembersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7A92BFBDEA5008B11A3 /* ArtistMembersService.swift */; };
+		A2D0C7AC2BFBDECC008B11A3 /* ArtistMembersTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AB2BFBDECC008B11A3 /* ArtistMembersTargetType.swift */; };
 		A2D0C7AF2BFBE388008B11A3 /* ArtistListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */; };
 		A2D0C7B22BFC51BD008B11A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A2D0C7B12BFC51BD008B11A3 /* Kingfisher */; };
 /* End PBXBuildFile section */
@@ -103,8 +103,8 @@
 		A2C24A772BF686D800E0BA5E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A2C24A792BF6877300E0BA5E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		A2C24A7B2BF730FC00E0BA5E /* FriendsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsHeaderView.swift; sourceTree = "<group>"; };
-		A2D0C7A92BFBDEA5008B11A3 /* ArtistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistService.swift; sourceTree = "<group>"; };
-		A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTargetType.swift; sourceTree = "<group>"; };
+		A2D0C7A92BFBDEA5008B11A3 /* ArtistMembersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMembersService.swift; sourceTree = "<group>"; };
+		A2D0C7AB2BFBDECC008B11A3 /* ArtistMembersTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMembersTargetType.swift; sourceTree = "<group>"; };
 		A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,7 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				A2AC829E2BED5A2600C5E4D0 /* TempService.swift */,
-				A2D0C7A92BFBDEA5008B11A3 /* ArtistService.swift */,
+				A2D0C7A92BFBDEA5008B11A3 /* ArtistMembersService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -337,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */,
-				A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */,
+				A2D0C7AB2BFBDECC008B11A3 /* ArtistMembersTargetType.swift */,
 			);
 			path = TargetType;
 			sourceTree = "<group>";
@@ -490,8 +490,8 @@
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
 				A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */,
 				A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */,
-				A2D0C7AC2BFBDECC008B11A3 /* ArtistTargetType.swift in Sources */,
-				A2D0C7AA2BFBDEA5008B11A3 /* ArtistService.swift in Sources */,
+				A2D0C7AC2BFBDECC008B11A3 /* ArtistMembersTargetType.swift in Sources */,
+				A2D0C7AA2BFBDEA5008B11A3 /* ArtistMembersService.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
 				A29FAEDB2BF799A600C56815 /* PaddingLabel.swift in Sources */,
 				8658D2D12BFA2FAB00F62E53 /* StoreDetailPrice.swift in Sources */,

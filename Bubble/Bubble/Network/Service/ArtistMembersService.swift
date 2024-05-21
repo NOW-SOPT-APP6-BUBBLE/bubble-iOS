@@ -9,14 +9,14 @@ import Foundation
 
 import Moya
 
-final class ArtistService {
-    static let shared = ArtistService()
-    private var artistProvider = MoyaProvider<ArtistTargetType>(plugins: [MoyaLoggingPlugin()])
+final class ArtistMembersService {
+    static let shared = ArtistMembersService()
+    private var artistProvider = MoyaProvider<ArtistMembersTargetType>(plugins: [MoyaLoggingPlugin()])
     
     private init() {}
 }
 
-extension ArtistService {
+extension ArtistMembersService {
     func fetchArtistList(memberId: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         artistProvider.request(.fetchArtistList(memberId: memberId)) { result in
             switch result {

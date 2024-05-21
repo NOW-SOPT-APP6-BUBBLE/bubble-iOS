@@ -9,11 +9,11 @@ import Foundation
 
 import Moya
 
-enum ArtistTargetType {
+enum ArtistMembersTargetType {
     case fetchArtistList(memberId: String)
 }
 
-extension ArtistTargetType: TargetType {
+extension ArtistMembersTargetType: TargetType {
     var baseURL: URL {
         return URL(string: Secret.baseURL)!
     }
