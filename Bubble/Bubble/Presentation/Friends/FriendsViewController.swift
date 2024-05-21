@@ -12,6 +12,7 @@ final class FriendsViewController: BaseViewController {
     // MARK: - Property
     
     private let titles = ["내 프로필", "즐겨찾기", "추천 친구"]
+    private let memberId = "1"
 
     private var isDropDownArray = [true, true, true]
     private var starFriends: [ArtistListModel] = []
@@ -89,7 +90,7 @@ final class FriendsViewController: BaseViewController {
     // MARK: - Helper
     
     private func fetchArtistList() {
-        ArtistService.shared.fetchArtistList(memberId: "1") { res in
+        ArtistService.shared.fetchArtistList(memberId: memberId) { res in
             switch res {
             case .success(let data):
                 guard let data = data as? BaseModel<ArtistListResult> else { return }
