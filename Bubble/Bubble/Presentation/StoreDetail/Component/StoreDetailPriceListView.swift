@@ -7,14 +7,9 @@
 
 import UIKit
 
-struct PriceData {
-    let count: String
-    let originPrice: String
-    let currentPrice: String
-}
-
 final class StoreDetailPriceListView: UIView {
     // MARK: - Property
+    
     let maxShow = 3
     
     private let priceData: [StoreDetailPrice] = getStoreDetailStoreDetailPrice()
@@ -55,6 +50,7 @@ final class StoreDetailPriceListView: UIView {
     // MARK: - Life Cycle
     
     // MARK: - Set UI
+    
     func setLayout() {
         priceList.addArrangedSubviews(createPriceList())
         self.addSubviews(priceList, moreButton)

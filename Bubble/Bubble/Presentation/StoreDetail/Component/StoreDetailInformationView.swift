@@ -9,6 +9,7 @@ import UIKit
 
 final class StoreDetailInformationView: UIView {
     // MARK: - Property
+    
     var viewController: StoreDetailViewController?
     var noticeData = getStoreDetailNoticeData()
     

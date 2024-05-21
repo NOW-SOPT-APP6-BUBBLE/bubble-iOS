@@ -46,6 +46,7 @@ final class StoreDetailHeaderInfoView: UIStackView {
     // MARK: - Action
     
 }
+
 // MARK: - Extension
 
 extension StoreDetailHeaderInfoView {

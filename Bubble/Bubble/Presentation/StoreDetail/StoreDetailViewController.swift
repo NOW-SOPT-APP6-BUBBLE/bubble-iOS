@@ -12,6 +12,7 @@ final class StoreDetailViewController: BaseViewController {
     // MARK: - Property
     
     // MARK: - Component
+    
     private var scrollView = UIScrollView()
     private let contentView = UIView()
     
