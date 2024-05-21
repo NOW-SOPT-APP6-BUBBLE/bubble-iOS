@@ -23,7 +23,7 @@ extension ArtistsServeice {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
-                let networkResult = self.judgeStatus(by: statusCode, data, EmptyResultModel.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseModel<StoreDetailResult>.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
@@ -53,5 +53,3 @@ extension ArtistsServeice {
         return .success(decodedData as Any)
     }
 }
-
-

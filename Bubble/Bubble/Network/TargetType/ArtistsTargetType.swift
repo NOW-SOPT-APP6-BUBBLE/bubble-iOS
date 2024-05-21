@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum ArtistsTargetType {
-    case getStoreDetail(memberId: String ,artistId: String)
+    case getStoreDetail(memberId: String, artistId: String)
 }
 
 extension ArtistsTargetType: TargetType {
@@ -20,14 +20,14 @@ extension ArtistsTargetType: TargetType {
     
     var path: String {
         switch self {
-        case .getStoreDetail(let memberId, let artistId):
+        case .getStoreDetail(_, let artistId):
             return "/api/v1/artists/\(artistId)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getStoreDetail(artistId: let artistId):
+        case .getStoreDetail:
             return .get
         }
     }
@@ -41,8 +41,8 @@ extension ArtistsTargetType: TargetType {
     
     var headers: [String: String]? {
         switch self {
-        case .getStoreDetail(memberId: let memberId, artistId: let artistId):
-            return ["Content-Type": "application/json","memberId": memberId]
+        case .getStoreDetail(memberId: let memberId, artistId: _):
+            return ["Content-Type": "application/json", "memberId": memberId]
         }
     }
 }

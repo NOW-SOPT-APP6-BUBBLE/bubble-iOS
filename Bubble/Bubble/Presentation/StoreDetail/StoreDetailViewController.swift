@@ -11,9 +11,6 @@ final class StoreDetailViewController: BaseViewController {
     
     // MARK: - Property
     
-    private var storeDetailResult: StoreDetailResult = StoreDetailResult(artist: StoreDetailArtist(name: "dummy", description: "dummy", photo: "dummt", subscribe: [StoreDetailSubscribe(name: "1인권", price: 10000)], isServiceMembers: ["dummy"], isNotServiceMembers: ["dummy"]))
-    
-    
     // MARK: - Component
     
     private var scrollView = UIScrollView()
@@ -120,14 +117,16 @@ final class StoreDetailViewController: BaseViewController {
     }
     
     private func fetchStoreDetail() {
-        ArtistsServeice.shared.getStoreDetail(memberId: "1", artistId: "1") { res in
+        ArtistsServeice.shared.getStoreDetail(
+            memberId: "1", artistId: "3"
+        ) { res in
             switch res {
             case .success(let data):
                 guard let data = data as? BaseModel<StoreDetailResult> else { return }
                 Logger.debugDescription(data.result)
-                self.storeDetailResult = data.result
-            
-                print(self.storeDetailResult)
+                
+                self.headerView.dataBind(data.result.artist)
+                self.priceListView.dataBind(data.result.artist.subscribe)
             case .requestError:
                 print("요청 오류 입니다")
             case .decodingError:

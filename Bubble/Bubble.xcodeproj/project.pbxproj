@@ -30,6 +30,7 @@
 		86A4177C2BFD0B4F0090CFF0 /* ArtistsServeice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4177B2BFD0B4F0090CFF0 /* ArtistsServeice.swift */; };
 		86A4177E2BFD0B6A0090CFF0 /* ArtistsTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4177D2BFD0B6A0090CFF0 /* ArtistsTargetType.swift */; };
 		86A417802BFD0B9F0090CFF0 /* StoreDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4177F2BFD0B9F0090CFF0 /* StoreDetailModel.swift */; };
+		86A417822BFD25230090CFF0 /* CombineString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A417812BFD25230090CFF0 /* CombineString.swift */; };
 		A291B1A82BECD9140044CB2B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A72BECD9140044CB2B /* NetworkResult.swift */; };
 		A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A92BECD9220044CB2B /* Logger.swift */; };
 		A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AB2BECD9280044CB2B /* UIFont+.swift */; };
@@ -89,6 +90,7 @@
 		86A4177B2BFD0B4F0090CFF0 /* ArtistsServeice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsServeice.swift; sourceTree = "<group>"; };
 		86A4177D2BFD0B6A0090CFF0 /* ArtistsTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTargetType.swift; sourceTree = "<group>"; };
 		86A4177F2BFD0B9F0090CFF0 /* StoreDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailModel.swift; sourceTree = "<group>"; };
+		86A417812BFD25230090CFF0 /* CombineString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineString.swift; sourceTree = "<group>"; };
 		A291B1A72BECD9140044CB2B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A291B1A92BECD9220044CB2B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A291B1AB2BECD9280044CB2B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			children = (
 				A291B1A92BECD9220044CB2B /* Logger.swift */,
 				A29FAEDA2BF799A600C56815 /* PaddingLabel.swift */,
+				86A417812BFD25230090CFF0 /* CombineString.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				868FA25D2BF9093D001760C2 /* StoreDetailPriceListView.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
+				86A417822BFD25230090CFF0 /* CombineString.swift in Sources */,
 				2ECB595A2BF4C34700DA4FE9 /* MoreViewController.swift in Sources */,
 				2E37781F2BFB99EE0074903A /* ArtistCollectionViewCell.swift in Sources */,
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
