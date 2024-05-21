@@ -43,6 +43,9 @@
 		A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A772BF686D800E0BA5E /* FriendsTableViewCell.swift */; };
 		A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A792BF6877300E0BA5E /* NSObject+.swift */; };
 		A2C24A7C2BF730FC00E0BA5E /* FriendsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A7B2BF730FC00E0BA5E /* FriendsHeaderView.swift */; };
+		A2D0C7AA2BFBDEA5008B11A3 /* ArtistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7A92BFBDEA5008B11A3 /* ArtistService.swift */; };
+		A2D0C7AC2BFBDECC008B11A3 /* ArtistTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */; };
+		A2D0C7AF2BFBE388008B11A3 /* ArtistListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		A2C24A772BF686D800E0BA5E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A2C24A792BF6877300E0BA5E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		A2C24A7B2BF730FC00E0BA5E /* FriendsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsHeaderView.swift; sourceTree = "<group>"; };
+		A2D0C7A92BFBDEA5008B11A3 /* ArtistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistService.swift; sourceTree = "<group>"; };
+		A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTargetType.swift; sourceTree = "<group>"; };
+		A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,7 @@
 		A291B1AD2BECD92E0044CB2B /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				A2D0C7AD2BFBE378008B11A3 /* Model */,
 				A2C24A762BF686CF00E0BA5E /* Cell */,
 				A2AC326E2BECCF9B0010903A /* FriendsViewController.swift */,
 			);
@@ -268,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				A2AC829E2BED5A2600C5E4D0 /* TempService.swift */,
+				A2D0C7A92BFBDEA5008B11A3 /* ArtistService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */,
+				A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */,
 			);
 			path = TargetType;
 			sourceTree = "<group>";
@@ -288,6 +297,14 @@
 				A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		A2D0C7AD2BFBE378008B11A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +434,8 @@
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
 				A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */,
 				A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */,
+				A2D0C7AC2BFBDECC008B11A3 /* ArtistTargetType.swift in Sources */,
+				A2D0C7AA2BFBDEA5008B11A3 /* ArtistService.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
@@ -424,6 +443,7 @@
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,
+				A2D0C7AF2BFBE388008B11A3 /* ArtistListModel.swift in Sources */,
 				A2C24A7C2BF730FC00E0BA5E /* FriendsHeaderView.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
 				A29FAED52BF74C9500C56815 /* FriendsFooterView.swift in Sources */,

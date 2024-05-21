@@ -76,7 +76,39 @@ final class FriendsViewController: BaseViewController {
 //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetchArtistList()
+    }
+    
     // MARK: - Helper
+    
+    private func fetchArtistList() {
+        ArtistService.shared.fetchArtistList(memberId: "1") { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BaseModel<ArtistListResult> else { return }
+                print("data.result.isSubsArtists")
+                print(data.result.isSubsArtists)
+                print("data.result.isNotSubsArtists")
+                print(data.result.isNotSubsArtists)
+                print("응답값! \(data)")
+            case .requestError:
+                print("요청 오류 입니다")
+            case .decodingError:
+                print("디코딩 오류 입니다")
+            case .pathError:
+                print("경로 오류 입니다")
+            case .serverError:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
     
     // MARK: - Action
     
