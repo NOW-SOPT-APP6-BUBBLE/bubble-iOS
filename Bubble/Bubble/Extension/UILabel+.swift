@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    static func createAttributedText(for fontName: FontStyle, withText text: String, color: UIColor = .black) -> NSAttributedString? {
+    static func createAttributedText(for fontName: FontStyle, withText text: String = " ", color: UIColor = .black) -> NSAttributedString? {
         let letterSpacing: CGFloat
         
         switch fontName {
