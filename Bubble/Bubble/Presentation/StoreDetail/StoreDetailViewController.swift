@@ -16,17 +16,19 @@ final class StoreDetailViewController: BaseViewController {
     private var scrollView = UIScrollView()
     private let contentView = UIView()
     
-    private let header = StoreDetailHeaderView()
+    private let headerView = StoreDetailHeaderView()
     
-    private let priceList = StoreDetailPriceListView()
+    private let priceListView = StoreDetailPriceListView()
     
-    private let infinityLine = UIView().then {
+    private let separator = UIView().then {
         $0.backgroundColor = .gray900
     }
     
-    private let information = StoreDetailInformationView()
+    private lazy var informationView = StoreDetailInformationView().then {
+        $0.viewController = self
+    }
     
-    private var buyButton = UIButton().then {
+    private lazy var buyButton = UIButton().then {
         if let attributedTitle = UILabel.createAttributedText(for: .name1, withText: "이용권 구매", color: .white) {
             $0.setAttributedTitle(attributedTitle, for: .normal)
         }
@@ -44,23 +46,19 @@ final class StoreDetailViewController: BaseViewController {
         $0.backgroundColor = .gray200
         
         $0.isEnabled = false
+        
+        $0.addTarget(self, action: #selector(buyButtonDidTap), for: .touchUpInside)
     }
     // MARK: - init
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setTarget()
-    }
     
     // MARK: - Life Cycle
     
     // MARK: - Set UI
     
     override func setLayout() {
-        information.viewController = self
         view.addSubviews(scrollView, buyButton)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(header, priceList, infinityLine, information)
+        contentView.addSubviews(headerView, priceListView, separator, informationView)
         
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
@@ -78,24 +76,24 @@ final class StoreDetailViewController: BaseViewController {
             $0.width.equalTo(scrollView)
         }
         
-        header.snp.makeConstraints {
+        headerView.snp.makeConstraints {
             $0.top.equalTo(contentView)
             $0.width.equalToSuperview()
         }
         
-        priceList.snp.makeConstraints {
-            $0.top.equalTo(header.snp.bottom).offset(20)
+        priceListView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        infinityLine.snp.makeConstraints {
-            $0.top.equalTo(priceList.snp.bottom)
+        separator.snp.makeConstraints {
+            $0.top.equalTo(priceListView.snp.bottom)
             $0.width.equalToSuperview()
             $0.height.equalTo(5)
         }
         
-        information.snp.makeConstraints {
-            $0.top.equalTo(infinityLine.snp.bottom).offset(22)
+        informationView.snp.makeConstraints {
+            $0.top.equalTo(separator.snp.bottom).offset(22)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
@@ -106,10 +104,6 @@ final class StoreDetailViewController: BaseViewController {
     }
     
     // MARK: - Helper
-    
-    private func setTarget() {
-        buyButton.addTarget(self, action: #selector(buyButtonDidTap), for: .touchUpInside)
-    }
     
     public func toggleBuyButton(isAble: Bool) {
         buyButton.isEnabled = isAble
