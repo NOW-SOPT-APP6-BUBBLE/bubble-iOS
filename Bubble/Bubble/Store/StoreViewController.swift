@@ -31,7 +31,7 @@ final class StoreViewController: BaseViewController {
         $0.backgroundColor = .white
         $0.delegate = self
         $0.dataSource = self
-        $0.register(StoreCollectionViewCell.self, forCellWithReuseIdentifier: StoreCollectionViewCell.identifier)
+        $0.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: ArtistCollectionViewCell.identifier)
         }
     
     private let label1 = UILabel().then {
@@ -124,7 +124,7 @@ extension StoreViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoreCollectionViewCell.identifier, for: indexPath) as? StoreCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistCollectionViewCell.identifier, for: indexPath) as? ArtistCollectionViewCell else { return UICollectionViewCell() }
         let itemData = StoreCellData[indexPath.item]
         cell.setData(model: itemData)
         return cell

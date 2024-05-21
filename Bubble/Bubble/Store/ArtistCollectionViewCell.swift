@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class StoreCollectionViewCell: BaseCollectionViewCell {
+final class ArtistCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - Property
     
-    static let identifier = "StoreCollectionViewCell"
+    static let identifier = "ArtistCollectionViewCell"
     
     // MARK: - Component
     
