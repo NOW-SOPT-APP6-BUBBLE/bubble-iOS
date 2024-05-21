@@ -20,13 +20,11 @@ final class FriendsHeaderView: UITableViewHeaderFooterView {
     // MARK: - Component
     
     let headerLabel = UILabel().then {
-        $0.textColor = .gray400
-        $0.font = .appleSDGothicNeoFont(for: .sub2)
+        $0.attributedText = UILabel.createAttributedText(for: .sub2, color: .gray400)
     }
     
     let cellCountLabel = UILabel().then {
-        $0.textColor = .gray400
-        $0.font = .appleSDGothicNeoFont(for: .sub1)
+        $0.attributedText = UILabel.createAttributedText(for: .sub1, color: .gray400)
     }
     
     lazy var dropDownButton = UIButton().then {
