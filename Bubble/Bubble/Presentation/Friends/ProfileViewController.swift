@@ -33,6 +33,8 @@ final class ProfileViewController: BaseViewController {
     
     private let profileImageView = UIImageView().then {
         $0.image = .iconProfile
+        $0.layer.cornerRadius = 49
+        $0.layer.masksToBounds = true
     }
     
     private let artistChipImageView = UIImageView().then {
@@ -168,7 +170,7 @@ final class ProfileViewController: BaseViewController {
             switch res {
             case .success(let data):
                 guard let data = data as? BaseModel<ArtistProfileResult> else { return }
-                data.result.toArtistProfileModel()
+                self.dataBind(model: data.result.toArtistProfileModel())
             case .requestError:
                 Logger.debugDescription("요청 오류 입니다")
             case .decodingError:
@@ -183,6 +185,18 @@ final class ProfileViewController: BaseViewController {
         }
     }
     
+    private func dataBind(model: ArtistProfileModel) {
+        starButton.setImage(model.isSubscribed ? .iconStar : .iconEmptyStar, for: .normal)
+        profileImageView.kf.setImage(with: model.imageURL)
+        nameLabel.text = model.nickname
+        oneSentenceLabel.text = model.introduction
+        if let artistName = model.artistName {
+            introduceLabel.text = "\(artistName) · \(model.artistMemberName)"
+        } else {
+            introduceLabel.text = "\(model.artistMemberName)"
+        }
+    }
+    
     // MARK: - Action
     
     @objc private func xButtonDidTap() {
@@ -190,11 +204,9 @@ final class ProfileViewController: BaseViewController {
     }
     
     @objc private func starButtonDidTap() {
+        // TODO: - 즐겨찾기 추가 및 삭제 API 연동 필요
+        
         isStar.toggle()
         starButton.setImage(isStar ? .iconStar : .iconEmptyStar, for: .normal)
     }
-    
-    // MARK: - Extension
-    
-    // MARK: - Delegate
 }
