@@ -61,6 +61,7 @@ final class StoreDetailHeaderView: UIView {
         headerImage.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
+            $0.height.equalTo(headerImage.snp.width).multipliedBy(170.0 / 375.0)
         }
         artistLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
@@ -85,6 +86,8 @@ final class StoreDetailHeaderView: UIView {
     func dataBind(_ data: StoreDetailArtist) {
         self.artistLabel.text = data.name
         self.descriptionLabel.text = data.description
+        
+        self.headerImage.kf.setImage(with: URL(string: data.photo))
 
         self.descriptionStackView.addArrangedSubviews(
             createSection(

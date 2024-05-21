@@ -113,7 +113,7 @@ extension StoreDetailPriceListView {
         return priceData.enumerated().map { index, item in
             createPriceCard(
                 count: item.name,
-                originPrice: "", currentPrice: "₩7,000",
+                originPrice: "", currentPrice: wonFormatter(item.price),
                 index: index)
         }
     }
