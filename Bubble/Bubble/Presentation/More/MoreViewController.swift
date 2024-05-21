@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SnapKit
+import Moya
 
 final class MoreViewController: BaseViewController {
     
@@ -106,6 +108,29 @@ final class MoreViewController: BaseViewController {
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    override func setStyle() {
+        navigationItem.title = NavigationTitleName.more.rawValue
+
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        
+        let navigationBarAppearance = UINavigationBarAppearance().then {
+            $0.backgroundColor = .white
+            $0.titlePositionAdjustment = .init(
+                horizontal: -CGFloat.greatestFiniteMagnitude,
+                vertical: 0
+            )
+            $0.largeTitleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline1) ?? UIFont()]
+            $0.titleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline3) ?? UIFont()]
+        }
+        navigationItem.scrollEdgeAppearance = navigationBarAppearance
+        navigationItem.compactAppearance = navigationBarAppearance
+        navigationItem.standardAppearance = navigationBarAppearance
+        
+        navigationItem.setRightBarButtonItems([], animated: true)
+        navigationItem.rightBarButtonItem?.tintColor = .black
     }
 
     // MARK: - Helper

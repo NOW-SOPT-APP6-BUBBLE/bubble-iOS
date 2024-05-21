@@ -13,6 +13,7 @@
 		2E2955162BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */; };
 		2E37781D2BFB82DA0074903A /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37781C2BFB82DA0074903A /* StoreViewController.swift */; };
 		2E37781F2BFB99EE0074903A /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */; };
+		2EA8FCC62BFCE2150077CEDC /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA8FCC52BFCE2150077CEDC /* Secret.swift */; };
 		2ECB595A2BF4C34700DA4FE9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */; };
 		2ECB595C2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */; };
 		2ECB595F2BF4E0C400DA4FE9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */; };
@@ -25,7 +26,6 @@
 		868FA2522BF8DBA4001760C2 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2512BF8DBA4001760C2 /* UIStackView+.swift */; };
 		868FA2542BF8EF77001760C2 /* StoreDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA2532BF8EF77001760C2 /* StoreDetailHeaderView.swift */; };
 		868FA25D2BF9093D001760C2 /* StoreDetailPriceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FA25C2BF9093D001760C2 /* StoreDetailPriceListView.swift */; };
-		86A417782BFCC0210090CFF0 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A417772BFCC0210090CFF0 /* Secret.swift */; };
 		A291B1A82BECD9140044CB2B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A72BECD9140044CB2B /* NetworkResult.swift */; };
 		A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1A92BECD9220044CB2B /* Logger.swift */; };
 		A291B1AC2BECD9280044CB2B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1AB2BECD9280044CB2B /* UIFont+.swift */; };
@@ -62,6 +62,7 @@
 		2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2E37781C2BFB82DA0074903A /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
+		2EA8FCC52BFCE2150077CEDC /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableVIewCell.swift; sourceTree = "<group>"; };
 		2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		868FA2512BF8DBA4001760C2 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		868FA2532BF8EF77001760C2 /* StoreDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailHeaderView.swift; sourceTree = "<group>"; };
 		868FA25C2BF9093D001760C2 /* StoreDetailPriceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailPriceListView.swift; sourceTree = "<group>"; };
-		86A417772BFCC0210090CFF0 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		A291B1A72BECD9140044CB2B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		A291B1A92BECD9220044CB2B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A291B1AB2BECD9280044CB2B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -128,9 +128,9 @@
 		2E37781B2BFB82A50074903A /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				2EA8FCC72BFCFBE70077CEDC /* Cell */,
 				2E1C2A2C2BFC31AA0045E215 /* Model */,
 				2E37781C2BFB82DA0074903A /* StoreViewController.swift */,
-				2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -142,6 +142,14 @@
 				2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		2EA8FCC72BFCFBE70077CEDC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		2ECB595D2BF4E0B100DA4FE9 /* Enum */ = {
@@ -329,7 +337,7 @@
 			children = (
 				A291B1A72BECD9140044CB2B /* NetworkResult.swift */,
 				A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */,
-				86A417772BFCC0210090CFF0 /* Secret.swift */,
+				2EA8FCC52BFCE2150077CEDC /* Secret.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -491,6 +499,7 @@
 				A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
 				8658D2D12BFA2FAB00F62E53 /* StoreDetailPrice.swift in Sources */,
+				2EA8FCC62BFCE2150077CEDC /* Secret.swift in Sources */,
 				A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */,
 				868FA25D2BF9093D001760C2 /* StoreDetailPriceListView.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
@@ -508,7 +517,6 @@
 				A2AC829F2BED5A2600C5E4D0 /* TempService.swift in Sources */,
 				A2AC82A22BED5AC000C5E4D0 /* TempTargetType.swift in Sources */,
 				8658D2CF2BFA2ECE00F62E53 /* StoreDetailNotice.swift in Sources */,
-				86A417782BFCC0210090CFF0 /* Secret.swift in Sources */,
 				A29F9CBB2BF27E8F0030F957 /* CALayer+.swift in Sources */,
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
 				A29FAED72BF75D7B00C56815 /* NavigationTitleName.swift in Sources */,
