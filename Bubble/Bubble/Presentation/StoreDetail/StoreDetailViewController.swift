@@ -11,6 +11,9 @@ final class StoreDetailViewController: BaseViewController {
     
     // MARK: - Property
     
+    private var storeDetailResult: StoreDetailResult = StoreDetailResult(artist: StoreDetailArtist(name: "dummy", description: "dummy", photo: "dummt", subscribe: [StoreDetailSubscribe(name: "1인권", price: 10000)], isServiceMembers: ["dummy"], isNotServiceMembers: ["dummy"]))
+    
+    
     // MARK: - Component
     
     private var scrollView = UIScrollView()
@@ -52,6 +55,12 @@ final class StoreDetailViewController: BaseViewController {
     // MARK: - init
     
     // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetchStoreDetail()
+    }
     
     // MARK: - Set UI
     
@@ -108,6 +117,29 @@ final class StoreDetailViewController: BaseViewController {
     public func toggleBuyButton(isAble: Bool) {
         buyButton.isEnabled = isAble
         buyButton.backgroundColor =  isAble ? .jypBlue : .gray200
+    }
+    
+    private func fetchStoreDetail() {
+        ArtistsServeice.shared.getStoreDetail(memberId: "1", artistId: "1") { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BaseModel<StoreDetailResult> else { return }
+                Logger.debugDescription(data.result)
+                self.storeDetailResult = data.result
+            
+                print(self.storeDetailResult)
+            case .requestError:
+                print("요청 오류 입니다")
+            case .decodingError:
+                print("디코딩 오류 입니다")
+            case .pathError:
+                print("경로 오류 입니다")
+            case .serverError:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
     }
     
     // MARK: - Action
