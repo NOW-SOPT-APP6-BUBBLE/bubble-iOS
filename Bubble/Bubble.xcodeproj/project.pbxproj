@@ -56,6 +56,7 @@
 		A2D0C7AC2BFBDECC008B11A3 /* ArtistTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */; };
 		A2D0C7AF2BFBE388008B11A3 /* ArtistListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */; };
 		A2D0C7B22BFC51BD008B11A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A2D0C7B12BFC51BD008B11A3 /* Kingfisher */; };
+		A2D0C7B42BFCCC6C008B11A3 /* ArtistProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7B32BFCCC6C008B11A3 /* ArtistProfileModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		A2D0C7A92BFBDEA5008B11A3 /* ArtistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistService.swift; sourceTree = "<group>"; };
 		A2D0C7AB2BFBDECC008B11A3 /* ArtistTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTargetType.swift; sourceTree = "<group>"; };
 		A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListModel.swift; sourceTree = "<group>"; };
+		A2D0C7B32BFCCC6C008B11A3 /* ArtistProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProfileModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,9 +319,9 @@
 		A2AC82992BED42D500C5E4D0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				86A417772BFCC0210090CFF0 /* Secret.swift */,
 				A291B1A72BECD9140044CB2B /* NetworkResult.swift */,
 				A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */,
-				86A417772BFCC0210090CFF0 /* Secret.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -356,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */,
+				A2D0C7B32BFCCC6C008B11A3 /* ArtistProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				868FA25D2BF9093D001760C2 /* StoreDetailPriceListView.swift in Sources */,
 				A2AC326B2BECCF9B0010903A /* AppDelegate.swift in Sources */,
 				2ECB595A2BF4C34700DA4FE9 /* MoreViewController.swift in Sources */,
+				A2D0C7B42BFCCC6C008B11A3 /* ArtistProfileModel.swift in Sources */,
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,

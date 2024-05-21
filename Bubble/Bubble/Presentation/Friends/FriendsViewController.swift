@@ -233,6 +233,15 @@ extension FriendsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let profileViewController = ProfileViewController()
+        profileViewController.memberId = memberId
+        
+        let row = indexPath.row
+        if indexPath.section == 1 {
+            profileViewController.artistMemberId = starFriends[row].artistMemberId
+        } else if indexPath.section == 2 {
+            profileViewController.artistMemberId = ordinaryFriends[row].artistMemberId
+        }
+        
         profileViewController.modalPresentationStyle = .fullScreen
         self.present(profileViewController, animated: true)
     }

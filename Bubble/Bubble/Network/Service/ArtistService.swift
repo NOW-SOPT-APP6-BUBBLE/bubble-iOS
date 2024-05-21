@@ -17,13 +17,33 @@ final class ArtistService {
 }
 
 extension ArtistService {
-    func fetchArtistList(memberId: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func fetchArtistList(
+        memberId: String,
+        completion: @escaping (NetworkResult<Any>) -> Void
+    ) {
         artistProvider.request(.fetchArtistList(memberId: memberId)) { result in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
                 let networkResult = self.judgeStatus(by: statusCode, data, BaseModel<ArtistListResult>.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func fetchArtistProfile(
+        request: ArtistProfileRequest,
+        completion: @escaping (NetworkResult<Any>) -> Void
+    ) {
+        artistProvider.request(.fetchArtistProfile(request: request)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseModel<ArtistProfileResult>.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

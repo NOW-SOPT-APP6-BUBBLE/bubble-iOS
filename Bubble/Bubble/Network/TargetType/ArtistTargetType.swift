@@ -11,6 +11,7 @@ import Moya
 
 enum ArtistTargetType {
     case fetchArtistList(memberId: String)
+    case fetchArtistProfile(request: ArtistProfileRequest)
 }
 
 extension ArtistTargetType: TargetType {
@@ -21,20 +22,22 @@ extension ArtistTargetType: TargetType {
     var path: String {
         switch self {
         case .fetchArtistList:
-            return "/api/v1/artists/artist-members"
+            return "/artists/artist-members"
+        case .fetchArtistProfile(let request):
+            return "/artists/artist-members/\(request.artistMemberId)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchArtistList:
+        case .fetchArtistList, .fetchArtistProfile:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .fetchArtistList:
+        case .fetchArtistList, .fetchArtistProfile:
             return .requestPlain
         }
     }
@@ -44,6 +47,9 @@ extension ArtistTargetType: TargetType {
         case .fetchArtistList(let memberId):
             return ["Content-Type": "application/json",
                     "memberId": memberId]
+        case .fetchArtistProfile(let request):
+            return ["Content-Type": "application/json",
+                    "memberId": request.memberId]
         }
     }
 }

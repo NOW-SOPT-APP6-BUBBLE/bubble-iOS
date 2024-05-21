@@ -14,6 +14,9 @@ final class ProfileViewController: BaseViewController {
     
     // MARK: - Property
     
+    var memberId: String?
+    var artistMemberId: Int?
+    
     private var isStar = false
     
     // MARK: - Component
@@ -81,6 +84,14 @@ final class ProfileViewController: BaseViewController {
         $0.layer.cornerRadius = 18
     }
     
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetchArtistProfile()
+    }
+    
     // MARK: - Set UI
     
     override func setLayout() { 
@@ -144,6 +155,33 @@ final class ProfileViewController: BaseViewController {
     }
     
     // MARK: - Helper
+    
+    private func fetchArtistProfile() {
+        guard let memberId = memberId,
+              let artistMemberId = artistMemberId
+        else {
+            return
+        }
+        
+        let request = ArtistProfileRequest(memberId: memberId, artistMemberId: artistMemberId)
+        ArtistService.shared.fetchArtistProfile(request: request) { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BaseModel<ArtistProfileResult> else { return }
+                data.result.toArtistProfileModel()
+            case .requestError:
+                Logger.debugDescription("요청 오류 입니다")
+            case .decodingError:
+                Logger.debugDescription("디코딩 오류 입니다")
+            case .pathError:
+                Logger.debugDescription("경로 오류 입니다")
+            case .serverError:
+                Logger.debugDescription("서버 오류입니다")
+            case .networkFail:
+                Logger.debugDescription("네트워크 오류입니다")
+            }
+        }
+    }
     
     // MARK: - Action
     
