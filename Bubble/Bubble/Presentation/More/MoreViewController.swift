@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SnapKit
+import Moya
 
 final class MoreViewController: BaseViewController {
     
     // MARK: - Property
     
-    private let cellData = [
+    private let moreCellData = [
         MoreCellModel(icon: UIImage(named: "icon_person"), title: "My bubble"),
         MoreCellModel(icon: UIImage(named: "icon_store"), title: "STORE"),
         MoreCellModel(icon: UIImage(named: "icon_notice"), title: "Notice"),
@@ -69,11 +71,12 @@ final class MoreViewController: BaseViewController {
 
     override func setLayout() {
         view.addSubviews(profileImageView, userNameLabel, userEmailLabel, separatorView, moreTableView)
+        
         profileImageView.addSubview(editProfileButton)
         
         profileImageView.snp.makeConstraints {
             $0.width.height.equalTo(120)
-            $0.top.equalToSuperview().offset(112)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(6)
             $0.centerX.equalToSuperview()
         }
         
@@ -107,6 +110,30 @@ final class MoreViewController: BaseViewController {
             $0.bottom.equalToSuperview()
         }
     }
+    
+    override func setStyle() {
+        navigationItem.title = NavigationTitleName.more.rawValue
+
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        
+        let navigationBarAppearance = UINavigationBarAppearance().then {
+            $0.backgroundColor = .white
+            $0.titlePositionAdjustment = .init(
+                horizontal: -CGFloat.greatestFiniteMagnitude,
+                vertical: 0
+            )
+            $0.largeTitleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline1) ?? UIFont()]
+            $0.titleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline3) ?? UIFont()]
+            $0.shadowColor = nil // 하단 구분선 없앨 목적
+        }
+        navigationItem.scrollEdgeAppearance = navigationBarAppearance
+        navigationItem.compactAppearance = navigationBarAppearance
+        navigationItem.standardAppearance = navigationBarAppearance
+        
+        navigationItem.setRightBarButtonItems([], animated: true)
+        navigationItem.rightBarButtonItem?.tintColor = .black
+    }
 
     // MARK: - Helper
 
@@ -124,6 +151,18 @@ extension MoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 1:
+            let storeVC = StoreViewController()
+            navigationController?.pushViewController(storeVC, animated: true)
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -136,11 +175,12 @@ extension MoreViewController: UITableViewDataSource {
         ) as? MoreTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: cellData[indexPath.row])
+        
+        cell.configure(with: moreCellData[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellData.count
+        return moreCellData.count
     }
 }
