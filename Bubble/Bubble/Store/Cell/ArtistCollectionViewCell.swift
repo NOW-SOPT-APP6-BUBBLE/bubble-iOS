@@ -11,7 +11,7 @@ final class ArtistCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - Property
     
-    static let identifier = "ArtistCollectionViewCell"
+    static let identifier = StoreViewController.className
     
     // MARK: - Component
     
@@ -20,12 +20,12 @@ final class ArtistCollectionViewCell: BaseCollectionViewCell {
         $0.clipsToBounds = true
     }
     
-    private let bottomContainer = UIView().then {
+    private let bottomContainerView = UIView().then {
         $0.backgroundColor = .gray100
     }
     
     private let artistLabel = UILabel().then {
-        if let attributedText = UILabel.createAttributedText(for: .name3, withText: "") {
+        if let attributedText = UILabel.createAttributedText(for: .name3, withText: " ") {
             $0.attributedText = attributedText
         }
     }
@@ -39,24 +39,22 @@ final class ArtistCollectionViewCell: BaseCollectionViewCell {
         $0.image = UIImage(named: "icon_rightArrow")
     }
     
-    // MARK: - Init
-    
+    // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
     // MARK: - Set UI
     
     override func setLayout() {
         self.addSubview(contentView)
-        contentView.addSubviews(artistImageView, bottomContainer)
+        contentView.addSubviews(artistImageView, bottomContainerView)
         
-        bottomContainer.addSubviews(
+        bottomContainerView.addSubviews(
             artistLabel,
             bubbleChipImageView,
             arrowImageView
@@ -64,10 +62,10 @@ final class ArtistCollectionViewCell: BaseCollectionViewCell {
         
         artistImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(bottomContainer.snp.top)
+            $0.bottom.equalTo(bottomContainerView.snp.top)
         }
         
-        bottomContainer.snp.makeConstraints {
+        bottomContainerView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.height.equalTo(55)

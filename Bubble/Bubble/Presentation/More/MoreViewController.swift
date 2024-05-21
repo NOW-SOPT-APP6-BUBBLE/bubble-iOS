@@ -13,7 +13,7 @@ final class MoreViewController: BaseViewController {
     
     // MARK: - Property
     
-    private let MoreCellData = [
+    private let moreCellData = [
         MoreCellModel(icon: UIImage(named: "icon_person"), title: "My bubble"),
         MoreCellModel(icon: UIImage(named: "icon_store"), title: "STORE"),
         MoreCellModel(icon: UIImage(named: "icon_notice"), title: "Notice"),
@@ -71,11 +71,12 @@ final class MoreViewController: BaseViewController {
 
     override func setLayout() {
         view.addSubviews(profileImageView, userNameLabel, userEmailLabel, separatorView, moreTableView)
+        
         profileImageView.addSubview(editProfileButton)
         
         profileImageView.snp.makeConstraints {
             $0.width.height.equalTo(120)
-            $0.top.equalToSuperview().offset(112)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(6)
             $0.centerX.equalToSuperview()
         }
         
@@ -124,6 +125,7 @@ final class MoreViewController: BaseViewController {
             )
             $0.largeTitleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline1) ?? UIFont()]
             $0.titleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline3) ?? UIFont()]
+            $0.shadowColor = nil // 하단 구분선 없앨 목적
         }
         navigationItem.scrollEdgeAppearance = navigationBarAppearance
         navigationItem.compactAppearance = navigationBarAppearance
@@ -174,11 +176,11 @@ extension MoreViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.configure(with: MoreCellData[indexPath.row])
+        cell.configure(with: moreCellData[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MoreCellData.count
+        return moreCellData.count
     }
 }

@@ -6,20 +6,20 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
 final class StoreViewController: BaseViewController {
+    
     // MARK: - Property
     
-    private let StoreCellData = [
+    private let storeCellData = [
         StoreCellModel(artistImage: UIImage(named: "artist1"), artistName: "YAOCHEN"),
         StoreCellModel(artistImage: UIImage(named: "artist2"), artistName: "JYP"),
         StoreCellModel(artistImage: UIImage(named: "artist3"), artistName: "DAY6"),
         StoreCellModel(artistImage: UIImage(named: "artist4"), artistName: "TWICE")
     ]
-    
-    private let stackViewHeight: CGFloat = 50
     
     // MARK: - Component
     
@@ -27,7 +27,10 @@ final class StoreViewController: BaseViewController {
         $0.image = UIImage(named: "storeHeaderImage")
     }
     
-    private lazy var artistCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+    private lazy var artistCollectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout()
+    ).then {
         $0.backgroundColor = .white
         $0.delegate = self
         $0.dataSource = self
@@ -47,14 +50,13 @@ final class StoreViewController: BaseViewController {
         $0.isHidden = true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    // MARK: - Life Cycle
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         bottomStackView.isHidden = true
     }
+    
     // MARK: - Set UI
     
     override func setLayout() {
@@ -79,7 +81,7 @@ final class StoreViewController: BaseViewController {
         bottomStackView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(artistCollectionView.snp.bottom)
-            $0.height.equalTo(stackViewHeight)
+            $0.height.equalTo(StoreStackView.height.rawValue)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
@@ -93,7 +95,7 @@ extension StoreViewController: UICollectionViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let scrollViewHeight = scrollView.frame.size.height
         
-        if offsetY > contentHeight - scrollViewHeight - stackViewHeight {
+        if offsetY > contentHeight - scrollViewHeight - StoreStackView.height.rawValue {
             bottomStackView.isHidden = false
         } else {
             bottomStackView.isHidden = true
@@ -120,12 +122,12 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout {
 extension StoreViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return StoreCellData.count
+        return storeCellData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistCollectionViewCell.identifier, for: indexPath) as? ArtistCollectionViewCell else { return UICollectionViewCell() }
-        let itemData = StoreCellData[indexPath.item]
+        let itemData = storeCellData[indexPath.item]
         cell.setData(model: itemData)
         return cell
     }
