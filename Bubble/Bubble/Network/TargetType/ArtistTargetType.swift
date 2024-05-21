@@ -21,7 +21,7 @@ extension ArtistTargetType: TargetType {
     var path: String {
         switch self {
         case .fetchArtistList:
-            return "/api/vi/artists/artist-members"
+            return "/api/v1/artists/artist-members"
         }
     }
     

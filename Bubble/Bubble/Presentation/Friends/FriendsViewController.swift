@@ -182,6 +182,7 @@ extension FriendsViewController: UITableViewDelegate {
             header.dropDownButton.isHidden = true
         case 1:
             header.cellCountLabel.text = "\(starFriends.count)"
+            isDropDownArray[section] = starFriends.count != 0
             header.dropDownButton.isUserInteractionEnabled = starFriends.count != 0
         case 2:
             header.cellCountLabel.text = "\(ordinaryFriends.count)"
