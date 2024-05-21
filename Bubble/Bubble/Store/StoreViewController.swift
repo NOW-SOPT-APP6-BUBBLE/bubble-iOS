@@ -85,6 +85,8 @@ final class StoreViewController: BaseViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension StoreViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
@@ -99,6 +101,8 @@ extension StoreViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension StoreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
@@ -110,6 +114,8 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout {
         return 18
     }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension StoreViewController: UICollectionViewDataSource {
     

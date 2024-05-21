@@ -9,7 +9,11 @@ import UIKit
 
 final class StoreCollectionViewCell: BaseCollectionViewCell {
     
+    // MARK: - Property
+    
     static let identifier = "StoreCollectionViewCell"
+    
+    // MARK: - Component
     
     private let artistImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
