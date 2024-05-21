@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum ArtistsTargetType {
-    case getStoreDetail(memberId: String ,artistId: Int)
+    case getStoreDetail(memberId: String ,artistId: String)
 }
 
 extension ArtistsTargetType: TargetType {

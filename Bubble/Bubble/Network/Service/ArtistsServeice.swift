@@ -11,14 +11,14 @@ import Moya
 
 final class ArtistsServeice {
     static let shared = ArtistsServeice()
-    private var tempProvider = MoyaProvider<TempTargetType>(plugins: [MoyaLoggingPlugin()])
+    private var artistsProvider = MoyaProvider<ArtistsTargetType>(plugins: [MoyaLoggingPlugin()])
     
     private init() {}
 }
 
 extension ArtistsServeice {
-    func getExample(number: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        tempProvider.request(.getExample(number: number)) { result in
+    func getStoreDetail(memberId: String, artistId: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        artistsProvider.request(.getStoreDetail(memberId: memberId, artistId: artistId)) { result in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
