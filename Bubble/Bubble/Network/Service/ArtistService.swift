@@ -1,29 +1,29 @@
 //
-//  TempService.swift
+//  ArtistService.swift
 //  Bubble
 //
-//  Created by 서은수 on 5/10/24.
+//  Created by 서은수 on 5/21/24.
 //
 
 import Foundation
 
 import Moya
 
-final class TempService {
-    static let shared = TempService()
-    private var tempProvider = MoyaProvider<TempTargetType>(plugins: [MoyaLoggingPlugin()])
+final class ArtistService {
+    static let shared = ArtistService()
+    private var artistProvider = MoyaProvider<ArtistTargetType>(plugins: [MoyaLoggingPlugin()])
     
     private init() {}
 }
 
-extension TempService {
-    func getExample(number: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        tempProvider.request(.getExample(number: number)) { result in
+extension ArtistService {
+    func fetchArtistList(memberId: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        artistProvider.request(.fetchArtistList(memberId: memberId)) { result in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
-                let networkResult = self.judgeStatus(by: statusCode, data, EmptyResultModel.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseModel<ArtistListResult>.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
@@ -48,7 +48,7 @@ extension TempService {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(T.self, from: data) else {
             print("⛔️ \(self)에서 디코딩 오류가 발생했습니다 ⛔️")
-            return .pathError
+            return .decodingError
         }
         return .success(decodedData as Any)
     }
