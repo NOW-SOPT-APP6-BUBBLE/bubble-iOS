@@ -38,16 +38,6 @@ final class StoreDetailHeaderView: UIView {
         $0.numberOfLines = 0
     }
     
-    private let lineupInfo = StoreDetailHeaderInfoView().then {
-        $0.dataBind(title: "ARTIST 라인업", titleColor: .white,
-                    description: "WONPIL, DOWOON", descriptionColor: .white)
-    }
-    
-    private let comingsoonInfo = StoreDetailHeaderInfoView().then {
-        $0.dataBind(title: "Coming soon", titleColor: .gray600,
-                    description: "SUNGJIN, Young K", descriptionColor: .gray600)
-    }
-    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -64,7 +54,11 @@ final class StoreDetailHeaderView: UIView {
     // MARK: - Set UI
     
     func setLayout() {
-        descriptionStackView.addArrangedSubviews(descriptionLabel, lineupInfo, comingsoonInfo)
+        let lineupSection = createSection(title: "ARTIST 라인업", descriiption: "WONPIL, DOWOON", textColor: .white)
+        
+        let comingsoonSection = createSection(title: "Coming soon", descriiption: "SUNGJIN, Young K", textColor: .gray600)
+        
+        descriptionStackView.addArrangedSubviews(descriptionLabel, lineupSection, comingsoonSection)
         
         self.addSubviews(headerImage, artistLabel, middleLine, descriptionStackView)
         
@@ -97,5 +91,24 @@ final class StoreDetailHeaderView: UIView {
 }
     
 // MARK: - Extension
+
+extension StoreDetailHeaderView {
+    func createSection(title: String, descriiption: String, textColor: UIColor) -> UIStackView {
+        let titleLabel = UILabel().then {
+            $0.attributedText = UILabel.createAttributedText(for: .body1, withText: title, color: textColor)
+        }
+        
+        let descriptionLabel = UILabel().then {
+            $0.attributedText = UILabel.createAttributedText(for: .body2, withText: descriiption, color: textColor)
+        }
+        
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel]).then {
+            $0.axis = .vertical
+            $0.spacing = 6
+        }
+        
+        return stackView
+    }
+}
     
 // MARK: - ___ Delegate
