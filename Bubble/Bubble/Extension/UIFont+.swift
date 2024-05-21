@@ -17,8 +17,8 @@ extension UIFont {
             size = 24
             fontName = FontName.heavy.rawValue
         case .headline2:
-            size = 16
-            fontName = FontName.heavy.rawValue
+            size = 18
+            fontName = FontName.medium.rawValue
         case .headline3:
             size = 16
             fontName = FontName.heavy.rawValue
