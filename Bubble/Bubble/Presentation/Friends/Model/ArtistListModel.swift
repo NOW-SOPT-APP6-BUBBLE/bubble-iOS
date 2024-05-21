@@ -8,8 +8,8 @@
 import Foundation
 
 struct ArtistListResult: Codable {
-    var isSubsArtists: [ArtistListModel]?
-    var isNotSubsArtists: [ArtistListModel]?
+    var isSubsArtists: [ArtistListModel]
+    var isNotSubsArtists: [ArtistListModel]
 }
 
 struct ArtistListModel: Codable {

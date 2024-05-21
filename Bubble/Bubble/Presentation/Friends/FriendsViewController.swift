@@ -11,9 +11,11 @@ final class FriendsViewController: BaseViewController {
     
     // MARK: - Property
     
-    var isDropDownArray = [true, true, true]
-    let dummyTitle = ["내 프로필", "즐겨찾기", "추천 친구"]
-    let dummyCnt = [nil, "2", "56"]
+    private let titles = ["내 프로필", "즐겨찾기", "추천 친구"]
+
+    private var isDropDownArray = [true, true, true]
+    private var starFriends: [ArtistListModel] = []
+    private var ordinaryFriends: [ArtistListModel] = []
     
     // MARK: - Component
 
@@ -91,11 +93,11 @@ final class FriendsViewController: BaseViewController {
             switch res {
             case .success(let data):
                 guard let data = data as? BaseModel<ArtistListResult> else { return }
-                print("data.result.isSubsArtists")
-                print(data.result.isSubsArtists)
-                print("data.result.isNotSubsArtists")
-                print(data.result.isNotSubsArtists)
-                print("응답값! \(data)")
+                Logger.debugDescription(data.result.isSubsArtists)
+                self.starFriends = data.result.isSubsArtists
+                Logger.debugDescription(data.result.isNotSubsArtists)
+                self.ordinaryFriends = data.result.isNotSubsArtists
+                self.friendsTableView.reloadSections(IndexSet(1...2), with: .fade)
             case .requestError:
                 print("요청 오류 입니다")
             case .decodingError:
@@ -130,9 +132,9 @@ extension FriendsViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return isDropDownArray[section] ? 2 : 0
+            return isDropDownArray[section] ? starFriends.count : 0
         case 2:
-            return isDropDownArray[section] ? 56 : 0
+            return isDropDownArray[section] ? ordinaryFriends.count : 0
         default:
             return 0
         }
@@ -145,8 +147,16 @@ extension FriendsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if indexPath.section == 0 {
+        let row = indexPath.row
+        switch indexPath.section {
+        case 0:
             cell.oneSentenceLabel.isHidden = true
+        case 1:
+            cell.dataBind(model: starFriends[row])
+        case 2:
+            cell.dataBind(model: ordinaryFriends[row])
+        default:
+            cell.dataBind(model: ordinaryFriends[row])
         }
         
         return cell
@@ -164,16 +174,28 @@ extension FriendsViewController: UITableViewDelegate {
             return UIView()
         }
         
-        if section == 0 {
+        header.headerLabel.text = titles[section]
+
+        switch section {
+        case 0:
             header.dropDownButton.isHidden = true
-        } else {
+        case 1:
+            header.cellCountLabel.text = "\(starFriends.count)"
+            header.dropDownButton.isUserInteractionEnabled = starFriends.count != 0
+        case 2:
+            header.cellCountLabel.text = "\(ordinaryFriends.count)"
+        default:
+            break
+        }
+        
+        if section != 0 {
             header.delegate = self
             header.tag = section
-            header.dropDownButton.setImage(isDropDownArray[section] ? .iconUnfold : .iconFold, for: .normal)
+            header.dropDownButton.setImage(
+                isDropDownArray[section] ? .iconUnfold : .iconFold,
+                for: .normal
+            )
         }
-                
-        header.headerLabel.text = dummyTitle[section]
-        header.cellCountLabel.text = dummyCnt[section]
         
         return header
     }
