@@ -56,6 +56,10 @@
 		A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A772BF686D800E0BA5E /* FriendsTableViewCell.swift */; };
 		A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A792BF6877300E0BA5E /* NSObject+.swift */; };
 		A2C24A7C2BF730FC00E0BA5E /* FriendsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C24A7B2BF730FC00E0BA5E /* FriendsHeaderView.swift */; };
+		A2D0C7AA2BFBDEA5008B11A3 /* ArtistMembersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7A92BFBDEA5008B11A3 /* ArtistMembersService.swift */; };
+		A2D0C7AC2BFBDECC008B11A3 /* ArtistMembersTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AB2BFBDECC008B11A3 /* ArtistMembersTargetType.swift */; };
+		A2D0C7AF2BFBE388008B11A3 /* ArtistListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */; };
+		A2D0C7B22BFC51BD008B11A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A2D0C7B12BFC51BD008B11A3 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +111,9 @@
 		A2C24A772BF686D800E0BA5E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A2C24A792BF6877300E0BA5E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		A2C24A7B2BF730FC00E0BA5E /* FriendsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsHeaderView.swift; sourceTree = "<group>"; };
+		A2D0C7A92BFBDEA5008B11A3 /* ArtistMembersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMembersService.swift; sourceTree = "<group>"; };
+		A2D0C7AB2BFBDECC008B11A3 /* ArtistMembersTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMembersTargetType.swift; sourceTree = "<group>"; };
+		A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D0C7B22BFC51BD008B11A3 /* Kingfisher in Frameworks */,
 				A2AC828A2BED24CB00C5E4D0 /* SnapKit in Frameworks */,
 				A2AC828F2BED24D700C5E4D0 /* Then in Frameworks */,
 				A2AC82942BED253900C5E4D0 /* Moya in Frameworks */,
@@ -301,6 +309,7 @@
 		A291B1AD2BECD92E0044CB2B /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				A2D0C7AD2BFBE378008B11A3 /* Model */,
 				A2C24A762BF686CF00E0BA5E /* Cell */,
 				A2AC326E2BECCF9B0010903A /* FriendsViewController.swift */,
 				A29FAED82BF785E700C56815 /* ProfileViewController.swift */,
@@ -355,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				A2AC829E2BED5A2600C5E4D0 /* TempService.swift */,
+				A2D0C7A92BFBDEA5008B11A3 /* ArtistMembersService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -363,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				A2AC82A12BED5AC000C5E4D0 /* TempTargetType.swift */,
+				A2D0C7AB2BFBDECC008B11A3 /* ArtistMembersTargetType.swift */,
 			);
 			path = TargetType;
 			sourceTree = "<group>";
@@ -375,6 +386,14 @@
 				A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		A2D0C7AD2BFBE378008B11A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2D0C7AE2BFBE388008B11A3 /* ArtistListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +418,7 @@
 				A2AC82892BED24CB00C5E4D0 /* SnapKit */,
 				A2AC828E2BED24D700C5E4D0 /* Then */,
 				A2AC82932BED253900C5E4D0 /* Moya */,
+				A2D0C7B12BFC51BD008B11A3 /* Kingfisher */,
 			);
 			productName = Bubble;
 			productReference = A2AC32672BECCF9B0010903A /* Bubble.app */;
@@ -432,6 +452,7 @@
 				A2AC82882BED24CB00C5E4D0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A2AC828D2BED24D700C5E4D0 /* XCRemoteSwiftPackageReference "Then" */,
 				A2AC82902BED253900C5E4D0 /* XCRemoteSwiftPackageReference "Moya" */,
+				A2D0C7B02BFC51BD008B11A3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A2AC32682BECCF9B0010903A /* Products */;
 			projectDirPath = "";
@@ -507,6 +528,8 @@
 				2E1C2A2E2BFC31BB0045E215 /* StoreCellModel.swift in Sources */,
 				A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */,
 				A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */,
+				A2D0C7AC2BFBDECC008B11A3 /* ArtistMembersTargetType.swift in Sources */,
+				A2D0C7AA2BFBDEA5008B11A3 /* ArtistMembersService.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
 				A29FAEDB2BF799A600C56815 /* PaddingLabel.swift in Sources */,
 				8658D2D12BFA2FAB00F62E53 /* StoreDetailPrice.swift in Sources */,
@@ -519,6 +542,7 @@
 				A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */,
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,
+				A2D0C7AF2BFBE388008B11A3 /* ArtistListModel.swift in Sources */,
 				A2C24A7C2BF730FC00E0BA5E /* FriendsHeaderView.swift in Sources */,
 				A29FAED92BF785E700C56815 /* ProfileViewController.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,
@@ -778,6 +802,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		A2D0C7B02BFC51BD008B11A3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -795,6 +827,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A2AC82902BED253900C5E4D0 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		A2D0C7B12BFC51BD008B11A3 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2D0C7B02BFC51BD008B11A3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

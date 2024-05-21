@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 import Then
 
@@ -18,18 +19,16 @@ final class FriendsTableViewCell: BaseTableViewCell {
     
     private let profileImageView = UIImageView().then {
         $0.image = .iconProfile
+        $0.layer.cornerRadius = 18
+        $0.layer.masksToBounds = true
     }
     
     private let nameLabel = UILabel().then {
-        $0.text = "언니"
-        $0.textColor = .black
-        $0.font = .appleSDGothicNeoFont(for: .name1)
+        $0.attributedText = UILabel.createAttributedText(for: .name1, withText: "언니")
     }
     
     let oneSentenceLabel = UILabel().then {
-        $0.text = "친구 한 마디~"
-        $0.textColor = .gray500
-        $0.font = .appleSDGothicNeoFont(for: .body2)
+        $0.attributedText = UILabel.createAttributedText(for: .body2, color: .gray500)
     }
     
     // MARK: - Life Cycle
@@ -37,6 +36,9 @@ final class FriendsTableViewCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        profileImageView.image = .iconProfile
+        nameLabel.text = "언니"
+        oneSentenceLabel.text = ""
         oneSentenceLabel.isHidden = false
     }
     
@@ -58,5 +60,17 @@ final class FriendsTableViewCell: BaseTableViewCell {
             $0.trailing.equalToSuperview().inset(16)
             $0.centerY.equalTo(nameLabel)
         }
+    }
+    
+    override func setStyle() {
+        self.selectionStyle = .none
+    }
+    
+    // MARK: - Helper
+    
+    func dataBind(model: ArtistListModel) {
+        self.nameLabel.text = model.name
+        self.profileImageView.kf.setImage(with: URL(string: model.imageURL))
+        self.oneSentenceLabel.text = model.introduction
     }
 }
