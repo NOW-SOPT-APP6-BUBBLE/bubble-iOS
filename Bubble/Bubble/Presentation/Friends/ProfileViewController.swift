@@ -37,9 +37,7 @@ final class ProfileViewController: BaseViewController {
     }
     
     private let nameLabel = UILabel().then {
-        if let attributedText = UILabel.createAttributedText(for: .headline2, withText: "팔불출❤️", color: .white) {
-            $0.attributedText = attributedText
-        }
+        $0.attributedText = UILabel.createAttributedText(for: .headline2, withText: "팔불출❤️", color: .white)
     }
     
     private lazy var artistNameStackView = UIStackView(arrangedSubviews: [
@@ -53,26 +51,20 @@ final class ProfileViewController: BaseViewController {
     }
     
     private let oneSentenceLabel = UILabel().then {
-        if let attributedText = UILabel.createAttributedText(for: .sub3, withText: "이제 떨어질 일 없다아❤️️", color: .gray100) {
-            $0.attributedText = attributedText
-        }
+        $0.attributedText = UILabel.createAttributedText(for: .sub3, withText: "이제 떨어질 일 없다아❤️️", color: .gray100)
     }
     
     private let introduceLabel = PaddingLabel(
         padding: UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 10)
     ).then {
-        if let attributedText = UILabel.createAttributedText(for: .sub3, withText: "DAY6 · WONPIL", color: .white) {
-            $0.attributedText = attributedText
-        }
+        $0.attributedText = UILabel.createAttributedText(for: .sub3, withText: "DAY6 · WONPIL", color: .white)
         $0.layer.borderColor = UIColor.gray200.cgColor
         $0.layer.borderWidth = 0.5
         $0.layer.cornerRadius = 10
     }
     
     private let addFriendLabel = UILabel().then {
-        if let attributedText = UILabel.createAttributedText(for: .name1, withText: "bubble로 친구추가", color: .black) {
-            $0.attributedText = attributedText
-        }
+        $0.attributedText = UILabel.createAttributedText(for: .name1, withText: "bubble로 친구추가", color: .black)
     }
     
     private let addFriendView = UIView().then {
