@@ -190,6 +190,11 @@ final class ProfileViewController: BaseViewController {
         }
     }
     
+    private func onDeleteSuccess(_ data: EmptyResultModel?) {
+        guard let data = data else { return }
+        if data.status == 200 { self.isStar = false }
+    }
+    
     // MARK: - Action
     
     @objc private func xButtonDidTap() {
@@ -202,33 +207,18 @@ final class ProfileViewController: BaseViewController {
         else {
             return
         }
-        
+    
         isStar ? (
             /// 즐겨찾기 삭제
             ArtistMembersService.shared.deleteArtistSubs(memberId: memberId, artistMemberId: artistMemberId) { res in
-                switch res {
-                case .success(let data):
-                    guard let data = data as? EmptyResultModel else { return }
-                    if data.status == 200 { self.isStar = false }
-
-                case .requestError:
-                    print("요청 오류 입니다")
-                case .decodingError:
-                    print("디코딩 오류 입니다")
-                case .pathError:
-                    print("경로 오류 입니다")
-                case .serverError:
-                    print("서버 오류입니다")
-                case .networkFail:
-                    print("네트워크 오류입니다")
-                }
+                res.getData(res) {data in onDeleteSuccess(data as? EmptyResultModel)}
             }
-            
         ):(
             /// 즐겨찾기 등록
-            // TODO: - 즐겨찾기 등록 함수 작성해주세요
+            // MARK: Todo - 즐겨찾기 등록 함수 작성해주세요
         )
         
         starButton.setImage(isStar ? .iconEmptyStar : .iconStar, for: .normal)
     }
 }
+
