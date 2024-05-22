@@ -211,7 +211,7 @@ final class ProfileViewController: BaseViewController {
         isStar ? (
             /// 즐겨찾기 삭제
             ArtistMembersService.shared.deleteArtistSubs(memberId: memberId, artistMemberId: artistMemberId) { res in
-                res.getData(res) {data in onDeleteSuccess(data as? EmptyResultModel)}
+                res.getData(res) {data in self.onDeleteSuccess(data as? EmptyResultModel)}
             }
         ):(
             /// 즐겨찾기 등록
