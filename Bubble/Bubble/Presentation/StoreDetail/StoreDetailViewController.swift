@@ -118,7 +118,7 @@ final class StoreDetailViewController: BaseViewController {
     
     private func fetchStoreDetail() {
         ArtistsServeice.shared.getStoreDetail(
-            memberId: "1", artistId: "3"
+            memberId: "1", artistId: "1"
         ) { res in
             switch res {
             case .success(let data):
