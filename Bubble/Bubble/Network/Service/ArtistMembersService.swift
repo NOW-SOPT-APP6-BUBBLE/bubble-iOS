@@ -48,7 +48,6 @@ extension ArtistMembersService {
         }
     }
 
-    
     func deleteArtistSubs(
         memberId: String, artistMemberId: Int,
         completion: @escaping (NetworkResult<Any>) -> Void

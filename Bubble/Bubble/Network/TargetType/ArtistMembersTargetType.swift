@@ -37,7 +37,6 @@ extension ArtistMembersTargetType: TargetType {
         switch self {
         case .fetchArtistList, .fetchArtistProfile:
             return .get
-            return .post
         case .deleteArtistSubs:
             return .delete
         }
