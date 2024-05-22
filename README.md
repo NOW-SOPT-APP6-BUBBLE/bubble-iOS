@@ -8,7 +8,7 @@
 ### 🍎 Members
 | [@EunsuSeo01](https://github.com/EunsuSeo01) | [@shimseohyun](https://github.com/shimseohyun) | [@Chandrarla](https://github.com/Chandrarla) |
 |:---:|:---:|:---:|
-|<img width="220" alt="EunsuSeo01" src="https://avatars.githubusercontent.com/EunsuSeo01">|<img width="220" alt="shimseohyun" src="https://avatars.githubusercontent.com/shimseohyun">|<img width="220" alt="Chandrarla" src="https://avatars.githubusercontent.com/Chandrarla">|
+|<img width="250" alt="EunsuSeo01" src="https://avatars.githubusercontent.com/EunsuSeo01">|<img width="250" alt="shimseohyun" src="https://avatars.githubusercontent.com/shimseohyun">|<img width="250" alt="Chandrarla" src="https://avatars.githubusercontent.com/Chandrarla">|
 | `프로젝트 세팅` <br/> `Base 폴더 및 네트워크 세팅` <br/> `아티스트 목록 화면 구현 및 API 연동` <br/> `아티스트 프로필 화면 구현 및 API 연동` | `아티스트 스토어 상세 화면 구현 및 API 연동` <br/> `아티스트 즐겨찾기 삭제 API 연동` | `더보기 화면 구현` <br/> `스토어 화면 구현 및 API 연동` <br/> `아티스트 즐겨찾기 추가 API 연동` |
 
 ### 🛠 Development Environment
