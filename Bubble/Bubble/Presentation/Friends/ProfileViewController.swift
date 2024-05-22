@@ -179,6 +179,7 @@ final class ProfileViewController: BaseViewController {
     
     private func dataBind(model: ArtistProfileModel) {
         starButton.setImage(model.isSubscribed ? .iconStar : .iconEmptyStar, for: .normal)
+        isStar = model.isSubscribed
         profileImageView.kf.setImage(with: model.imageURL)
         nameLabel.text = model.nickname
         oneSentenceLabel.text = model.introduction
@@ -209,8 +210,8 @@ final class ProfileViewController: BaseViewController {
                 switch res {
                 case .success(let data):
                     guard let data = data as? EmptyResultModel else { return }
-                    print(data)
-                    self.isStar.toggle()
+                    if data.status == 200 { self.isStar = false }
+
                 case .requestError:
                     print("요청 오류 입니다")
                 case .decodingError:
@@ -230,8 +231,8 @@ final class ProfileViewController: BaseViewController {
                 switch res {
                 case .success(let data):
                     guard let data = data as? EmptyResultModel else { return }
-                    print(data)
-                    self.isStar.toggle()
+                    if data.status == 201 { self.isStar = true }
+                    
                 case .requestError:
                     print("요청 오류 입니다")
                 case .decodingError:
@@ -246,6 +247,6 @@ final class ProfileViewController: BaseViewController {
             }
         )
         
-        starButton.setImage(isStar ? .iconStar : .iconEmptyStar, for: .normal)
+        starButton.setImage(isStar ? .iconEmptyStar : .iconStar, for: .normal)
     }
 }
