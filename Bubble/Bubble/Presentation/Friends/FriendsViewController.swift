@@ -67,19 +67,12 @@ final class FriendsViewController: BaseViewController {
             )
             $0.largeTitleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline1) ?? UIFont()]
             $0.titleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline3) ?? UIFont()]
-//            $0.shadowImage = UIImage()
-//            $0.backgroundImage = UIImage()
         }
-        navigationItem.scrollEdgeAppearance = navigationBarAppearance
         navigationItem.compactAppearance = navigationBarAppearance
         navigationItem.standardAppearance = navigationBarAppearance
         
         navigationItem.setRightBarButtonItems([storeBarButton, searchBarButton], animated: true)
         navigationItem.rightBarButtonItem?.tintColor = .black
-        
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
     // MARK: - Life Cycle
