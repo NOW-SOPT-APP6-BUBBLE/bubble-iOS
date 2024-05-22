@@ -53,6 +53,12 @@ final class StoreDetailViewController: BaseViewController {
     
     // MARK: - Life Cycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetchStoreDetail()
+    }
+    
     // MARK: - Set UI
     
     override func setLayout() {
@@ -108,6 +114,33 @@ final class StoreDetailViewController: BaseViewController {
     public func toggleBuyButton(isAble: Bool) {
         buyButton.isEnabled = isAble
         buyButton.backgroundColor =  isAble ? .jypBlue : .gray200
+    }
+    
+    private func fetchStoreDetail() {
+        ArtistsServeice.shared.getStoreDetail(
+            memberId: "1", artistId: "1"
+        ) { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BaseModel<StoreDetailResult> else { return }
+                Logger.debugDescription(data.result)
+                
+                self.headerView.dataBind(data.result.artist)
+                self.priceListView.dataBind(data.result.artist.subscribe)
+                self.informationView.dataBind(data.result.artist.description)
+                
+            case .requestError:
+                print("요청 오류 입니다")
+            case .decodingError:
+                print("디코딩 오류 입니다")
+            case .pathError:
+                print("경로 오류 입니다")
+            case .serverError:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
     }
     
     // MARK: - Action
