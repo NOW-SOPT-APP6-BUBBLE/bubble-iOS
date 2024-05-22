@@ -11,14 +11,14 @@ import Moya
 
 final class ArtistMembersService {
     static let shared = ArtistMembersService()
-    private var artistProvider = MoyaProvider<ArtistMembersTargetType>(plugins: [MoyaLoggingPlugin()])
+    private var artistMemberProvider = MoyaProvider<ArtistMembersTargetType>(plugins: [MoyaLoggingPlugin()])
     
     private init() {}
 }
 
 extension ArtistMembersService {
     func fetchArtistList(memberId: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        artistProvider.request(.fetchArtistList(memberId: memberId)) { result in
+        artistMemberProvider.request(.fetchArtistList(memberId: memberId)) { result in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
@@ -35,7 +35,7 @@ extension ArtistMembersService {
         request: ArtistProfileRequest,
         completion: @escaping (NetworkResult<Any>) -> Void
     ) {
-        artistProvider.request(.fetchArtistProfile(request: request)) { result in
+        artistMemberProvider.request(.fetchArtistProfile(request: request)) { result in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
@@ -48,9 +48,46 @@ extension ArtistMembersService {
         }
     }
     
+    func postArtistSubs(
+        memberId: String, artistMemberId: Int,
+        completion: @escaping (NetworkResult<Any>) -> Void
+    ) {
+        artistMemberProvider.request(.postArtistSubs(memberId: memberId, artistMemberId: artistMemberId)) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+                let statusCode = response.statusCode
+                let data = response.data
+                let networkResult = self.judgeStatus(by: statusCode, data, EmptyResultModel.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func deleteArtistSubs(
+        memberId: String, artistMemberId: Int,
+        completion: @escaping (NetworkResult<Any>) -> Void
+    ) {
+        artistMemberProvider.request(
+            .deleteArtistSubs(memberId: memberId, artistMemberId: artistMemberId)) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+                let statusCode = response.statusCode
+                let data = response.data
+                let networkResult = self.judgeStatus(by: statusCode, data, EmptyResultModel.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         switch statusCode {
-        case 200..<205:
+        case 200..<330:
             return isValidData(data: data, T.self)
         case 400..<500:
             return .requestError

@@ -12,8 +12,8 @@ import Moya
 enum ArtistMembersTargetType {
     case fetchArtistList(memberId: String)
     case fetchArtistProfile(request: ArtistProfileRequest)
-    case postArtistSubs(memberId: String, artistMemberId: String)
-    case deleteArtistSubs(memberId: String, artistMemberId: String)
+    case postArtistSubs(memberId: String, artistMemberId: Int)
+    case deleteArtistSubs(memberId: String, artistMemberId: Int)
 }
 
 extension ArtistMembersTargetType: TargetType {
