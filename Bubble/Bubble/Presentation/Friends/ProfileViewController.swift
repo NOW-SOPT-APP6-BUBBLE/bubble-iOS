@@ -226,24 +226,7 @@ final class ProfileViewController: BaseViewController {
             
         ):(
             /// 즐겨찾기 등록
-            ArtistMembersService.shared.postArtistSubs(memberId: memberId, artistMemberId: artistMemberId) { res in
-                switch res {
-                case .success(let data):
-                    guard let data = data as? EmptyResultModel else { return }
-                    if data.status == 201 { self.isStar = true }
-                    
-                case .requestError:
-                    print("요청 오류 입니다")
-                case .decodingError:
-                    print("디코딩 오류 입니다")
-                case .pathError:
-                    print("경로 오류 입니다")
-                case .serverError:
-                    print("서버 오류입니다")
-                case .networkFail:
-                    print("네트워크 오류입니다")
-                }
-            }
+            // MARK: - 즐겨찾기 등록 함수 작성해주세요!
         )
         
         starButton.setImage(isStar ? .iconEmptyStar : .iconStar, for: .normal)

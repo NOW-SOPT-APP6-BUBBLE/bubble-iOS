@@ -48,24 +48,6 @@ extension ArtistMembersService {
         }
     }
     
-    func postArtistSubs(
-        memberId: String, artistMemberId: Int,
-        completion: @escaping (NetworkResult<Any>) -> Void
-    ) {
-        artistMemberProvider.request(.postArtistSubs(memberId: memberId, artistMemberId: artistMemberId)) { result in
-            switch result {
-            case .success(let response):
-                print(response)
-                let statusCode = response.statusCode
-                let data = response.data
-                let networkResult = self.judgeStatus(by: statusCode, data, EmptyResultModel.self)
-                completion(networkResult)
-            case .failure:
-                completion(.networkFail)
-            }
-        }
-    }
-    
     func deleteArtistSubs(
         memberId: String, artistMemberId: Int,
         completion: @escaping (NetworkResult<Any>) -> Void
