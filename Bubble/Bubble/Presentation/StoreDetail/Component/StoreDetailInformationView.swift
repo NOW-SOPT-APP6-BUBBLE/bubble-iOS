@@ -24,7 +24,7 @@ final class StoreDetailInformationView: UIView {
     }
     
     private let infoDescription = UILabel().then {
-        $0.attributedText = UILabel.createAttributedText(for: .body2, withText: "bubble for JYPnation NMIXX는 NMIXX 팬들을 위한 특별한 서비스입니다.\n\n나만의 최애 NMIXX 멤버가 직접 작성하는 개성 넘치는 프라이빗한 메시지를 받을 수 있습니다.\n\nbubble for JYPnation은 아티스트의 창작활동을 지원하고 응원합니다.", color: .gray500)
+        $0.attributedText = UILabel.createAttributedText(for: .body2, color: .gray500)
         $0.numberOfLines = 0
     }
     
@@ -93,6 +93,10 @@ final class StoreDetailInformationView: UIView {
     
     private func isAllChecked() -> Bool {
         return noticeData.allSatisfy { $0.check }
+    }
+    
+    func dataBind(_ data: String){
+        self.infoDescription.text = data
     }
     
     // MARK: - Action

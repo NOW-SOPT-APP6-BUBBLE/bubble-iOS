@@ -127,6 +127,8 @@ final class StoreDetailViewController: BaseViewController {
                 
                 self.headerView.dataBind(data.result.artist)
                 self.priceListView.dataBind(data.result.artist.subscribe)
+                self.informationView.dataBind(data.result.artist.description)
+                
             case .requestError:
                 print("요청 오류 입니다")
             case .decodingError:

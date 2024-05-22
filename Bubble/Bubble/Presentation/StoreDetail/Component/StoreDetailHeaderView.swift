@@ -12,12 +12,10 @@ final class StoreDetailHeaderView: UIView {
     
     // MARK: - Component
     
-    private var headerImage = UIImageView().then {
-        $0.image = UIImage(named: "store_detail_default_header")
-    }
+    private var headerImage = UIImageView()
     
     private var artistLabel = UILabel().then {
-        $0.attributedText = UILabel.createAttributedText(for: .name1, withText: "dummy")
+        $0.attributedText = UILabel.createAttributedText(for: .name1, color: .white)
         $0.textColor = .white
     }
     
@@ -26,7 +24,7 @@ final class StoreDetailHeaderView: UIView {
     }
     
     private let descriptionLabel = UILabel().then {
-        $0.attributedText = UILabel.createAttributedText(for: .body2, withText: "dummy")
+        $0.attributedText = UILabel.createAttributedText(for: .body2, withText: "선물처럼 찾아오는 최애의 메시지와 함께하는 설레이는 일상!\n최애 아티스트와 나만의 특별한 프라이빗 메시지, bubble for JYPnation", color: .gray400)
         $0.textColor = .gray400
         $0.numberOfLines = 0
     }
@@ -85,22 +83,23 @@ final class StoreDetailHeaderView: UIView {
     
     func dataBind(_ data: StoreDetailArtist) {
         self.artistLabel.text = data.name
-        self.descriptionLabel.text = data.description
         
         self.headerImage.kf.setImage(with: URL(string: data.photo))
 
         self.descriptionStackView.addArrangedSubviews(
+            descriptionLabel,
+            
             createSection(
                 title: "ARTIST 라인업",
-                descriiption: combineStrings(data.isServiceMembers),
+                description: combineStrings(data.isServiceMembers),
                 textColor: .white
             ),
             
-            data.isServiceMembers.isEmpty ?
-            UIView() : 
+            data.isNotServiceMembers.isEmpty ?
+            UIView() :
             createSection(
                 title: "Coming soon",
-                descriiption: combineStrings(data.isNotServiceMembers),
+                description: combineStrings(data.isNotServiceMembers),
                 textColor: .gray600
             )
         )
@@ -113,13 +112,13 @@ final class StoreDetailHeaderView: UIView {
 // MARK: - Extension
 
 extension StoreDetailHeaderView {
-    func createSection(title: String, descriiption: String, textColor: UIColor) -> UIStackView {
+    func createSection(title: String, description: String, textColor: UIColor) -> UIStackView {
         let titleLabel = UILabel().then {
             $0.attributedText = UILabel.createAttributedText(for: .body1, withText: title, color: textColor)
         }
         
         let descriptionLabel = UILabel().then {
-            $0.attributedText = UILabel.createAttributedText(for: .body2, withText: descriiption, color: textColor)
+            $0.attributedText = UILabel.createAttributedText(for: .body2, withText: description, color: textColor)
         }
         
         let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel]).then {
