@@ -12,6 +12,7 @@ import Moya
 enum ArtistMembersTargetType {
     case fetchArtistList(memberId: String)
     case fetchArtistProfile(request: ArtistProfileRequest)
+    case postArtistSubs(memberId: String, artistMemberId: Int)
     case deleteArtistSubs(memberId: String, artistMemberId: Int)
 }
 
@@ -28,6 +29,9 @@ extension ArtistMembersTargetType: TargetType {
         case .fetchArtistProfile(let request):
             return "/api/v1/artists/artist-members/\(request.artistMemberId)"
             
+        case .postArtistSubs(_, artistMemberId: let artistMemberId):
+            return "/api/v1/artists/artist-members/friend/\(artistMemberId)"
+            
         case .deleteArtistSubs(_, artistMemberId: let artistMemberId):
             return "/api/v1/artists/artist-members/friend/\(artistMemberId)"
         }
@@ -37,6 +41,8 @@ extension ArtistMembersTargetType: TargetType {
         switch self {
         case .fetchArtistList, .fetchArtistProfile:
             return .get
+        case .postArtistSubs:
+            return .post
         case .deleteArtistSubs:
             return .delete
         }
@@ -44,7 +50,7 @@ extension ArtistMembersTargetType: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .fetchArtistList, .fetchArtistProfile, .deleteArtistSubs:
+        case .fetchArtistList, .fetchArtistProfile, .postArtistSubs, .deleteArtistSubs:
             return .requestPlain
         }
     }
@@ -57,6 +63,9 @@ extension ArtistMembersTargetType: TargetType {
         case .fetchArtistProfile(let request):
             return ["Content-Type": "application/json",
                     "memberId": request.memberId]
+        case .postArtistSubs(memberId: let memberId, artistMemberId: _):
+            return ["Content-Type": "application/json",
+                    "memberId": memberId]
         case .deleteArtistSubs(memberId: let memberId, artistMemberId: _):
             return ["Content-Type": "application/json",
                     "memberId": memberId]
