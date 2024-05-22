@@ -226,7 +226,7 @@ final class ProfileViewController: BaseViewController {
             
         ):(
             /// 즐겨찾기 등록
-            // MARK: - 즐겨찾기 등록 함수 작성해주세요!
+            // TODO: - 즐겨찾기 등록 함수 작성해주세요
         )
         
         starButton.setImage(isStar ? .iconEmptyStar : .iconStar, for: .normal)
