@@ -14,6 +14,9 @@ final class ProfileViewController: BaseViewController {
     
     // MARK: - Property
     
+    var memberId: String?
+    var artistMemberId: Int?
+    
     private var isStar = false
     
     // MARK: - Component
@@ -30,6 +33,8 @@ final class ProfileViewController: BaseViewController {
     
     private let profileImageView = UIImageView().then {
         $0.image = .iconProfile
+        $0.layer.cornerRadius = 49
+        $0.layer.masksToBounds = true
     }
     
     private let artistChipImageView = UIImageView().then {
@@ -37,7 +42,7 @@ final class ProfileViewController: BaseViewController {
     }
     
     private let nameLabel = UILabel().then {
-        $0.attributedText = UILabel.createAttributedText(for: .headline2, withText: "팔불출❤️", color: .white)
+        $0.attributedText = UILabel.createAttributedText(for: .headline2, color: .white)
     }
     
     private lazy var artistNameStackView = UIStackView(arrangedSubviews: [
@@ -51,13 +56,13 @@ final class ProfileViewController: BaseViewController {
     }
     
     private let oneSentenceLabel = UILabel().then {
-        $0.attributedText = UILabel.createAttributedText(for: .sub3, withText: "이제 떨어질 일 없다아❤️️", color: .gray100)
+        $0.attributedText = UILabel.createAttributedText(for: .sub3, color: .gray100)
     }
     
     private let introduceLabel = PaddingLabel(
         padding: UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 10)
     ).then {
-        $0.attributedText = UILabel.createAttributedText(for: .sub3, withText: "DAY6 · WONPIL", color: .white)
+        $0.attributedText = UILabel.createAttributedText(for: .sub3, color: .white)
         $0.layer.borderColor = UIColor.gray200.cgColor
         $0.layer.borderWidth = 0.5
         $0.layer.cornerRadius = 10
@@ -71,6 +76,14 @@ final class ProfileViewController: BaseViewController {
         $0.backgroundColor = .white
         $0.layer.maskedCorners = [.layerMaxXMinYCorner]
         $0.layer.cornerRadius = 18
+    }
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetchArtistProfile()
     }
     
     // MARK: - Set UI
@@ -137,6 +150,45 @@ final class ProfileViewController: BaseViewController {
     
     // MARK: - Helper
     
+    private func fetchArtistProfile() {
+        guard let memberId = memberId,
+              let artistMemberId = artistMemberId
+        else {
+            return
+        }
+        
+        let request = ArtistProfileRequest(memberId: memberId, artistMemberId: artistMemberId)
+        ArtistMembersService.shared.fetchArtistProfile(request: request) { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BaseModel<ArtistProfileResult> else { return }
+                self.dataBind(model: data.result.toArtistProfileModel())
+            case .requestError:
+                Logger.debugDescription("요청 오류 입니다")
+            case .decodingError:
+                Logger.debugDescription("디코딩 오류 입니다")
+            case .pathError:
+                Logger.debugDescription("경로 오류 입니다")
+            case .serverError:
+                Logger.debugDescription("서버 오류입니다")
+            case .networkFail:
+                Logger.debugDescription("네트워크 오류입니다")
+            }
+        }
+    }
+    
+    private func dataBind(model: ArtistProfileModel) {
+        starButton.setImage(model.isSubscribed ? .iconStar : .iconEmptyStar, for: .normal)
+        profileImageView.kf.setImage(with: model.imageURL)
+        nameLabel.text = model.nickname
+        oneSentenceLabel.text = model.introduction
+        if let artistName = model.artistName {
+            introduceLabel.text = "\(artistName) · \(model.artistMemberName)"
+        } else {
+            introduceLabel.text = "\(model.artistMemberName)"
+        }
+    }
+    
     // MARK: - Action
     
     @objc private func xButtonDidTap() {
@@ -144,11 +196,9 @@ final class ProfileViewController: BaseViewController {
     }
     
     @objc private func starButtonDidTap() {
+        // TODO: - 즐겨찾기 추가 및 삭제 API 연동 필요
+        
         isStar.toggle()
         starButton.setImage(isStar ? .iconStar : .iconEmptyStar, for: .normal)
     }
-    
-    // MARK: - Extension
-    
-    // MARK: - Delegate
 }

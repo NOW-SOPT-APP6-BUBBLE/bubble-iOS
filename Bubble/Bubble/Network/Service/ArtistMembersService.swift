@@ -31,6 +31,23 @@ extension ArtistMembersService {
         }
     }
     
+    func fetchArtistProfile(
+        request: ArtistProfileRequest,
+        completion: @escaping (NetworkResult<Any>) -> Void
+    ) {
+        artistProvider.request(.fetchArtistProfile(request: request)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseModel<ArtistProfileResult>.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         switch statusCode {
         case 200..<205:
