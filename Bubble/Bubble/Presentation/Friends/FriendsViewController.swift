@@ -68,7 +68,6 @@ final class FriendsViewController: BaseViewController {
             $0.largeTitleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline1) ?? UIFont()]
             $0.titleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline3) ?? UIFont()]
         }
-        navigationItem.compactAppearance = navigationBarAppearance
         navigationItem.standardAppearance = navigationBarAppearance
         
         navigationItem.setRightBarButtonItems([storeBarButton, searchBarButton], animated: true)
