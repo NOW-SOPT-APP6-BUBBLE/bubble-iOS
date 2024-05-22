@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1B9AB92BFD922F0076C331 /* TermsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B9AB82BFD922F0076C331 /* TermsCollectionViewCell.swift */; };
 		2E1C2A2E2BFC31BB0045E215 /* StoreCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C2A2D2BFC31BB0045E215 /* StoreCellModel.swift */; };
 		2E2955122BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */; };
 		2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2955132BEFB640001BCF22 /* UILabel+.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1B9AB82BFD922F0076C331 /* TermsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E1C2A2D2BFC31BB0045E215 /* StoreCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCellModel.swift; sourceTree = "<group>"; };
 		2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-Heavy.ttf"; sourceTree = "<group>"; };
 		2E2955132BEFB640001BCF22 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */,
+				2E1B9AB82BFD922F0076C331 /* TermsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -257,8 +260,9 @@
 		A291B1A22BECD8DD0044CB2B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				868FA24D2BF8DA99001760C2 /* StoreDetail */,
 				A29F9CB82BF273EA0030F957 /* TabBarController.swift */,
+				2E37781B2BFB82A50074903A /* Store */,
+				868FA24D2BF8DA99001760C2 /* StoreDetail */,
 				A291B1AD2BECD92E0044CB2B /* Friends */,
 				2ECB59632BF4E46C00DA4FE9 /* More */,
 			);
@@ -340,7 +344,6 @@
 				A291B1A02BECD8AE0044CB2B /* Application */,
 				A291B1A12BECD8D60044CB2B /* Base */,
 				A291B1A22BECD8DD0044CB2B /* Presentation */,
-				2E37781B2BFB82A50074903A /* Store */,
 				A291B1A32BECD8E90044CB2B /* Extension */,
 				A291B1A42BECD8F10044CB2B /* Util */,
 				A291B1A52BECD8F80044CB2B /* Resource */,
@@ -543,6 +546,7 @@
 				A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */,
 				2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */,
 				A2D0C7AF2BFBE388008B11A3 /* ArtistListModel.swift in Sources */,
+				2E1B9AB92BFD922F0076C331 /* TermsCollectionViewCell.swift in Sources */,
 				A2C24A7C2BF730FC00E0BA5E /* FriendsHeaderView.swift in Sources */,
 				A29FAED92BF785E700C56815 /* ProfileViewController.swift in Sources */,
 				A2AC326D2BECCF9B0010903A /* SceneDelegate.swift in Sources */,

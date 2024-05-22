@@ -14,6 +14,7 @@ final class StoreDetailViewController: BaseViewController {
     // MARK: - Component
     
     private var scrollView = UIScrollView()
+    
     private let contentView = UIView()
     
     private let headerView = StoreDetailHeaderView()
