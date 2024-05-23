@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum StoreStackView: CGFloat {
-    case height = 50
+enum Store: CGFloat {
+    case artistCellHeight = 205
+    case termsCellHeight = 185
 }

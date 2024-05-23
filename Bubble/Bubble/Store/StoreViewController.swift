@@ -32,29 +32,50 @@ final class StoreViewController: BaseViewController {
         collectionViewLayout: UICollectionViewFlowLayout()
     ).then {
         $0.backgroundColor = .white
+//        $0.contentInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
         $0.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: ArtistCollectionViewCell.identifier)
+        $0.register(TermsCollectionViewCell.self, forCellWithReuseIdentifier: TermsCollectionViewCell.identifier)
         }
     
-    private let label1 = UILabel().then {
-        $0.text = "This is a footer label"
+    private let listButton = UIBarButtonItem(image: .iconMenu, style: .plain, target: nil, action: nil).then {
+        $0.tintColor = .black
+    }
+    
+    private let searchButton = UIBarButtonItem(image: .iconSearch, style: .plain, target: nil, action: nil).then {
+        $0.tintColor = .black
+    }
+
+    private lazy var closeButton = UIBarButtonItem(
+        image: .iconClose,
+        style: .plain,
+        target: self,
+        action: #selector(closeButtonTapped)
+    ).then {
+        $0.tintColor = .black
+    }
+    
+    private let storeNavigationBarTitle = UILabel().then {
+        $0.attributedText = UILabel.createAttributedText(for: .headline3, withText: "STORE")
         $0.textAlignment = .center
     }
     
-    private lazy var bottomStackView = UIStackView(arrangedSubviews: [label1]).then {
-        $0.axis = .vertical
-        $0.alignment = .center
-        $0.distribution = .equalSpacing
+    private let homeIndicatorView = UIView().then {
         $0.backgroundColor = .gray100
         $0.isHidden = true
     }
-    
+
     // MARK: - Life Cycle
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        bottomStackView.isHidden = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Set UI
@@ -63,7 +84,7 @@ final class StoreViewController: BaseViewController {
         view.addSubviews(
             headImage,
             artistCollectionView,
-            bottomStackView
+            homeIndicatorView
         )
         
         headImage.snp.makeConstraints {
@@ -73,33 +94,28 @@ final class StoreViewController: BaseViewController {
         }
         
         artistCollectionView.snp.makeConstraints {
-            $0.top.equalTo(headImage.snp.bottom).offset(18)
+            $0.top.equalTo(headImage.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(36)
+            $0.bottom.equalToSuperview()
         }
         
-        bottomStackView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(artistCollectionView.snp.bottom)
-            $0.height.equalTo(StoreStackView.height.rawValue)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        homeIndicatorView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin)
         }
     }
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension StoreViewController: UICollectionViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let scrollViewHeight = scrollView.frame.size.height
-        
-        if offsetY > contentHeight - scrollViewHeight - StoreStackView.height.rawValue {
-            bottomStackView.isHidden = false
-        } else {
-            bottomStackView.isHidden = true
-        }
+    
+    override func setStyle() {
+        navigationItem.titleView = storeNavigationBarTitle
+        navigationItem.setRightBarButtonItems([closeButton, searchButton], animated: true)
+        navigationItem.setLeftBarButtonItems([listButton], animated: true)
+        navigationItem.hidesBackButton = true
+    }
+    
+    // MARK: - Helper
+    
+    @objc private func closeButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -107,28 +123,83 @@ extension StoreViewController: UICollectionViewDelegate {
 
 extension StoreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        let cellWidth = screenWidth - 32
-        return CGSize(width: cellWidth, height: 205)
-    }
+            let screenWidth = UIScreen.main.bounds.width
+            let cellWidth = screenWidth
+            
+            if indexPath.section == 0 {
+                return CGSize(
+                    width: cellWidth - 32,
+                    height: Store.artistCellHeight.rawValue
+                )
+            } else {
+                return CGSize(
+                    width: cellWidth,
+                    height: Store.termsCellHeight.rawValue
+                )
+            }
+        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 18
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
+        }
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension StoreViewController: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storeCellData.count
+        if section == 0 {
+            return storeCellData.count
+        } else {
+            return 1 // term
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistCollectionViewCell.identifier, for: indexPath) as? ArtistCollectionViewCell else { return UICollectionViewCell() }
-        let itemData = storeCellData[indexPath.item]
-        cell.setData(model: itemData)
-        return cell
+        if indexPath.section == 0 {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ArtistCollectionViewCell.identifier,
+                for: indexPath
+            ) as? ArtistCollectionViewCell else { return UICollectionViewCell() }
+            let itemData = storeCellData[indexPath.item]
+            cell.setData(model: itemData)
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: TermsCollectionViewCell.identifier,
+                for: indexPath
+            ) as? TermsCollectionViewCell else { return UICollectionViewCell() }
+            return cell
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension StoreViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storeDetailVC = StoreDetailViewController()
+        self.navigationController?.pushViewController(storeDetailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let scrollViewHeight = scrollView.frame.size.height
+
+        if offsetY > contentHeight - scrollViewHeight {
+            scrollView.contentOffset.y = contentHeight - scrollViewHeight
+            homeIndicatorView.isHidden = true
+        }
     }
 }
