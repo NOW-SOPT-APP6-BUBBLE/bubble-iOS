@@ -11,15 +11,8 @@ import SnapKit
 import Then
 
 final class StoreViewController: BaseViewController {
-    
     // MARK: - Property
-    
-    private let storeCellData = [
-        StoreCellModel(artistImage: UIImage(named: "artist1"), artistName: "YAOCHEN"),
-        StoreCellModel(artistImage: UIImage(named: "artist2"), artistName: "JYP"),
-        StoreCellModel(artistImage: UIImage(named: "artist3"), artistName: "DAY6"),
-        StoreCellModel(artistImage: UIImage(named: "artist4"), artistName: "TWICE")
-    ]
+    private var storeArtists: [StoreArtist] = []
     
     // MARK: - Component
     
@@ -51,6 +44,10 @@ final class StoreViewController: BaseViewController {
     }
     
     // MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchStore()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -83,6 +80,34 @@ final class StoreViewController: BaseViewController {
             $0.top.equalTo(artistCollectionView.snp.bottom)
             $0.height.equalTo(StoreStackView.height.rawValue)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+    }
+    
+    // MARK: - Helper
+    
+    private func fetchStore() {
+        ArtistsServeice.shared.getStore(
+            memberId: "1"
+        ) { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BaseModel<StoreResult> else { return }
+                Logger.debugDescription(data.result)
+                
+                self.storeArtists = data.result.artists
+                self.artistCollectionView.reloadData()
+                
+            case .requestError:
+                print("요청 오류 입니다")
+            case .decodingError:
+                print("디코딩 오류 입니다")
+            case .pathError:
+                print("경로 오류 입니다")
+            case .serverError:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
         }
     }
 }
@@ -122,13 +147,13 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout {
 extension StoreViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storeCellData.count
+        return storeArtists.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistCollectionViewCell.identifier, for: indexPath) as? ArtistCollectionViewCell else { return UICollectionViewCell() }
-        let itemData = storeCellData[indexPath.item]
-        cell.setData(model: itemData)
+        let itemData = storeArtists[indexPath.item]
+        cell.dataBind(itemData)
         return cell
     }
 }
