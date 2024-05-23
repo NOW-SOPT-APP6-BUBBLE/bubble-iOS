@@ -9,5 +9,5 @@ import Foundation
 
 enum Store: CGFloat {
     case artistCellHeight = 205
-    case termsCellHeight = 214
+    case termsCellHeight = 185
 }

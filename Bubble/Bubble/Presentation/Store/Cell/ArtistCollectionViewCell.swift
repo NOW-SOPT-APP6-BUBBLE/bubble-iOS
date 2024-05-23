@@ -7,6 +7,10 @@
 
 import UIKit
 
+import Kingfisher
+import SnapKit
+import Then
+
 final class ArtistCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - Property
@@ -107,6 +111,7 @@ final class ArtistCollectionViewCell: BaseCollectionViewCell {
     // MARK: - Helper
     
     func setData(model: StoreCellModel) {
+//        self.artistImageView.kf.setImage(with: URL(srting: model.artistImage))
         artistImageView.image = model.artistImage
         artistLabel.text = model.artistName
     }

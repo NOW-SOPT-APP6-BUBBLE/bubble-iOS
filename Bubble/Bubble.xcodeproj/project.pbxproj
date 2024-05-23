@@ -261,9 +261,9 @@
 			isa = PBXGroup;
 			children = (
 				A29F9CB82BF273EA0030F957 /* TabBarController.swift */,
+				A291B1AD2BECD92E0044CB2B /* Friends */,
 				2E37781B2BFB82A50074903A /* Store */,
 				868FA24D2BF8DA99001760C2 /* StoreDetail */,
-				A291B1AD2BECD92E0044CB2B /* Friends */,
 				2ECB59632BF4E46C00DA4FE9 /* More */,
 			);
 			path = Presentation;

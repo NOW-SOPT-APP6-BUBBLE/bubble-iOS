@@ -64,9 +64,19 @@ final class TermsCollectionViewCell: BaseCollectionViewCell {
     ).then {
         $0.axis = .vertical
         $0.alignment = .center
-        $0.spacing = 16
+        $0.spacing = 8
         $0.distribution = .equalSpacing
-        $0.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
+    }
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.backgroundColor = .gray100
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Set UI
@@ -75,21 +85,20 @@ final class TermsCollectionViewCell: BaseCollectionViewCell {
         self.addSubview(termsContainerView)
         termsContainerView.addSubviews(termsStackView, moveTopButton)
         
-        termsContainerView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().inset(10)
-            make.bottom.equalTo(moveTopButton.snp.bottom).offset(10)
+        termsContainerView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.bottom.equalTo(moveTopButton.snp.bottom)
         }
         
-        termsStackView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(20)
-            make.leading.trailing.equalToSuperview().inset(10)
+        termsStackView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(30)
         }
         
-        moveTopButton.snp.makeConstraints { make in
-            make.top.equalTo(termsStackView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
+        moveTopButton.snp.makeConstraints {
+            $0.top.equalTo(termsStackView.snp.bottom).offset(18)
+            $0.centerX.equalToSuperview()
         }
     }
     

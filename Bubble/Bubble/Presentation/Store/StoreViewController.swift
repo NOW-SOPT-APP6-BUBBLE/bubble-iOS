@@ -32,12 +32,35 @@ final class StoreViewController: BaseViewController {
         collectionViewLayout: UICollectionViewFlowLayout()
     ).then {
         $0.backgroundColor = .white
+//        $0.contentInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
         $0.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: ArtistCollectionViewCell.identifier)
         $0.register(TermsCollectionViewCell.self, forCellWithReuseIdentifier: TermsCollectionViewCell.identifier)
         }
     
+    private let listButton = UIBarButtonItem(image: .iconMenu, style: .plain, target: nil, action: nil).then {
+        $0.tintColor = .black
+    }
+    
+    private let searchButton = UIBarButtonItem(image: .iconSearch, style: .plain, target: nil, action: nil).then {
+        $0.tintColor = .black
+    }
+
+    private let closeButton = UIBarButtonItem(image: .iconClose, style: .plain, target: nil, action: nil).then {
+        $0.tintColor = .black
+    }
+    
+    private let storeNavigationBarTitle = UILabel().then {
+        $0.attributedText = UILabel.createAttributedText(for: .headline3, withText: "STORE")
+        $0.textAlignment = .center
+    }
+    
+    private let homeIndicatorView = UIView().then {
+        $0.backgroundColor = .gray100
+        $0.isHidden = true
+    }
+
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +78,8 @@ final class StoreViewController: BaseViewController {
     override func setLayout() {
         view.addSubviews(
             headImage,
-            artistCollectionView
+            artistCollectionView,
+            homeIndicatorView
         )
         
         headImage.snp.makeConstraints {
@@ -69,30 +93,18 @@ final class StoreViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+        
+        homeIndicatorView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin)
+        }
     }
     
     override func setStyle() {
-        navigationItem.title = NavigationTitleName.more.rawValue
-
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
-        
-        let navigationBarAppearance = UINavigationBarAppearance().then {
-            $0.backgroundColor = .white
-            $0.titlePositionAdjustment = .init(
-                horizontal: -CGFloat.greatestFiniteMagnitude,
-                vertical: 0
-            )
-            $0.largeTitleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline1) ?? UIFont()]
-            $0.titleTextAttributes = [.font: UIFont.appleSDGothicNeoFont(for: .headline3) ?? UIFont()]
-            $0.shadowColor = nil // 하단 구분선 없앨 목적
-        }
-        navigationItem.scrollEdgeAppearance = navigationBarAppearance
-        navigationItem.compactAppearance = navigationBarAppearance
-        navigationItem.standardAppearance = navigationBarAppearance
-        
-        navigationItem.setRightBarButtonItems([], animated: true)
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.titleView = storeNavigationBarTitle
+        navigationItem.setRightBarButtonItems([closeButton, searchButton], animated: true)
+        navigationItem.setLeftBarButtonItems([listButton], animated: true)
+        navigationItem.hidesBackButton = true
     }
 }
 
@@ -119,6 +131,10 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 18
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
+        }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -163,5 +179,17 @@ extension StoreViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storeDetailVC = StoreDetailViewController()
         self.navigationController?.pushViewController(storeDetailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let scrollViewHeight = scrollView.frame.size.height
+
+        if offsetY > contentHeight - scrollViewHeight { 
+            homeIndicatorView.isHidden = false
+        } else {
+            homeIndicatorView.isHidden = true
+        }
     }
 }

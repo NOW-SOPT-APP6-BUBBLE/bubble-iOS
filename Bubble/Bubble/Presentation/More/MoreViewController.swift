@@ -59,6 +59,10 @@ final class MoreViewController: BaseViewController {
         $0.dataSource = self
     }
     
+    private let settingButton = UIBarButtonItem(image: .iconSetting, style: .plain, target: nil, action: nil).then {
+        $0.tintColor = .black
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -131,7 +135,7 @@ final class MoreViewController: BaseViewController {
         navigationItem.compactAppearance = navigationBarAppearance
         navigationItem.standardAppearance = navigationBarAppearance
         
-        navigationItem.setRightBarButtonItems([], animated: true)
+        navigationItem.setRightBarButtonItems([settingButton], animated: true)
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
 
