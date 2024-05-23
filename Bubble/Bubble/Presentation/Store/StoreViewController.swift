@@ -196,9 +196,10 @@ extension StoreViewController: UICollectionViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let scrollViewHeight = scrollView.frame.size.height
-
-        if offsetY > contentHeight - scrollViewHeight {
-            scrollView.contentOffset.y = contentHeight - scrollViewHeight
+        
+        if offsetY >= contentHeight - scrollViewHeight {
+            homeIndicatorView.isHidden = false
+        } else {
             homeIndicatorView.isHidden = true
         }
     }

@@ -69,4 +69,7 @@ final class MoreTableViewCell: BaseTableViewCell {
             titleLabel.attributedText = attributedText
         }
     }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    }
 }
