@@ -17,7 +17,7 @@ enum NetworkResult<T> {
     case networkFail              // 네트워크 연결 실패
 }
 extension NetworkResult {
-    func getData(_ res: NetworkResult, onSuccess: (T) -> Void) -> Void {
+    func defineNetworkResult(_ res: NetworkResult, onSuccess: (T) -> Void) -> Void {
         switch self {
         case .success(let data):
             onSuccess(data)
