@@ -212,6 +212,14 @@ extension StoreViewController: UICollectionViewDataSource {
 
 extension StoreViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            print("didselect")
+            let artist = storeArtists[indexPath.item]
+            let detailVC = StoreDetailViewController()
+            detailVC.artistId = artist.artistId
+            self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let maxOffsetY = scrollView.contentSize.height - scrollView.frame.size.height
         if scrollView.contentOffset.y > maxOffsetY {

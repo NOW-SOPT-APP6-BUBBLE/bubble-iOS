@@ -195,6 +195,11 @@ final class ProfileViewController: BaseViewController {
         if data.status == 200 { self.isStar = false }
     }
     
+    private func onRegisterSuccess(_ data: EmptyResultModel?) {
+        guard let data = data else { return }
+        if data.status == 201 { self.isStar = true }
+    }
+    
     // MARK: - Action
     
     @objc private func xButtonDidTap() {
@@ -215,9 +220,10 @@ final class ProfileViewController: BaseViewController {
             }
         ):(
             /// 즐겨찾기 등록
-            // MARK: Todo - 즐겨찾기 등록 함수 작성해주세요
+            ArtistMembersService.shared.registerArtistSubs(memberId: memberId, artistMemberId: artistMemberId) { res in
+                res.defineNetworkResult(res) {data in self.onRegisterSuccess(data as? EmptyResultModel)}
+            }
         )
-        
         starButton.setImage(isStar ? .iconEmptyStar : .iconStar, for: .normal)
     }
 }
