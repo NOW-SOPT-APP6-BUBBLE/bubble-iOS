@@ -17,7 +17,7 @@ final class ArtistsServeice {
 }
 
 extension ArtistsServeice {
-    func getStoreDetail(memberId: String, artistId: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getStoreDetail(memberId: String, artistId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         artistsProvider.request(.getStoreDetail(memberId: memberId, artistId: artistId)) { result in
             switch result {
             case .success(let response):
