@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Moya
 import SnapKit
 import Then
 
@@ -61,6 +62,11 @@ final class StoreViewController: BaseViewController {
 
     // MARK: - Life Cycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchStore()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -109,7 +115,8 @@ final class StoreViewController: BaseViewController {
     
     @objc private func closeButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
-
+    }
+        
     private func fetchStore() {
         ArtistsServeice.shared.getStore(
             memberId: "1"
@@ -135,7 +142,7 @@ final class StoreViewController: BaseViewController {
             }
         }
     }
-
+}
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
@@ -164,7 +171,6 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         }
- 
 }
 
 // MARK: - UICollectionViewDataSource
@@ -177,7 +183,7 @@ extension StoreViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return storeCellData.count
+            return storeArtists.count
         } else {
             return 1 // term
         }
@@ -189,8 +195,8 @@ extension StoreViewController: UICollectionViewDataSource {
                 withReuseIdentifier: ArtistCollectionViewCell.className,
                 for: indexPath
             ) as? ArtistCollectionViewCell else { return UICollectionViewCell() }
-            let itemData = storeCellData[indexPath.item]
-            cell.setData(model: itemData)
+            let itemData = storeArtists[indexPath.item]
+            cell.dataBind(itemData)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(
