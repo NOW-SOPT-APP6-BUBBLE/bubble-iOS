@@ -5,9 +5,15 @@
 //  Created by Chandrala on 5/21/24.
 //
 
-import UIKit
+// MARK: - Result
 
-struct StoreCellModel {
-    let artistImage: UIImage?
-    let artistName: String
+struct StoreResult: Codable {
+    let artists: [StoreArtist]
+}
+
+// MARK: - Artist
+
+struct StoreArtist: Codable {
+    let name, photo: String
+    let artistId: Int
 }

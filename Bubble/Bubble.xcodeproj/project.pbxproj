@@ -334,20 +334,11 @@
 			path = Friends;
 			sourceTree = "<group>";
 		};
-		A29782502BFD0A1600E50032 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				2EA8FCC52BFCE2150077CEDC /* Secret.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		A2AC325E2BECCF9B0010903A = {
 			isa = PBXGroup;
 			children = (
 				A2AC32692BECCF9B0010903A /* Bubble */,
 				A2AC32682BECCF9B0010903A /* Products */,
-				A29782502BFD0A1600E50032 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};

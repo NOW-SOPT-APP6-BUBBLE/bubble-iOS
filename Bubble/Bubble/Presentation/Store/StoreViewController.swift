@@ -11,16 +11,11 @@ import SnapKit
 import Then
 
 final class StoreViewController: BaseViewController {
-    
+
     // MARK: - Property
-    
-    private let storeCellData = [
-        StoreCellModel(artistImage: UIImage(named: "artist1"), artistName: "YAOCHEN"),
-        StoreCellModel(artistImage: UIImage(named: "artist2"), artistName: "JYP"),
-        StoreCellModel(artistImage: UIImage(named: "artist3"), artistName: "DAY6"),
-        StoreCellModel(artistImage: UIImage(named: "artist4"), artistName: "TWICE")
-    ]
-    
+  
+    private var storeArtists: [StoreArtist] = []
+
     // MARK: - Component
     
     private let headImage = UIImageView().then {
@@ -32,7 +27,6 @@ final class StoreViewController: BaseViewController {
         collectionViewLayout: UICollectionViewFlowLayout()
     ).then {
         $0.backgroundColor = .white
-//        $0.contentInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
         $0.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: ArtistCollectionViewCell.className)
@@ -115,8 +109,33 @@ final class StoreViewController: BaseViewController {
     
     @objc private func closeButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
+
+    private func fetchStore() {
+        ArtistsServeice.shared.getStore(
+            memberId: "1"
+        ) { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BaseModel<StoreResult> else { return }
+                Logger.debugDescription(data.result)
+                
+                self.storeArtists = data.result.artists
+                self.artistCollectionView.reloadData()
+                
+            case .requestError:
+                print("요청 오류 입니다")
+            case .decodingError:
+                print("디코딩 오류 입니다")
+            case .pathError:
+                print("경로 오류 입니다")
+            case .serverError:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
     }
-}
+
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
@@ -145,6 +164,7 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         }
+ 
 }
 
 // MARK: - UICollectionViewDataSource

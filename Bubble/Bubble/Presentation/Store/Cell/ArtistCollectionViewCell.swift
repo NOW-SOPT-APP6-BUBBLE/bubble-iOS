@@ -10,8 +10,12 @@ import UIKit
 import Kingfisher
 import SnapKit
 import Then
-
+    
 final class ArtistCollectionViewCell: BaseCollectionViewCell {
+    
+    // MARK: - Property
+
+    var artistId: Int = 0
     
     // MARK: - Component
     
@@ -106,8 +110,9 @@ final class ArtistCollectionViewCell: BaseCollectionViewCell {
 
     // MARK: - Helper
     
-    func setData(model: StoreCellModel) {
-        artistImageView.image = model.artistImage
-        artistLabel.text = model.artistName
+    func dataBind(_ data: StoreArtist) {
+        self.artistLabel.text = data.name
+        self.artistImageView.kf.setImage(with: URL(string: data.photo))
+        self.artistId = data.artistId
     }
 }
