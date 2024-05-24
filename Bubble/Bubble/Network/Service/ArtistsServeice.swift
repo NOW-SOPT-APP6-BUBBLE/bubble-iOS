@@ -31,6 +31,20 @@ extension ArtistsServeice {
         }
     }
     
+    func getStore(memberId: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        artistsProvider.request(.getStore(memberId: memberId)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                let networkResult = self.judgeStatus(by: statusCode, data, BaseModel<StoreResult>.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         switch statusCode {
         case 200..<205:
