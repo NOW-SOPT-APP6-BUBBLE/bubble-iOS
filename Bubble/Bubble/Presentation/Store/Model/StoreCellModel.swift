@@ -7,8 +7,6 @@
 
 // MARK: - Result
 
-import UIKit
-
 struct StoreResult: Codable {
     let artists: [StoreArtist]
 }

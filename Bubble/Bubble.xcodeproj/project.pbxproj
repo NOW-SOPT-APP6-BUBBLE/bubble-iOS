@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1B9AC12BFEE3F60076C331 /* TermsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B9AC02BFEE3F60076C331 /* TermsCollectionViewCell.swift */; };
+		2E1B9AC32BFEE4E50076C331 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B9AC22BFEE4E50076C331 /* Secret.swift */; };
 		2E1C2A2E2BFC31BB0045E215 /* StoreCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C2A2D2BFC31BB0045E215 /* StoreCellModel.swift */; };
 		2E2955122BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */; };
 		2E2955142BEFB640001BCF22 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2955132BEFB640001BCF22 /* UILabel+.swift */; };
 		2E2955162BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */; };
 		2E37781D2BFB82DA0074903A /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37781C2BFB82DA0074903A /* StoreViewController.swift */; };
 		2E37781F2BFB99EE0074903A /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */; };
-		2EA8FCC92BFCFEC90077CEDC /* StoreStackViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA8FCC82BFCFEC90077CEDC /* StoreStackViewHeight.swift */; };
+		2EA8FCC92BFCFEC90077CEDC /* StoreCellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA8FCC82BFCFEC90077CEDC /* StoreCellHeight.swift */; };
 		2ECB595A2BF4C34700DA4FE9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */; };
 		2ECB595C2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */; };
 		2ECB595F2BF4E0C400DA4FE9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */; };
@@ -39,7 +41,6 @@
 		A291B1B32BECE5540044CB2B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */; };
 		A291B1B52BECE63E0044CB2B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */; };
 		A291B1B72BECE78D0044CB2B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A291B1B62BECE78D0044CB2B /* .swiftlint.yml */; };
-		A29782522BFD0A2B00E50032 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29782512BFD0A2B00E50032 /* Secret.swift */; };
 		A29F9CB92BF273EA0030F957 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F9CB82BF273EA0030F957 /* TabBarController.swift */; };
 		A29F9CBB2BF27E8F0030F957 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F9CBA2BF27E8F0030F957 /* CALayer+.swift */; };
 		A29FAED52BF74C9500C56815 /* FriendsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */; };
@@ -68,13 +69,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1B9AC02BFEE3F60076C331 /* TermsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TermsCollectionViewCell.swift; path = Bubble/Network/Service/TermsCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		2E1B9AC22BFEE4E50076C331 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		2E1C2A2D2BFC31BB0045E215 /* StoreCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCellModel.swift; sourceTree = "<group>"; };
 		2E2955112BEFB1E1001BCF22 /* AppleSDGothicNeo-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-Heavy.ttf"; sourceTree = "<group>"; };
 		2E2955132BEFB640001BCF22 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		2E2955152BEFBAFF001BCF22 /* AppleSDGothicNeo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AppleSDGothicNeo-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2E37781C2BFB82DA0074903A /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
-		2EA8FCC82BFCFEC90077CEDC /* StoreStackViewHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreStackViewHeight.swift; sourceTree = "<group>"; };
+		2EA8FCC52BFCE2150077CEDC /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		2EA8FCC82BFCFEC90077CEDC /* StoreCellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCellHeight.swift; sourceTree = "<group>"; };
 		2ECB59592BF4C34700DA4FE9 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		2ECB595B2BF4C3D100DA4FE9 /* MoreTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableVIewCell.swift; sourceTree = "<group>"; };
 		2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
@@ -100,7 +104,6 @@
 		A291B1B22BECE5540044CB2B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		A291B1B42BECE63E0044CB2B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A291B1B62BECE78D0044CB2B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		A29782512BFD0A2B00E50032 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		A29F9CB82BF273EA0030F957 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A29F9CBA2BF27E8F0030F957 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		A29FAED42BF74C9500C56815 /* FriendsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsFooterView.swift; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				2E37781E2BFB99EE0074903A /* ArtistCollectionViewCell.swift */,
+				2E1B9AC02BFEE3F60076C331 /* TermsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -182,7 +186,7 @@
 				2ECB595E2BF4E0C400DA4FE9 /* FontStyle.swift */,
 				2ECB59612BF4E0ED00DA4FE9 /* FontName.swift */,
 				A29FAED62BF75D7B00C56815 /* NavigationTitleName.swift */,
-				2EA8FCC82BFCFEC90077CEDC /* StoreStackViewHeight.swift */,
+				2EA8FCC82BFCFEC90077CEDC /* StoreCellHeight.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -367,7 +371,7 @@
 			children = (
 				A291B1A72BECD9140044CB2B /* NetworkResult.swift */,
 				A2AC82A72BED5D0D00C5E4D0 /* MoyaLoggingPlugin.swift */,
-				A29782512BFD0A2B00E50032 /* Secret.swift */,
+				2E1B9AC22BFEE4E50076C331 /* Secret.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -536,13 +540,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A291B1AA2BECD9220044CB2B /* Logger.swift in Sources */,
-				2EA8FCC92BFCFEC90077CEDC /* StoreStackViewHeight.swift in Sources */,
+				2E1B9AC32BFEE4E50076C331 /* Secret.swift in Sources */,
+				2EA8FCC92BFCFEC90077CEDC /* StoreCellHeight.swift in Sources */,
 				A2AC326F2BECCF9B0010903A /* FriendsViewController.swift in Sources */,
 				868FA2542BF8EF77001760C2 /* StoreDetailHeaderView.swift in Sources */,
 				A291B1AF2BECD9480044CB2B /* BaseModel.swift in Sources */,
 				2E1C2A2E2BFC31BB0045E215 /* StoreCellModel.swift in Sources */,
 				A2C24A782BF686D800E0BA5E /* FriendsTableViewCell.swift in Sources */,
 				A2C24A7A2BF6877300E0BA5E /* NSObject+.swift in Sources */,
+				2E1B9AC12BFEE3F60076C331 /* TermsCollectionViewCell.swift in Sources */,
 				A2D0C7AC2BFBDECC008B11A3 /* ArtistMembersTargetType.swift in Sources */,
 				A2D0C7AA2BFBDEA5008B11A3 /* ArtistMembersService.swift in Sources */,
 				2ECB59622BF4E0ED00DA4FE9 /* FontName.swift in Sources */,
@@ -575,7 +581,6 @@
 				A291B1B12BECD9500044CB2B /* BaseViewController.swift in Sources */,
 				86A417842BFD29580090CFF0 /* WonFormatter.swift in Sources */,
 				A29FAED72BF75D7B00C56815 /* NavigationTitleName.swift in Sources */,
-				A29782522BFD0A2B00E50032 /* Secret.swift in Sources */,
 				2E37781D2BFB82DA0074903A /* StoreViewController.swift in Sources */,
 				A2AC82872BED1FF700C5E4D0 /* UIView+.swift in Sources */,
 				8658D2C92BF9B7A400F62E53 /* StoreDetailInformationView.swift in Sources */,
