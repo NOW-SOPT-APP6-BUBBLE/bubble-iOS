@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DropDownDelegate {
+protocol DropDownDelegate: AnyObject {
     func dropDownCells(section: Int)
 }
 
@@ -28,7 +28,7 @@ final class FriendsHeaderView: UITableViewHeaderFooterView {
     }
     
     lazy var dropDownButton = UIButton().then {
-        $0.setImage(.iconUnfold, for: .normal)
+        $0.setImage(.iconFold, for: .normal)
         $0.addTarget(self, action: #selector(dropDownButtonDidTap), for: .touchUpInside)
     }
     
@@ -49,7 +49,7 @@ final class FriendsHeaderView: UITableViewHeaderFooterView {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        dropDownButton.setImage(.iconUnfold, for: .normal)
+        dropDownButton.setImage(.iconFold, for: .normal)
     }
     
     // MARK: - Set UI
@@ -69,6 +69,7 @@ final class FriendsHeaderView: UITableViewHeaderFooterView {
         }
         
         dropDownButton.snp.makeConstraints {
+            $0.size.equalTo(24)
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
         }

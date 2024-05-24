@@ -17,9 +17,8 @@ final class FriendsViewController: BaseViewController {
     private let titles = ["내 프로필", "즐겨찾기", "추천 친구"]
     private let memberId = "1"
 
-    private var isDropDownArray = [true, true, true]
-    private var starFriends: [ArtistListModel] = []
-    private var ordinaryFriends: [ArtistListModel] = []
+    private var starFriends: ArtistListCellData = .init()
+    private var ordinaryFriends: ArtistListCellData = .init()
     
     // MARK: - Component
 
@@ -76,8 +75,8 @@ final class FriendsViewController: BaseViewController {
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         fetchArtistList()
     }
@@ -89,10 +88,10 @@ final class FriendsViewController: BaseViewController {
             switch res {
             case .success(let data):
                 guard let data = data as? BaseModel<ArtistListResult> else { return }
-                Logger.debugDescription(data.result.isSubsArtists)
-                self.starFriends = data.result.isSubsArtists
-                Logger.debugDescription(data.result.isNotSubsArtists)
-                self.ordinaryFriends = data.result.isNotSubsArtists
+//                Logger.debugDescription(data.result.isSubsArtists)
+                self.starFriends.dataModel = data.result.isSubsArtists
+//                Logger.debugDescription(data.result.isNotSubsArtists)
+                self.ordinaryFriends.dataModel = data.result.isNotSubsArtists
                 self.friendsTableView.reloadSections(IndexSet(1...2), with: .fade)
             case .requestError:
                 print("요청 오류 입니다")
@@ -120,7 +119,7 @@ final class FriendsViewController: BaseViewController {
 extension FriendsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        isDropDownArray.count
+        3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,9 +127,9 @@ extension FriendsViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return isDropDownArray[section] ? starFriends.count : 0
+            return starFriends.isExpanded ? starFriends.dataModel.count : 0
         case 2:
-            return isDropDownArray[section] ? ordinaryFriends.count : 0
+            return ordinaryFriends.isExpanded ? ordinaryFriends.dataModel.count : 0
         default:
             return 0
         }
@@ -148,11 +147,11 @@ extension FriendsViewController: UITableViewDataSource {
         case 0:
             cell.oneSentenceLabel.isHidden = true
         case 1:
-            cell.dataBind(model: starFriends[row])
+            cell.dataBind(model: starFriends.dataModel[row])
         case 2:
-            cell.dataBind(model: ordinaryFriends[row])
+            cell.dataBind(model: ordinaryFriends.dataModel[row])
         default:
-            cell.dataBind(model: ordinaryFriends[row])
+            cell.dataBind(model: ordinaryFriends.dataModel[row])
         }
         
         return cell
@@ -171,27 +170,28 @@ extension FriendsViewController: UITableViewDelegate {
         }
         
         header.headerLabel.text = titles[section]
+        header.delegate = self
+        header.tag = section
 
         switch section {
         case 0:
             header.dropDownButton.isHidden = true
         case 1:
-            header.cellCountLabel.text = "\(starFriends.count)"
-            isDropDownArray[section] = starFriends.count != 0
-            header.dropDownButton.isUserInteractionEnabled = starFriends.count != 0
-        case 2:
-            header.cellCountLabel.text = "\(ordinaryFriends.count)"
-        default:
-            break
-        }
-        
-        if section != 0 {
-            header.delegate = self
-            header.tag = section
+            header.cellCountLabel.text = "\(starFriends.dataModel.count)"
+            header.dropDownButton.isUserInteractionEnabled = starFriends.dataModel.count != 0
             header.dropDownButton.setImage(
-                isDropDownArray[section] ? .iconUnfold : .iconFold,
+                starFriends.isExpanded ? .iconUnfold : .iconFold,
                 for: .normal
             )
+        case 2:
+            header.cellCountLabel.text = "\(ordinaryFriends.dataModel.count)"
+            header.dropDownButton.isUserInteractionEnabled = ordinaryFriends.dataModel.count != 0
+            header.dropDownButton.setImage(
+                ordinaryFriends.isExpanded ? .iconUnfold : .iconFold,
+                for: .normal
+            )
+        default:
+            break
         }
         
         return header
@@ -229,9 +229,9 @@ extension FriendsViewController: UITableViewDelegate {
         
         let row = indexPath.row
         if indexPath.section == 1 {
-            profileViewController.artistMemberId = starFriends[row].artistMemberId
+            profileViewController.artistMemberId = starFriends.dataModel[row].artistMemberId
         } else if indexPath.section == 2 {
-            profileViewController.artistMemberId = ordinaryFriends[row].artistMemberId
+            profileViewController.artistMemberId = ordinaryFriends.dataModel[row].artistMemberId
         }
         
         profileViewController.modalPresentationStyle = .fullScreen
@@ -244,14 +244,14 @@ extension FriendsViewController: UITableViewDelegate {
 extension FriendsViewController: DropDownDelegate {
     
     func dropDownCells(section: Int) {
-        self.isDropDownArray[section].toggle()
-        
-        let numberOfRows = self.friendsTableView.numberOfRows(inSection: section)
-        for i in 0..<numberOfRows {
-            let cell = self.friendsTableView.cellForRow(at: IndexPath(row: i, section: section)) as? FriendsTableViewCell
-            cell?.isHidden.toggle()
+        if section == 1 {
+            self.starFriends.isExpanded.toggle()
+        } else if section == 2 {
+            self.ordinaryFriends.isExpanded.toggle()
         }
-        
-        friendsTableView.reloadSections(IndexSet(integer: section), with: .fade)
+        self.friendsTableView.beginUpdates()
+        self.friendsTableView.reloadSections(.init(1...2), with: .fade)
+        self.friendsTableView.endUpdates()
+        self.friendsTableView.reloadSections(IndexSet(1...2), with: .fade)
     }
 }

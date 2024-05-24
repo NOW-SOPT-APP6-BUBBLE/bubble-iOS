@@ -36,6 +36,7 @@ final class FriendsTableViewCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        isHidden = false
         profileImageView.image = .iconProfile
         nameLabel.text = "언니"
         oneSentenceLabel.text = ""

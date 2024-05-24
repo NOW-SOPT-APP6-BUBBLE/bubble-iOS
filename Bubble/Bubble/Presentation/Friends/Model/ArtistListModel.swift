@@ -18,3 +18,13 @@ struct ArtistListModel: Codable {
     var imageURL: String
     var introduction: String?
 }
+
+struct ArtistListCellData {
+    var isExpanded: Bool
+    var dataModel: [ArtistListModel]
+    
+    init(isExpanded: Bool = true, dataModel: [ArtistListModel] = []) {
+        self.isExpanded = isExpanded
+        self.dataModel = dataModel
+    }
+}
