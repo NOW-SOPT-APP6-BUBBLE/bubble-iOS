@@ -85,7 +85,7 @@ final class TabBarController: UITabBarController {
             tabSelectedImgName: .friends,
             viewController: friendsNavigationController
         )
-        // TODO: - 뷰컨 생성 후 할당
+
         let chatViewController = UIViewController().then {
             $0.view.backgroundColor = .white
         }
