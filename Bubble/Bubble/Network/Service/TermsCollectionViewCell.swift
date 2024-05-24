@@ -11,11 +11,6 @@ import SnapKit
 import Then
 
 final class TermsCollectionViewCell: BaseCollectionViewCell {
-    
-    // MARK: - Property
-    
-    static let identifier = "TermsCollectionViewCell"
-    
     // MARK: - Component
     
     private let termsContainerView = UIView().then {

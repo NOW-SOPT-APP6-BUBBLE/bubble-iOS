@@ -13,10 +13,6 @@ import Then
 
 final class ArtistCollectionViewCell: BaseCollectionViewCell {
     
-    // MARK: - Property
-    
-    static let identifier = StoreViewController.className
-    
     // MARK: - Component
     
     private let artistImageView = UIImageView().then {
@@ -111,7 +107,6 @@ final class ArtistCollectionViewCell: BaseCollectionViewCell {
     // MARK: - Helper
     
     func setData(model: StoreCellModel) {
-//        self.artistImageView.kf.setImage(with: URL(srting: model.artistImage))
         artistImageView.image = model.artistImage
         artistLabel.text = model.artistName
     }

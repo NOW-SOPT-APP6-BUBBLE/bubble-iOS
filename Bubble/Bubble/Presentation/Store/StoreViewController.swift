@@ -35,8 +35,8 @@ final class StoreViewController: BaseViewController {
 //        $0.contentInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         $0.delegate = self
         $0.dataSource = self
-        $0.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: ArtistCollectionViewCell.identifier)
-        $0.register(TermsCollectionViewCell.self, forCellWithReuseIdentifier: TermsCollectionViewCell.identifier)
+        $0.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: ArtistCollectionViewCell.className)
+        $0.register(TermsCollectionViewCell.self, forCellWithReuseIdentifier: TermsCollectionViewCell.className)
         }
     
     private let listButton = UIBarButtonItem(image: .iconMenu, style: .plain, target: nil, action: nil).then {
@@ -51,7 +51,7 @@ final class StoreViewController: BaseViewController {
         image: .iconClose,
         style: .plain,
         target: self,
-        action: #selector(closeButtonTapped)
+        action: #selector(closeButtonDidTap)
     ).then {
         $0.tintColor = .black
     }
@@ -62,8 +62,7 @@ final class StoreViewController: BaseViewController {
     }
     
     private let homeIndicatorView = UIView().then {
-        $0.backgroundColor = .gray100
-        $0.isHidden = true
+        $0.backgroundColor = .white
     }
 
     // MARK: - Life Cycle
@@ -96,7 +95,7 @@ final class StoreViewController: BaseViewController {
         artistCollectionView.snp.makeConstraints {
             $0.top.equalTo(headImage.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(homeIndicatorView.snp.top)
         }
         
         homeIndicatorView.snp.makeConstraints {
@@ -114,7 +113,7 @@ final class StoreViewController: BaseViewController {
     
     // MARK: - Helper
     
-    @objc private func closeButtonTapped() {
+    @objc private func closeButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -129,12 +128,12 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout {
             if indexPath.section == 0 {
                 return CGSize(
                     width: cellWidth - 32,
-                    height: Store.artistCellHeight.rawValue
+                    height: StoreCellHeight.artistCellHeight.rawValue
                 )
             } else {
                 return CGSize(
                     width: cellWidth,
-                    height: Store.termsCellHeight.rawValue
+                    height: StoreCellHeight.termsCellHeight.rawValue
                 )
             }
         }
@@ -167,7 +166,7 @@ extension StoreViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ArtistCollectionViewCell.identifier,
+                withReuseIdentifier: ArtistCollectionViewCell.className,
                 for: indexPath
             ) as? ArtistCollectionViewCell else { return UICollectionViewCell() }
             let itemData = storeCellData[indexPath.item]
@@ -175,7 +174,7 @@ extension StoreViewController: UICollectionViewDataSource {
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: TermsCollectionViewCell.identifier,
+                withReuseIdentifier: TermsCollectionViewCell.className,
                 for: indexPath
             ) as? TermsCollectionViewCell else { return UICollectionViewCell() }
             return cell
@@ -187,20 +186,27 @@ extension StoreViewController: UICollectionViewDataSource {
 
 extension StoreViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storeDetailVC = StoreDetailViewController()
-        self.navigationController?.pushViewController(storeDetailVC, animated: true)
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let scrollViewHeight = scrollView.frame.size.height
+        let maxOffsetY = scrollView.contentSize.height - scrollView.frame.size.height
+        if scrollView.contentOffset.y > maxOffsetY {
+            scrollView.contentOffset.y = maxOffsetY
+        }
         
-        if offsetY >= contentHeight - scrollViewHeight {
-            homeIndicatorView.isHidden = false
-        } else {
-            homeIndicatorView.isHidden = true
+        let termsSectionIndex = 1
+        let termsIndexPath = IndexPath(item: 0, section: termsSectionIndex)
+        
+        artistCollectionView.layoutIfNeeded()
+        
+        if let attributes = artistCollectionView.layoutAttributesForItem(at: termsIndexPath) {
+            let termsCellTop = attributes.frame.origin.y - artistCollectionView.contentInset.top
+            let scrollViewBottom = scrollView.contentOffset.y + scrollView.frame.size.height
+            
+            // termsCell의 top이 scrollView의 bottom에 보이기 시작할 때
+            if scrollViewBottom >= termsCellTop {
+                homeIndicatorView.backgroundColor = .gray100
+            } else {
+                homeIndicatorView.backgroundColor = .white
+            }
         }
     }
 }

@@ -8,8 +8,6 @@
 import UIKit
 
 final class MoreTableViewCell: BaseTableViewCell {
-    // MARK: - Property
-    static let identifier = MoreViewController.className
     
     // MARK: - Component
     private let iconImageView = UIImageView().then {
