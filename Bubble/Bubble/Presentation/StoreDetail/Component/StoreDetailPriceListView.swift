@@ -12,7 +12,7 @@ final class StoreDetailPriceListView: UIView {
     
     let maxShow = 3
     
-    private let priceData: [StoreDetailPrice] = getStoreDetailStoreDetailPrice()
+    private var priceData: [StoreDetailSubscribe] = []
     
     // MARK: - Component
     
@@ -52,7 +52,6 @@ final class StoreDetailPriceListView: UIView {
     // MARK: - Set UI
     
     func setLayout() {
-        priceList.addArrangedSubviews(createPriceList())
         self.addSubviews(priceList, moreButton)
         
         priceList.snp.makeConstraints {
@@ -64,8 +63,6 @@ final class StoreDetailPriceListView: UIView {
             $0.width.equalToSuperview()
             $0.height.equalTo(52)
         }
-        
-        setMoreButtonHidden(priceData.count <= maxShow)
     }
 
     // MARK: - Helpers
@@ -93,6 +90,13 @@ final class StoreDetailPriceListView: UIView {
         }
     }
     
+    func dataBind(_ data: [StoreDetailSubscribe]) {
+        self.priceData = data
+        
+        priceList.addArrangedSubviews(createPriceList())
+        setMoreButtonHidden(priceData.count <= maxShow)
+    }
+    
     // MARK: - Action
     
     @objc private func moreButtonDidTap() {
@@ -108,8 +112,8 @@ extension StoreDetailPriceListView {
     func createPriceList() -> [UIStackView] {
         return priceData.enumerated().map { index, item in
             createPriceCard(
-                count: item.count,
-                originPrice: item.originPrice, currentPrice: item.currentPrice,
+                count: item.name,
+                originPrice: "", currentPrice: wonFormatter(item.price),
                 index: index)
         }
     }

@@ -179,6 +179,7 @@ final class ProfileViewController: BaseViewController {
     
     private func dataBind(model: ArtistProfileModel) {
         starButton.setImage(model.isSubscribed ? .iconStar : .iconEmptyStar, for: .normal)
+        isStar = model.isSubscribed
         profileImageView.kf.setImage(with: model.imageURL)
         nameLabel.text = model.nickname
         oneSentenceLabel.text = model.introduction
@@ -189,6 +190,16 @@ final class ProfileViewController: BaseViewController {
         }
     }
     
+    private func onDeleteSuccess(_ data: EmptyResultModel?) {
+        guard let data = data else { return }
+        if data.status == 200 { self.isStar = false }
+    }
+    
+    private func onRegisterSuccess(_ data: EmptyResultModel?) {
+        guard let data = data else { return }
+        if data.status == 201 { self.isStar = true }
+    }
+    
     // MARK: - Action
     
     @objc private func xButtonDidTap() {
@@ -196,9 +207,23 @@ final class ProfileViewController: BaseViewController {
     }
     
     @objc private func starButtonDidTap() {
-        // TODO: - 즐겨찾기 추가 및 삭제 API 연동 필요
-        
-        isStar.toggle()
-        starButton.setImage(isStar ? .iconStar : .iconEmptyStar, for: .normal)
+        guard let memberId = memberId,
+              let artistMemberId = artistMemberId
+        else {
+            return
+        }
+    
+        isStar ? (
+            /// 즐겨찾기 삭제
+            ArtistMembersService.shared.deleteArtistSubs(memberId: memberId, artistMemberId: artistMemberId) { res in
+                res.defineNetworkResult(res) {data in self.onDeleteSuccess(data as? EmptyResultModel)}
+            }
+        ):(
+            /// 즐겨찾기 등록
+            ArtistMembersService.shared.registerArtistSubs(memberId: memberId, artistMemberId: artistMemberId) { res in
+                res.defineNetworkResult(res) {data in self.onRegisterSuccess(data as? EmptyResultModel)}
+            }
+        )
+        starButton.setImage(isStar ? .iconEmptyStar : .iconStar, for: .normal)
     }
 }

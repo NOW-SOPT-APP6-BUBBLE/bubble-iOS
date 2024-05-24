@@ -140,7 +140,7 @@ final class MoreViewController: BaseViewController {
     private func register() {
         moreTableView.register(
             MoreTableViewCell.self,
-            forCellReuseIdentifier: MoreTableViewCell.identifier
+            forCellReuseIdentifier: MoreTableViewCell.className
         )
     }
 }
@@ -170,7 +170,7 @@ extension MoreViewController: UITableViewDelegate {
 extension MoreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: MoreTableViewCell.identifier,
+            withIdentifier: MoreTableViewCell.className,
             for: indexPath
         ) as? MoreTableViewCell else {
             return UITableViewCell()

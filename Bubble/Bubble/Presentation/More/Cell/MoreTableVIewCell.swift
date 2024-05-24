@@ -8,8 +8,6 @@
 import UIKit
 
 final class MoreTableViewCell: BaseTableViewCell {
-    // MARK: - Property
-    static let identifier = MoreViewController.className
     
     // MARK: - Component
     private let iconImageView = UIImageView().then {
@@ -68,5 +66,8 @@ final class MoreTableViewCell: BaseTableViewCell {
         if let attributedText = UILabel.createAttributedText(for: .name2, withText: model.title) {
             titleLabel.attributedText = attributedText
         }
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
     }
 }
