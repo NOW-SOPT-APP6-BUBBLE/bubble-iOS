@@ -69,7 +69,7 @@ extension ArtistMembersService {
     
     private func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, _ object: T.Type) -> NetworkResult<Any> {
         switch statusCode {
-        case 200..<330:
+        case 200..<205:
             return isValidData(data: data, T.self)
         case 400..<500:
             return .requestError
